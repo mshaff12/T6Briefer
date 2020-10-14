@@ -1,1 +1,51 @@
-/* no css yet */
+.container1 {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: solid 2px rgb(255, 255, 255);
+}
+
+.iconText {
+  font-size: x-small;
+}
+
+.navBar {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  border-top: solid rgb(187, 187, 187) 0.5px;
+  padding-top: 5px;
+}
+
+.navIconP {
+  /* margin-left: 5%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17.5%;
+}
+
+.subtitle {
+  color: rgb(241, 181, 181);
+}
+
+.title {
+  color: rgb(233, 128, 128);
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.fa {
+  font-size: 1.9em !important; /*size whatever you like*/
+}
+
+.hide {
+  display: none;
+}
