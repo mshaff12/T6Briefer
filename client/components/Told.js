@@ -18,11 +18,9 @@ class Told extends Component {
             <section className={`section container1`}>
     <div className="container">
       <h1 className="title">
-        Told Page
+        Told
       </h1>
-      <p className="subtitle">
-        yay
-      </p>
+
     </div>
   </section>
       </React.Fragment>

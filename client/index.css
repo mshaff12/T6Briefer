@@ -1,5 +1,5 @@
 .container1 {
-  background-color: rgb(255, 255, 255);
+  background-color: hsl(0, 0%, 96%);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -29,11 +29,13 @@
 }
 
 .subtitle {
-  color: rgb(241, 181, 181);
+  color: rgb(247, 180, 92);
+  text-align: center;
 }
 
 .title {
-  color: rgb(233, 128, 128);
+  color: rgb(218, 120, 54);
+  text-align: center;
 }
 
 .center {
@@ -48,4 +50,58 @@
 
 .hide {
   display: none;
+}
+
+.button2,
+.button3,
+.button6 {
+  display: block;
+  margin: auto;
+  margin-bottom: 3%;
+  width: 90%;
+}
+
+#gray {
+  background-color: gray;
+}
+
+.t6diagram {
+  background-image: url("../images/wings.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 322px;
+  height: 156px;
+  margin-left: 5%;
+}
+
+.vt2Patch {
+  background-image: url("../images/vt2135.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin-left: 5%;
+  display: inline-block;
+}
+.vt3Patch {
+  background-image: url("../images/vt3135.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin-left: 2%;
+  display: inline-block;
+}
+.vt6Patch {
+  background-image: url("../images/vt6135.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin-left: 2%;
+  display: inline-block;
 }

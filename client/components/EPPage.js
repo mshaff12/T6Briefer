@@ -18,11 +18,8 @@ class EPPage extends Component {
         <section className={`section container1`}>
     <div className="container">
       <h1 className="title">
-        EP Page
+        {`EPs & Limits`}
       </h1>
-      <p className="subtitle">
-        coool
-      </p>
     </div>
   </section>
       </React.Fragment>

@@ -18,11 +18,9 @@ class WhiteBoard extends Component {
        <section className={`section container1`}>
     <div className="container">
       <h1 className="title">
-        White Board Page
+        White Board
       </h1>
-      <p className="subtitle">
-        =D
-      </p>
+
     </div>
   </section>
       </React.Fragment>

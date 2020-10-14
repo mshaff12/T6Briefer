@@ -18,11 +18,9 @@ class GougePage extends Component {
        <section className={`section container1`}>
     <div className="container">
       <h1 className="title">
-       Gouge Page
+       Gouge
       </h1>
-      <p className="subtitle">
-        gouge!
-      </p>
+
     </div>
   </section>
       </React.Fragment>

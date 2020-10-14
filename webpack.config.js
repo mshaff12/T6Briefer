@@ -13,6 +13,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
+      },
+      {
         test: /\.js$|jsx/,
         exclude: /(node_modules|bower_components)/,
         use: {
