@@ -48,7 +48,9 @@ this.setState({
      <section className={`section container1 ${this.state.homepageVisible}`}>
     <div className="container">
       <h1 className="title">
+      <span className='forTheMargin'><span className='t6CircleIcon'></span></span>
         T6B App
+        <span className='forTheMargin2'><span className='t6CircleIcon'></span></span>
       </h1>
 
 

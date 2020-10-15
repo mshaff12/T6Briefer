@@ -28,15 +28,19 @@
   align-items: center;
   width: 17.5%;
 }
-
+/*
 .subtitle {
   color: rgb(247, 180, 92);
   text-align: center;
-}
+} */
 
 .title {
-  color: rgb(218, 120, 54);
+  color: rgb(253, 87, 34);
   text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .center {
@@ -69,13 +73,6 @@
 }
 
 .t6diagram {
-  /* background-image: url("../images/wings.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 322px;
-  height: 156px; */
-  /* margin-left: 5.3%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,4 +149,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.t6CircleIcon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-image: url("../images/t6icon.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  animation: spin 10s linear infinite;
+}
+
+.forTheMargin {
+  margin-right: 5%;
+}
+
+.forTheMargin2 {
+  margin-left: 5%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
