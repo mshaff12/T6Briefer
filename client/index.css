@@ -4,6 +4,7 @@
   width: 100%;
   position: absolute;
   border: solid 2px rgb(255, 255, 255);
+  padding: 1.5rem 1.5rem;
 }
 
 .iconText {
@@ -54,10 +55,12 @@
 
 .button2,
 .button3,
-.button6 {
+.button6,
+.button27,
+.button28 {
   display: block;
   margin: auto;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   width: 90%;
 }
 
@@ -66,13 +69,25 @@
 }
 
 .t6diagram {
+  /* background-image: url("../images/wings.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 322px;
+  height: 156px; */
+  /* margin-left: 5.3%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wings {
   background-image: url("../images/wings.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   width: 322px;
   height: 156px;
-  margin-left: 5%;
 }
 
 .vt2Patch {
@@ -80,9 +95,9 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 100px;
-  height: 100px;
-  margin-left: 5%;
+  width: 75px;
+  height: 75px;
+  /* margin-left: 5%; */
   display: inline-block;
 }
 .vt3Patch {
@@ -90,8 +105,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   margin-left: 2%;
   display: inline-block;
 }
@@ -100,8 +115,41 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   margin-left: 2%;
   display: inline-block;
+}
+
+.vt27Patch {
+  background-image: url("../images/vt27135.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 75px;
+  height: 75px;
+  /* margin-left: 2%; */
+  display: inline-block;
+}
+.vt28Patch {
+  background-image: url("../images/vt28135.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 75px;
+  height: 75px;
+  margin-left: 2%;
+  display: inline-block;
+}
+
+.vtPatches2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vtPatches {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

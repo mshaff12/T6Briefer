@@ -48,21 +48,28 @@ this.setState({
      <section className={`section container1 ${this.state.homepageVisible}`}>
     <div className="container">
       <h1 className="title">
-        Home
+        T6B App
       </h1>
 
 
       <button className="button2 button is-dark">VT-2 Front Page</button>
       <button id='gray' className="button3 button is-dark">VT-3 Front Page</button>
       <button className="button6 button is-dark">VT-6 Front Page</button>
+      <button id='gray' className="button27 button is-dark">VT-27 Front Page</button>
+      <button className="button27 button is-dark">VT-28 Front Page</button>
 
-<div className='t6diagram'></div>
+<div className='t6diagram'>
+  <div className='wings'></div>
+</div>
 
 <div className='vtPatches'>
 <span className='vt2Patch'></span>
 <span className='vt3Patch'></span>
 <span className='vt6Patch'></span>
-
+</div>
+<div className='vtPatches2'>
+<span className='vt27Patch'></span>
+<span className='vt28Patch'></span>
 </div>
 
 
