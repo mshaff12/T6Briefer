@@ -46,7 +46,8 @@ this.setState({
    <React.Fragment>
      <HashRouter>
      <section className={`section container1 ${this.state.homepageVisible}`}>
-    <div className="container">
+
+    <div className="container container2">
       <h1 className="title">
       <span className='forTheMargin'><span className='t6CircleIcon'></span></span>
         T6B App
@@ -54,11 +55,12 @@ this.setState({
       </h1>
 
 
-      <button className="button2 button is-dark">VT-2 Front Page</button>
-      <button id='gray' className="button3 button is-dark">VT-3 Front Page</button>
-      <button className="button6 button is-dark">VT-6 Front Page</button>
-      <button id='gray' className="button27 button is-dark">VT-27 Front Page</button>
-      <button className="button27 button is-dark">VT-28 Front Page</button>
+      <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2'><button className="button2 button is-dark">VT-2 Front Page / Schedule</button></a>
+      <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-3'><button id='gray' className="button3 button is-dark">VT-3 Front Page / Schedule</button></a>
+      <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-6'><button className="button6 button is-dark">VT-6 Front Page / Schedule</button></a>
+      <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-27'><button id='gray' className="button27 button is-dark">VT-27 Front Page / Schedule</button></a>
+      <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-28'><button className="button27 button is-dark">VT-28 Front Page / Schedule</button></a>
+
 
 <div className='t6diagram'>
   <div className='wings'></div>
@@ -74,8 +76,8 @@ this.setState({
 <span className='vt28Patch'></span>
 </div>
 
-
     </div>
+
   </section>
 
 
@@ -89,7 +91,7 @@ this.setState({
   pathname: '/',
 }}>
                 <div className='center'>
-    <i className="fa fa-home fa-2x"></i>
+    <i className="icon fa fa-home fa-2x"></i>
     <div className='iconText'>Home</div>
                  </div>
 </Link>
@@ -100,7 +102,7 @@ this.setState({
   pathname: '/Told',
 }}>
                   <div className='center'>
-    <i className="fa fa-home fa-2x"></i>
+    <i className="fa fa-plane fa-2x"></i>
     <div className='iconText'>TOLD</div>
 </div>
 </Link>
@@ -112,7 +114,7 @@ this.setState({
 }}>
                 <div className='center'>
   <div>
-    <i className="fa fa-home fa-2x"></i>
+    <i className=" fa fa-desktop fa-2x"></i>
   </div>
     <div className='iconText'>White Board</div>
 </div>
@@ -133,7 +135,7 @@ this.setState({
   pathname: '/Gouge',
 }}>
 <div className='center'>
-    <i className="fa fa-sticky-note fa-2x"></i>
+    <i className=" fa fa-book fa-2x"></i>
     <div className='iconText'>Gouge</div>
 </div>
 </Link>

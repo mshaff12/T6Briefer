@@ -18,7 +18,7 @@ class Told extends Component {
             <section className={`section container1`}>
     <div className="container">
       <h1 className="title">
-        Told
+        TOLD
       </h1>
 
     </div>
