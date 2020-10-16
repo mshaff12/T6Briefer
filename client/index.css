@@ -41,6 +41,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+  background-color: hsl(0, 0%, 96%);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .center {
@@ -204,8 +211,19 @@
   font-weight: 500;
 }
 
-.modal-card {
-  width: 80%;
+@keyframes forwardIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.epModal {
+  width: 90%;
+  animation: forwardIn 0.2s;
 }
 
 .modal-card-foot {
