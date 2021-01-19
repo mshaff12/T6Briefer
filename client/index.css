@@ -239,8 +239,60 @@ body {
   width: 90%;
   max-width: 700px;
   animation: forwardIn 0.2s;
+  max-height: 70vh;
 }
 
 .modal-card-foot {
   height: 60px;
+}
+
+.epSmallFont {
+  white-space: normal;
+word-wrap: break-word;
+
+height: 60px;
+}
+
+.modal-card-title {
+  max-width: 100%;
+}
+
+.modal-body-line {
+  margin-bottom: 10px;
+}
+
+.delete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.modal-card-title {
+font-size: medium;
+}
+
+.modal-content-limits {
+  width: 95%;
+  /* max-height: 70vh; */
+  height: 80%;
+
+  background-image: url("../images/t6_limits.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: auto;
+}
+
+.modal-card-limits {
+  background-color: white;
+  animation: forwardIn 0.2s;
+
+  width: 95%;
+ height: 70vh;
+}
+
+.limitCloseButton {
+  position: absolute;
+  top: 75px;
+
 }
