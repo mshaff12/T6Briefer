@@ -5,7 +5,7 @@ class EPPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-modalActive: {"ep1": '', "ep2": '', "ep3": '', "ep4": '', "ep5": '', "ep6": '', "ep7": '', "ep8": '', "ep9": '', "ep10": '', "ep11": '', "ep12": '', "ep13": '', "ep14": '', "ep15": '', "ep16": ''},
+modalActive: {"ep1": '', "ep2": '', "ep3": '', "ep4": '', "ep5": '', "ep6": '', "ep7": '', "ep8": '', "ep9": '', "ep10": '', "ep11": '', "ep12": '', "ep13": '', "ep14": '', "ep15": '', "ep16": '', "ep17": '', "ep18": '', "ep19": '', "ep20": ''},
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleClickEP = this.handleClickEP.bind(this);
@@ -52,11 +52,11 @@ handleCloseModal(e) {
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP1 name</p>
+      <p className="modal-card-title">ABORT START PROCEDURE</p>
       <button data-id='ep1' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP1 procedures go here
+    *1. PCL – OFF or STARTER switch – AUTO/RESET
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep1' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -68,11 +68,17 @@ EP1 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP2 name</p>
+      <p className="modal-card-title">EMERGENCY ENGINE SHUTDOWN ON THE GROUND</p>
       <button data-id='ep2' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP2 procedures go here
+    *1. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *2. FIREWALL SHUTTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    *3. EMERGENCY GROUND EGRESS – AS REQUIRED
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep2' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -84,11 +90,38 @@ EP2 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP3 name</p>
+      <p className="modal-card-title">EMERGENCY GROUND EGRESS</p>
       <button data-id='ep3' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP3 procedures go here
+    *1. ISS MODE SELECTOR – SOLO
+    </section>
+    <section className="modal-card-body">
+    *2. SEAT SAFETY PIN – INSTALL (BOTH)
+    </section>
+    <section className="modal-card-body">
+    *3. PARKING BRAKE – AS REQUIRED
+    </section>
+    <section className="modal-card-body">
+    *4. CANOPY – OPEN
+    </section>
+    <section className="modal-card-body">
+    IF CANOPY CANNOT BE OPENED OR SITUATION REQUIRES RIGHT SIDE EGRESS:
+    </section>
+    <section className="modal-card-body">
+    *5. CFS HANDLE SAFETY PIN – REMOVE (BOTH)
+    </section>
+    <section className="modal-card-body">
+    *6. CFS HANDLE – ROTATE 90 DEGREES COUNTER CLOCKWISE AND PULL (BOTH)
+    </section>
+    <section className="modal-card-body">
+    *7. UPPER FITTINGS, LOWER FITTINGS, AND LEG RESTRAINT GARTERS – RELEASE (BOTH)
+    </section>
+    <section className="modal-card-body">
+    *8. BAT, GEN, AND AUX BAT SWITCHES – OFF
+    </section>
+    <section className="modal-card-body">
+    *9. EVACUATE AIRCRAFT
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep3' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -100,11 +133,14 @@ EP3 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP4 name</p>
+      <p className="modal-card-title">ABORT</p>
       <button data-id='ep4' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP4 procedures go here
+    *1. PCL – IDLE
+    </section>
+    <section className="modal-card-body">
+    *2. BRAKES – AS REQUIRED
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep4' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -116,11 +152,20 @@ EP4 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP5 name</p>
+      <p className="modal-card-title">ENGINE FAILURE IMMEDIATELY AFTER TAKEOFF (SUFFICIENT RUNWAY REMAINING STRAIGHT AHEAD)</p>
       <button data-id='ep5' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP5 procedures go here
+    *1. AIRSPEED – 110 KNOTS (MINIMUM)
+    </section>
+    <section className="modal-card-body">
+    *2. PCL – AS REQUIRED
+    </section>
+    <section className="modal-card-body">
+    *3. EMER LDG GR HANDLE – PULL (AS REQUIRED)
+    </section>
+    <section className="modal-card-body">
+    *4. FLAPS – AS REQUIRED
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep5' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -132,11 +177,29 @@ EP5 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP6 name</p>
+      <p className="modal-card-title">ENGINE FAILURE DURING FLIGHT</p>
       <button data-id='ep6' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP6 procedures go here
+    *1. ZOOM/GLIDE – 125 KNOTS (MINIMUM)
+    </section>
+    <section className="modal-card-body">
+    *2. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *3. INTERCEPT ELP
+    </section>
+    <section className="modal-card-body">
+    *4. AIRSTART – ATTEMPT IF WARRANTED
+    </section>
+    <section className="modal-card-body">
+    IF CONDITIONS DO NOT WARRANT AN AIRSTART:
+    </section>
+    <section className="modal-card-body">
+    *5. FIREWALL SHUTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    *6. EXECUTE FORCED LANDING OR EJECT
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep6' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -148,11 +211,41 @@ EP6 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP7 name</p>
+      <p className="modal-card-title">IMMEDIATE AIRSTART (PMU NORM)</p>
       <button data-id='ep7' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP7 procedures go here
+    *1. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *2. STARTER SWITCH – AUTO/RESET
+    </section>
+    <section className="modal-card-body">
+    *3. PCL – IDLE, ABOVE 13% N1
+    </section>
+    <section className="modal-card-body">
+    *4. ENGINE INSTRUMENTS – MONITOR ITT, N1, AND OIL PRESSURE
+    </section>
+    <section className="modal-card-body">
+    IF AIRSTART IS UNSUCCESSFUL:
+    </section>
+    <section className="modal-card-body">
+    *5. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *6. FIREWALL SHUTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    *7. EXECUTE FORCED LANDING OR EJECT
+    </section>
+    <section className="modal-card-body">
+    IF AIRSTART IS SUCCESSFUL:
+    </section>
+    <section className="modal-card-body">
+    *8. PCL – AS REQUIRED AFTER N1 REACHES IDLE RPM (APPROXIMATELY 67% N1)
+    </section>
+    <section className="modal-card-body">
+    *9. PEL – EXECUTE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep7' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -164,11 +257,41 @@ EP7 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP8 name</p>
+      <p className="modal-card-title">UNCOMMANDED POWER CHANGES / LOSS OF POWER/ UNCOMMANDED PROPELLER FEATHER</p>
       <button data-id='ep8' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP8 procedures go here
+    *1. PCL – MID RANGE
+    </section>
+    <section className="modal-card-body">
+    *2. PMU SWITCH – OFF
+    </section>
+    <section className="modal-card-body">
+    *3. PROP SYS CIRCUIT BREAKER (Left Front Console) – PULL, IF Np STABLE BELOW 40%
+    </section>
+    <section className="modal-card-body">
+    *4. PCL – AS REQUIRED
+    </section>
+    <section className="modal-card-body">
+    IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:
+    </section>
+    <section className="modal-card-body">
+    *5. PEL – EXECUTE
+    </section>
+    <section className="modal-card-body">
+    IF POWER IS INSUFFICIENT TO COMPLETE PEL:
+    </section>
+    <section className="modal-card-body">
+    *6. PROP SYS CIRCUIT BREAKER – RESET, AS REQUIRED
+    </section>
+    <section className="modal-card-body">
+    *7. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *8. FIREWALL SHUTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    *9. EXECUTE FORCED LANDING OR EJECT
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep8' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -180,11 +303,35 @@ EP8 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP9 name</p>
+      <p className="modal-card-title">COMPRESSOR STALLS</p>
       <button data-id='ep9' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP9 procedures go here
+    *1. PCL – SLOWLY RETARD BELOW STALL THRESHOLD
+    </section>
+    <section className="modal-card-body">
+    *2. DEFOG SWITCH – ON
+    </section>
+    <section className="modal-card-body">
+    *3. PCL – SLOWLY ADVANCE (AS REQUIRED)
+    </section>
+    <section className="modal-card-body">
+    IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:
+    </section>
+    <section className="modal-card-body">
+    *4. PEL – EXECUTE
+    </section>
+    <section className="modal-card-body">
+    IF POWER IS INSUFFICIENT TO COMPLETE PEL:
+    </section>
+    <section className="modal-card-body">
+    *5. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *6. FIREWALL SHUTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    *7. EXECUTE FORCED LANDING OR EJECT
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep9' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -196,11 +343,20 @@ EP9 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP10 name</p>
+      <p className="modal-card-title">INADVERTENT DEPARTURE FROM CONTROLLED FLIGHT</p>
       <button data-id='ep10' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP10 procedures go here
+    *1. PCL – IDLE
+    </section>
+    <section className="modal-card-body">
+    *2. CONTROLS - NEUTRAL
+    </section>
+    <section className="modal-card-body">
+    *3. ALTITUDE - CHECKe
+    </section>
+    <section className="modal-card-body">
+    *4. RECOVER FROM UNUSUAL ATTITUDE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep10' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -212,11 +368,35 @@ EP10 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP11 name</p>
+      <p className="modal-card-title">FIRE IN FLIGHT</p>
       <button data-id='ep11' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP11 procedures go here
+    IF FIRE IS CONFIRMED:
+    </section>
+    <section className="modal-card-body">
+    *1. PCL – OFF
+    </section>
+    <section className="modal-card-body">
+    *2. FIREWALL SHUTOFF HANDLE – PULL
+    </section>
+    <section className="modal-card-body">
+    IF FIRE IS EXTINGUISHED:
+    </section>
+    <section className="modal-card-body">
+    *3. FORCED LANDING – EXECUTE
+    </section>
+    <section className="modal-card-body">
+    IF FIRE DOES NOT EXTINGUISH OR FORCED LANDING IS IMPRACTICAL:
+    </section>
+    <section className="modal-card-body">
+    *4. EJECT (BOTH)
+    </section>
+    <section className="modal-card-body">
+    IF FIRE IS NOT CONFIRMED:
+    </section>
+    <section className="modal-card-body">
+    *5. PEL – EXECUTE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep11' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -228,11 +408,20 @@ EP11 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP12 name</p>
+      <p className="modal-card-title">SMOKE AND FUME ELIMINATION/ELECTRICAL FIRE</p>
       <button data-id='ep12' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP12 procedures go here
+    *1. OBOGS – CHECK
+    </section>
+    <section className="modal-card-body">
+        a. OBOGS supply lever – ON
+    </section>
+    <section className="modal-card-body">
+        b. OBOGS concentration lever – MAX
+    </section>
+    <section className="modal-card-body">
+        c. OBOGS pressure lever - EMERGENCY
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep12' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -244,11 +433,14 @@ EP12 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP13 name</p>
+      <p className="modal-card-title">CHIP DETECTOR WARNING</p>
       <button data-id='ep13' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP13 procedures go here
+    *1. PCL – MINIMUM NECESSARY TO INTERCEPT ELP; AVOID UNNECESSARY PCL MOVEMENTS
+    </section>
+    <section className="modal-card-body">
+    *2. PEL – EXECUTE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep13' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -260,11 +452,26 @@ EP13 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP14 name</p>
+      <p className="modal-card-title">OIL SYSTEM MALFUNCTION OR LOW OIL PRESSURE</p>
       <button data-id='ep14' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP14 procedures go here
+    IF ONLY AMBER OIL PX caution ILLUMINATES:
+    </section>
+    <section className="modal-card-body">
+    *1. TERMINATE MANEUVER
+    </section>
+    <section className="modal-card-body">
+    *2. CHECK OIL PRESSURE; IF OIL PRESSURE IS NORMAL, CONTINUE OPERATIONS
+    </section>
+    <section className="modal-card-body">
+    IF RED OIL PX WARNING ILLUMINATES AND/OR AMBER OIL PX CAUTION REMAINS ILLUMINATED FOR 5 SECONDS:
+    </section>
+    <section className="modal-card-body">
+    *3. PCL – MINIMUM NECESSARY TO INTERCEPT ELP; AVOID UNNECESSARY PCL MOVEMENTS
+    </section>
+    <section className="modal-card-body">
+    *4. PEL – EXECUTE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep14' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -276,11 +483,14 @@ EP14 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP15 name</p>
+      <p className="modal-card-title">LOW FUEL PRESSURE</p>
       <button data-id='ep15' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP15 procedures go here
+    *1. PEL – EXECUTE
+    </section>
+    <section className="modal-card-body">
+    *2. BOOST PUMP SWITCH – ON
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep15' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -292,11 +502,11 @@ EP15 procedures go here
   <div className="modal-background"></div>
   <div className="modal-card epModal">
     <header className="modal-card-head">
-      <p className="modal-card-title">EP16 name</p>
+      <p className="modal-card-title">HIGH FUEL FLOW</p>
       <button data-id='ep16' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
     </header>
     <section className="modal-card-body">
-EP16 procedures go here
+    *1. PEL – EXECUTE
     </section>
     <footer className="modal-card-foot">
       <button data-id='ep16' onClick={this.handleCloseModal} className="button is-dark">Close</button>
@@ -304,24 +514,114 @@ EP16 procedures go here
   </div>
 </div>
 
+<div className={`modal ${this.state.modalActive.ep17}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card epModal">
+    <header className="modal-card-head">
+      <p className="modal-card-title">OBOGS FAILURE/OVERTEMP/PHYSIOLOGICAL SYMPTOMS</p>
+      <button data-id='ep17' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
+    </header>
+    <section className="modal-card-body">
+    *1. GREEN RING – PULL (AS REQUIRED)
+    </section>
+    <section className="modal-card-body">
+    *2. DESCENT BELOW 10,000 FEET MSL – INITIATE
+    </section>
+    <section className="modal-card-body">
+    *3. OBOGS SUPPLY LEVER – OFF (BOTH)
+    </section>
+    <footer className="modal-card-foot">
+      <button data-id='ep17' onClick={this.handleCloseModal} className="button is-dark">Close</button>
+    </footer>
+  </div>
+</div>
+
+<div className={`modal ${this.state.modalActive.ep18}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card epModal">
+    <header className="modal-card-head">
+      <p className="modal-card-title">EJECT</p>
+      <button data-id='ep18' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
+    </header>
+    <section className="modal-card-body">
+    *1. EJECTION HANDLE – PULL (BOTH)
+    </section>
+    <footer className="modal-card-foot">
+      <button data-id='ep18' onClick={this.handleCloseModal} className="button is-dark">Close</button>
+    </footer>
+  </div>
+</div>
+
+<div className={`modal ${this.state.modalActive.ep19}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card epModal">
+    <header className="modal-card-head">
+      <p className="modal-card-title">FORCED LANDING</p>
+      <button data-id='ep19' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
+    </header>
+    <section className="modal-card-body">
+    *1. AIRSPEED – 125 KIAS PRIOR TO EXTENDING LANDING GEAR
+    </section>
+    <section className="modal-card-body">
+    *2. EMER LDG GR HANDLE – PULL (AS REQUIRED)
+    </section>
+    <section className="modal-card-body">
+    *3. AIRSPEED – 120 KIAS MINIMUM UNTIL INTERCEPTING FINAL; 110 KIAS MINIMUM ON FINAL
+    </section>
+    <section className="modal-card-body">
+    *4. FLAPS – AS REQUIRED
+    </section>
+    <footer className="modal-card-foot">
+      <button data-id='ep19' onClick={this.handleCloseModal} className="button is-dark">Close</button>
+    </footer>
+  </div>
+</div>
+
+<div className={`modal ${this.state.modalActive.ep20}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card epModal">
+    <header className="modal-card-head">
+      <p className="modal-card-title">PRECAUTIONARY EMERGENCY LANDING (PEL)</p>
+      <button data-id='ep20' onClick={this.handleCloseModal} className="delete" aria-label="close"></button>
+    </header>
+    <section className="modal-card-body">
+    *1. TURN TO NEAREST SUITABLE FIELD
+    </section>
+    <section className="modal-card-body">
+    *2. CLIMB OR ACCELERATE TO INTERCEPT ELP
+    </section>
+    <section className="modal-card-body">
+    *3. GEAR, FLAPS, SPEED BRAKE – UP
+    </section>
+    <footer className="modal-card-foot">
+      <button data-id='ep20' onClick={this.handleCloseModal} className="button is-dark">Close</button>
+    </footer>
+  </div>
+</div>
+
+{/* picture of limits is added to index.css at ".images" Have this button bring a pop-up of the image */}
 <button id='limits' className="button2 button is-dark"><span className='spanLimits'>Limits</span></button>
 
-      <button data-id='ep1' onClick={this.handleClickEP} className="button2 button is-dark">EP1</button>
-      <button data-id='ep2' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP2</button>
-      <button data-id='ep3' onClick={this.handleClickEP} className="button2 button is-dark">EP3</button>
-      <button data-id='ep4' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP4</button>
-      <button data-id='ep5' onClick={this.handleClickEP} className="button2 button is-dark">EP5</button>
-      <button data-id='ep6' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP6</button>
-      <button data-id='ep7' onClick={this.handleClickEP} className="button2 button is-dark">EP7</button>
-      <button data-id='ep8' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP8</button>
-      <button data-id='ep9' onClick={this.handleClickEP} className="button2 button is-dark">EP9</button>
-      <button data-id='ep10' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP10</button>
-      <button data-id='ep11' onClick={this.handleClickEP} className="button2 button is-dark">EP11</button>
-      <button data-id='ep12' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP12</button>
-      <button data-id='ep13' onClick={this.handleClickEP} className="button2 button is-dark">EP13</button>
-      <button data-id='ep14' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP14</button>
-      <button data-id='ep15' onClick={this.handleClickEP} className="button2 button is-dark">EP15</button>
-      <button data-id='ep16' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EP16</button>
+      <button data-id='ep1' onClick={this.handleClickEP} className="button2 button is-dark">ABORT START PROCEDURE</button>
+      <button data-id='ep2' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">EMERGENCY ENGINE SHUTDOWN ON THE GROUND</button>
+      <button data-id='ep3' onClick={this.handleClickEP} className="button2 button is-dark">EMERGENCY GROUND EGRESS</button>
+      <button data-id='ep4' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">ABORT</button>
+      <button data-id='ep5' onClick={this.handleClickEP} className="button2 button is-dark">ENGINE FAILURE IMMEDIATELY AFTER TAKEOFF (SUFFICIENT RUNWAY REMAINING STRAIGHT AHEAD)</button>
+      <button data-id='ep6' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">ENGINE FAILURE DURING FLIGHT</button>
+      <button data-id='ep7' onClick={this.handleClickEP} className="button2 button is-dark">IMMEDIATE AIRSTART (PMU NORM)</button>
+      <button data-id='ep8' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">UNCOMMANDED POWER CHANGES / LOSS OF POWER/ UNCOMMANDED PROPELLER FEATHER</button>
+      <button data-id='ep9' onClick={this.handleClickEP} className="button2 button is-dark">COMPRESSOR STALLS</button>
+      <button data-id='ep10' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">INADVERTENT DEPARTURE FROM CONTROLLED FLIGHT</button>
+      <button data-id='ep11' onClick={this.handleClickEP} className="button2 button is-dark">FIRE IN FLIGHT</button>
+      <button data-id='ep12' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">SMOKE AND FUME ELIMINATION/ELECTRICAL FIRE</button>
+      <button data-id='ep13' onClick={this.handleClickEP} className="button2 button is-dark">CHIP DETECTOR WARNING</button>
+      <button data-id='ep14' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">OIL SYSTEM MALFUNCTION OR LOW OIL PRESSURE</button>
+      <button data-id='ep15' onClick={this.handleClickEP} className="button2 button is-dark">LOW FUEL PRESSURE</button>
+      <button data-id='ep16' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">HIGH FUEL FLOW</button>
+      <button data-id='ep17' onClick={this.handleClickEP} className="button2 button is-dark">OBOGS FAILURE/OVERTEMP/PHYSIOLOGICAL SYMPTOMS</button>
+      <button data-id='ep18' onClick={this.handleClickEP} className="button2 button is-dark">EJECT</button>
+      <button data-id='ep19' onClick={this.handleClickEP} className="button2 button is-dark">FORCED LANDING</button>
+      <button data-id='ep20' onClick={this.handleClickEP} className="button2 button is-dark">PRECAUTIONARY EMERGENCY LANDING (PEL)</button>
 
 
 

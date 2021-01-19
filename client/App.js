@@ -116,7 +116,7 @@ this.setState({
   <div>
     <i className=" fa fa-desktop fa-2x"></i>
   </div>
-    <div className='iconText'>White Board</div>
+    <div className='iconText'>Syllabus</div>
 </div>
 </Link>
                 </p>
