@@ -685,9 +685,9 @@ handleCloseModal(e) {
       <button data-id='ep15' onClick={this.handleClickEP} className="button2 button is-dark">LOW FUEL PRESSURE</button>
       <button data-id='ep16' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">HIGH FUEL FLOW</button>
       <button data-id='ep17' onClick={this.handleClickEP} className="epSmallFont button2 button is-dark">OBOGS FAILURE/OVERTEMP/PHYSIOLOGICAL SYMPTOMS</button>
-      <button data-id='ep18' onClick={this.handleClickEP} className="button2 button is-dark">EJECT</button>
+      <button data-id='ep18' onClick={this.handleClickEP} id='gray' className="button2 button is-dark">EJECT</button>
       <button data-id='ep19' onClick={this.handleClickEP} className="button2 button is-dark">FORCED LANDING</button>
-      <button data-id='ep20' onClick={this.handleClickEP} className="epSmallFont button2 button is-dark">PRECAUTIONARY EMERGENCY LANDING (PEL)</button>
+      <button data-id='ep20' onClick={this.handleClickEP} id='gray' className="epSmallFont button2 button is-dark">PRECAUTIONARY EMERGENCY LANDING (PEL)</button>
 
 
 
