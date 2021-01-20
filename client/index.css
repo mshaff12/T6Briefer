@@ -296,3 +296,30 @@ font-size: medium;
   top: 75px;
 
 }
+
+.syllabusButton {
+  margin-top: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.width100 {
+  width: 100%;
+  max-width: 400px;
+}
+
+.syllabusContainer {
+
+}
+
+.syllabusTitle {
+  margin-top: 10px;
+  text-align: center;
+  font-size: large;
+}
+
+.syllabusDropdownContent {
+  width: 100%;
+  max-width: 400px;
+}

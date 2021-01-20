@@ -4,10 +4,10 @@ import React, { Component } from "react";
 
 function Dropdown(props) {
   return (
-   <div onClick = {props.handleClick} className = {`dropdown ${props.dropdown}`}> 
-  <div className="dropdown-trigger">
-    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>C4100</span>
+   <div onClick = {props.handleClick} className = {`dropdown width100 ${props.dropdown}`}>
+  <div className="dropdown-trigger width100">
+    <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>{props.selected}</span>
       <span className="icon is-small">
         <i className={`fa ${props.arrow}`} aria-hidden="true"></i>
       </span>
@@ -15,19 +15,19 @@ function Dropdown(props) {
   </div>
   <div className="dropdown-menu" id="dropdown-menu" role="menu">
     <div className="dropdown-content">
-      <a href="#" className="dropdown-item">
+      <span  data-id="C4100" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4100
-      </a>
-      <a className="dropdown-item">
+      </span>
+      <a data-id="C4200" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4200
       </a>
-      <a href="#" className="dropdown-item is-active">
+      <a  data-id="C4300" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4300
       </a>
-      <a href="#" className="dropdown-item">
+      <a  data-id="C4490" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4490
       </a>
-      <a href="#" className="dropdown-item">
+      <a  data-id="C4501" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4501
       </a>
     </div>
@@ -38,10 +38,10 @@ function Dropdown(props) {
 
 function Dropdown2(props) {
   return (
-   <div onClick = {props.handleClick} className = {`dropdown ${props.dropdown}`}> 
-  <div className="dropdown-trigger">
-    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>I4100</span>
+   <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
+  <div className="width100 dropdown-trigger">
+    <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>{props.selected}</span>
       <span className="icon is-small">
         <i className={`fa ${props.arrow}`} aria-hidden="true"></i>
       </span>
@@ -49,16 +49,16 @@ function Dropdown2(props) {
   </div>
   <div className="dropdown-menu" id="dropdown-menu" role="menu">
     <div className="dropdown-content">
-      <a href="#" className="dropdown-item">
+      <a   data-id="I4100" onClick={props.handleUpdateInstrumentSelected} className="dropdown-item">
         I4100
       </a>
-      <a className="dropdown-item">
+      <a  data-id="I4200" onClick={props.handleUpdateInstrumentSelected} className="dropdown-item">
         I4200
       </a>
-      <a href="#" className="dropdown-item is-active">
+      <a   data-id="I4300" onClick={props.handleUpdateInstrumentSelected} className="dropdown-item">
         I4300
       </a>
-      <a href="#" className="dropdown-item">
+      <a   data-id="I4490" onClick={props.handleUpdateInstrumentSelected} className="dropdown-item">
         I4490
       </a>
     </div>
@@ -69,10 +69,10 @@ function Dropdown2(props) {
 
 function Dropdown3(props) {
   return (
-   <div onClick = {props.handleClick} className = {`dropdown ${props.dropdown}`}> 
-  <div className="dropdown-trigger">
-    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>F4100</span>
+   <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
+  <div className="width100 dropdown-trigger">
+    <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>{props.selected}</span>
       <span className="icon is-small">
         <i className={`fa ${props.arrow}`} aria-hidden="true"></i>
       </span>
@@ -80,13 +80,13 @@ function Dropdown3(props) {
   </div>
   <div className="dropdown-menu" id="dropdown-menu" role="menu">
     <div className="dropdown-content">
-      <a href="#" className="dropdown-item">
+      <a  data-id="F4100" onClick={props.handleUpdateFormationSelected} className="dropdown-item">
         F4100
       </a>
-      <a className="dropdown-item">
+      <a data-id="F4201" onClick={props.handleUpdateFormationSelected} className="dropdown-item">
         F4201
       </a>
-      <a href="#" className="dropdown-item is-active">
+      <a  data-id="F4300" onClick={props.handleUpdateFormationSelected} className="dropdown-item">
         F4300
       </a>
     </div>
@@ -97,21 +97,21 @@ function Dropdown3(props) {
 
 function Dropdown4(props) {
   return (
-   <div onClick = {props.handleClick} className = {`dropdown ${props.dropdown}`}> 
-  <div className="dropdown-trigger">
-    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>N4100</span>
+   <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
+  <div className="width100 dropdown-trigger">
+    <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>{props.selected}</span>
       <span className="icon is-small">
         <i className={`fa ${props.arrow}`} aria-hidden="true"></i>
       </span>
     </button>
   </div>
   <div className="dropdown-menu" id="dropdown-menu" role="menu">
-    <div className="dropdown-content">
-      <a href="#" className="dropdown-item">
+    <div className="dropdown-content syllabusDropdownContent">
+      <a  data-id="N4100" onClick={props.handleUpdateNavigationSelected}  className="dropdown-item">
         N4100
       </a>
-      <a className="dropdown-item">
+      <a data-id="N4200" onClick={props.handleUpdateNavigationSelected}  className="dropdown-item">
         N4200
       </a>
     </div>
@@ -133,8 +133,56 @@ class WhiteBoard extends Component {
       dropdown3: "",
       arrow3: "fa-angle-down",
       dropdown4: "",
-      arrow4: "fa-angle-down"
+      arrow4: "fa-angle-down",
+      contactSelected: "C4100",
+      instrumentSelected: "I4100",
+      formationSelected: "F4100",
+      navigationSelected: "N4100",
     };
+this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
+this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
+this.handleUpdateInstrumentSelected = this.handleUpdateInstrumentSelected.bind(this);
+this.handleUpdateFormationSelected = this.handleUpdateFormationSelected.bind(this);
+this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(this);
+  }
+
+  handleUpdateContactSelected (e) {
+    var contact = e.target.getAttribute('data-id')
+
+this.setState({
+  contactSelected: contact,
+})
+
+  }
+  handleUpdateInstrumentSelected (e) {
+    var instrument = e.target.getAttribute('data-id')
+
+this.setState({
+  instrumentSelected: instrument,
+})
+
+  }
+
+  handleUpdateFormationSelected (e) {
+    var formation = e.target.getAttribute('data-id')
+
+this.setState({
+  formationSelected: formation,
+})
+
+  }
+
+  handleUpdateNavigationSelected (e) {
+    var navigation = e.target.getAttribute('data-id')
+
+this.setState({
+  navigationSelected: navigation,
+})
+
+  }
+
+  handleClickOpenSyllabus() {
+
 
   }
 
@@ -207,45 +255,68 @@ class WhiteBoard extends Component {
         Syllabus
       </h1>
     </div>
-      <h1>
+
+    <div className='syllabusContainer'>
+      <h1 className='syllabusTitle'>
         Contact
       </h1>
     <div>
-      <Dropdown 
+      <Dropdown
+      handleUpdateContactSelected = {this.handleUpdateContactSelected}
+      selected = {this.state.contactSelected}
       handleClick = {this.handleClick}
       dropdown = {this.state.dropdown}
       arrow = {this.state.arrow}
       />
     </div>
-    <h1>
+
+<button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+
+    <h1 className='syllabusTitle'>
       Instrument
     </h1>
     <div>
-    <Dropdown2 
+    <Dropdown2
+     handleUpdateInstrumentSelected = {this.handleUpdateInstrumentSelected}
+     selected = {this.state.instrumentSelected}
       handleClick = {this.handleClick2}
       dropdown = {this.state.dropdown2}
       arrow = {this.state.arrow2}
       />
     </div>
-    <h1>
+
+    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+
+    <h1 className='syllabusTitle'>
       Formation
     </h1>
     <div>
-    <Dropdown3 
+    <Dropdown3
+     handleUpdateFormationSelected = {this.handleUpdateFormationSelected}
+     selected = {this.state.formationSelected}
       handleClick = {this.handleClick3}
       dropdown = {this.state.dropdown3}
       arrow = {this.state.arrow3}
       />
     </div>
-    <h1>
+
+    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+
+    <h1 className='syllabusTitle'>
       Navigation
     </h1>
     <div>
-    <Dropdown4 
+    <Dropdown4
+     handleUpdateNavigationSelected = {this.handleUpdateNavigationSelected}
+     selected = {this.state.navigationSelected}
       handleClick = {this.handleClick4}
       dropdown = {this.state.dropdown4}
       arrow = {this.state.arrow4}
       />
+    </div>
+
+    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+
     </div>
   </section>
       </React.Fragment>
