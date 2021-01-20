@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-import SplitButton from 'react-bootstrap/SplitButton'
-import { createPopper } from '@popperjs/core';
-import 'bootstrap/dist/css/bootstrap.css';
+// import DropdownButton from 'react-bootstrap/DropdownButton'
+// import Dropdown from 'react-bootstrap/Dropdown'
+// import SplitButton from 'react-bootstrap/SplitButton'
+// import { createPopper } from '@popperjs/core';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 
 class WhiteBoard extends Component {
@@ -30,7 +30,7 @@ class WhiteBoard extends Component {
     <Dropdown.Toggle variant="success" id="dropdown-basic">
       Dropdown Button
     </Dropdown.Toggle>
-  
+
     <Dropdown.Menu>
       <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
       <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
@@ -41,8 +41,8 @@ class WhiteBoard extends Component {
       </React.Fragment>
     );
 
-    
-    
+
+
 
   }
 }
