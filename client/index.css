@@ -354,15 +354,15 @@ border-top: solid rgba(51, 51, 51, 0.466) 1px;
 }
 
 .syllabus-C41_1 {
-  background-image: url("../images/Syllabus T6/C41/C41_1.png");
+  background-image: url("../images/Syllabus T6/Contact/C4100/C41_1.png");
 }
 
 .syllabus-C41_2 {
-  background-image: url("../images/Syllabus T6/C41/C41_2.png");
+  background-image: url("../images/Syllabus T6/Contact/C4100/C41_2.png");
 }
 
 .syllabus-C41_3 {
-  background-image: url("../images/Syllabus T6/C41/C41_3.png");
+  background-image: url("../images/Syllabus T6/Contact/C4100/C41_3.png");
 }
 
 .modal-background-C41 {
@@ -385,17 +385,16 @@ padding-bottom: 60px;
 }
 
 .firstPage {
-  margin-top: 1vh;
+  margin-top: 4vh;
 }
 
 .syllabusPagesCloseButton {
   position: absolute;
   bottom: 53px;
   width: 80px;
-
+border-radius: 0;
 }
 
 .syllabusCloseX {
   /* margin-top: 5vh; */
-  z-index: 12128;
 }
