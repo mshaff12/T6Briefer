@@ -19,15 +19,17 @@ class App extends Component {
     super(props);
     this.state = {
           homepageVisible: '',
+          modalActive: false,
     };
 this.hideNav = this.hideNav.bind(this);
 this.showNav = this.showNav.bind(this);
   }
 
+
   hideNav(e) {
-e.preventDefault();
 this.setState({
   homepageVisible: 'hide',
+  modalActive: true,
 })
   }
 
@@ -35,9 +37,25 @@ this.setState({
     e.preventDefault();
     this.setState({
       homepageVisible: '',
+      modalActive: true,
     })
+    this.handleSetModalActive = this.handleSetModalActive.bind(this);
       }
 
+
+      handleSetModalActive() {
+
+if(this.state.modalActive) {
+  this.setState({
+    modalActive: true,
+  })
+} else {
+  this.setState({
+    modalActive: false,
+  })
+}
+
+      }
 
 
   render() {
@@ -48,11 +66,15 @@ this.setState({
      <section className={`section container1 ${this.state.homepageVisible}`}>
 
     <div className="container container2">
-      <h1 className="title">
+
+
+     <h1 className="title">
       <span className='forTheMargin'><span className='t6CircleIcon'></span></span>
         T6B App
         <span className='forTheMargin2'><span className='t6CircleIcon'></span></span>
       </h1>
+
+
 
 
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2'><button className="button2 button is-dark">VT-2 Front Page / Schedule</button></a>
@@ -111,6 +133,9 @@ this.setState({
                 <p className="control navIconP whiteboardIcon" onClick={this.hideNav}>
                 <Link to={{
   pathname: '/WhiteBoard',
+  state: {
+    hideNav: this.hideNav,
+  }
 }}>
                 <div className='center'>
   <div>
@@ -145,6 +170,7 @@ this.setState({
             </div>
           </div>
         </nav>
+
 
         <Route path="/Told" component={Told} />
         <Route path="/WhiteBoard" component={WhiteBoard} />
