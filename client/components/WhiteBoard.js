@@ -251,7 +251,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown4: "",
-        arrow: "fa-angle-up"
+        arrow: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -269,7 +272,10 @@ this.setState({
         dropdown: "",
         dropdown3: "",
         dropdown4: "",
-        arrow2: "fa-angle-up"
+        arrow2: "fa-angle-up",
+        arrow: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -287,7 +293,10 @@ this.setState({
         dropdown2: "",
         dropdown: "",
         dropdown4: "",
-        arrow3: "fa-angle-up"
+        arrow3: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -305,7 +314,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown: "",
-        arrow4: "fa-angle-up"
+        arrow4: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow: "fa-angle-down",
       });
     }
     else {
