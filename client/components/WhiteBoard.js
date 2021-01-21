@@ -138,12 +138,28 @@ class WhiteBoard extends Component {
       instrumentSelected: "I4100",
       formationSelected: "F4100",
       navigationSelected: "N4100",
+      syllabusModals: {"C41": ""},
     };
 this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
 this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
 this.handleUpdateInstrumentSelected = this.handleUpdateInstrumentSelected.bind(this);
 this.handleUpdateFormationSelected = this.handleUpdateFormationSelected.bind(this);
 this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(this);
+
+this.handleCloseSyllabusModal = this.handleCloseSyllabusModal.bind(this);
+  }
+
+  handleCloseSyllabusModal(e) {
+var modalToClose = e.target.getAttribute('data-id');
+
+var oldModalState = this.state.syllabusModals;
+
+oldModalState[modalToClose] = "";
+
+this.setState({
+  syllabusModals: oldModalState,
+})
+
   }
 
   handleUpdateContactSelected (e) {
@@ -181,8 +197,29 @@ this.setState({
 
   }
 
-  handleClickOpenSyllabus() {
+  handleClickOpenSyllabus(e) {
+    var subject = e.target.getAttribute('data-id')
 
+
+    if(subject === "contact") {
+
+      if(this.state.contactSelected === "C4100") {
+
+        var oldModalState = this.state.syllabusModals;
+
+        oldModalState["C41"] = "is-active";
+
+        this.setState({
+          syllabusModals: oldModalState,
+        })
+
+      } else {
+        alert("waiting for more pics :/");
+      }
+
+    } else {
+      alert("waiting for more pics :/");
+    }
 
   }
 
@@ -190,6 +227,9 @@ this.setState({
     if (this.state.dropdown === "") {
       this.setState({
         dropdown: "is-active",
+        dropdown2: "",
+        dropdown3: "",
+        dropdown4: "",
         arrow: "fa-angle-up"
       });
     }
@@ -205,6 +245,9 @@ this.setState({
     if (this.state.dropdown2 === "") {
       this.setState({
         dropdown2: "is-active",
+        dropdown: "",
+        dropdown3: "",
+        dropdown4: "",
         arrow2: "fa-angle-up"
       });
     }
@@ -220,6 +263,9 @@ this.setState({
     if (this.state.dropdown3 === "") {
       this.setState({
         dropdown3: "is-active",
+        dropdown2: "",
+        dropdown: "",
+        dropdown4: "",
         arrow3: "fa-angle-up"
       });
     }
@@ -235,6 +281,9 @@ this.setState({
     if (this.state.dropdown4 === "") {
       this.setState({
         dropdown4: "is-active",
+        dropdown2: "",
+        dropdown3: "",
+        dropdown: "",
         arrow4: "fa-angle-up"
       });
     }
@@ -270,7 +319,7 @@ this.setState({
       />
     </div>
 
-<button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+<button data-id='contact' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
 
     <h1 className='syllabusTitle'>
       Instrument
@@ -285,7 +334,7 @@ this.setState({
       />
     </div>
 
-    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+    <button data-id='instrument' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
 
     <h1 className='syllabusTitle'>
       Formation
@@ -300,7 +349,7 @@ this.setState({
       />
     </div>
 
-    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+    <button data-id='formation' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
 
     <h1 className='syllabusTitle'>
       Navigation
@@ -315,7 +364,41 @@ this.setState({
       />
     </div>
 
-    <button onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+    <button data-id='navigation' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+
+{/* =============================== modals ===================================== */}
+
+    <div className={`modal ${this.state.syllabusModals["C41"]}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card syllabusModalCard">
+    <header className="modal-card-head">
+      <p className="modal-card-title">{this.state.contactSelected}</p>
+      <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete" aria-label="close"></button>
+    </header>
+    <section className="modal-card-body syllabus-modal-card-body">
+<div className='modal-syllabus-pages syllabus-C41_1'>
+</div>
+
+<div className='horizontalDivider'></div>
+
+<div className='modal-syllabus-pages syllabus-C41_2'>
+</div>
+
+<div className='horizontalDivider'></div>
+
+<div className='modal-syllabus-pages syllabus-C41_3'>
+</div>
+
+    </section>
+
+    <footer className="modal-card-foot">
+      <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger">Close</button>
+    </footer>
+  </div>
+</div>
+
+
+{/* ============================================================================= */}
 
     </div>
   </section>
