@@ -140,7 +140,8 @@ class WhiteBoard extends Component {
       navigationSelected: "N4100",
       syllabusModals: {"C41": ""},
       currentSyllabus: "Syllabus",
-   
+      modalActive: "",
+
     };
 this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
 this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
@@ -151,10 +152,13 @@ this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(t
 this.handleCloseSyllabusModal = this.handleCloseSyllabusModal.bind(this);
   }
 
+
   handleCloseSyllabusModal(e) {
+    // this.props.location.state.hideTitle();
 
     this.setState({
       currentSyllabus: 'Syllabus',
+      modalActive: "",
     })
 
 var modalToClose = e.target.getAttribute('data-id');
@@ -205,10 +209,16 @@ this.setState({
   }
 
   handleClickOpenSyllabus(e) {
+    console.log(this.props)
+    if(this.props.location.state !== undefined) {
+      this.props.location.state.hideNav();
+    }
+
     var subject = e.target.getAttribute('data-id')
 
 this.setState({
   currentSyllabus: this.state.contactSelected,
+  modalActive: "hide",
 })
 
 
@@ -241,7 +251,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown4: "",
-        arrow: "fa-angle-up"
+        arrow: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -259,7 +272,10 @@ this.setState({
         dropdown: "",
         dropdown3: "",
         dropdown4: "",
-        arrow2: "fa-angle-up"
+        arrow2: "fa-angle-up",
+        arrow: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -277,7 +293,10 @@ this.setState({
         dropdown2: "",
         dropdown: "",
         dropdown4: "",
-        arrow3: "fa-angle-up"
+        arrow3: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -295,7 +314,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown: "",
-        arrow4: "fa-angle-up"
+        arrow4: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow: "fa-angle-down",
       });
     }
     else {
@@ -311,9 +333,9 @@ this.setState({
       <React.Fragment>
        <section className={`section container1`}>
 
-         
+
     <div className="container">
-      <h1 className="title">
+      <h1 id={this.state.modalActive} className="title">
         {this.state.currentSyllabus}
       </h1>
     </div>
@@ -386,7 +408,7 @@ this.setState({
 
     <div className='pagesContainer'>
     <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id='C41' onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
-    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete syllabusCloseX " aria-label="close"></button>
+    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete syllabusCloseX is-large" aria-label="close"></button>
 
 <div className='modal-background-C41 syllabus-C41_1 firstPage'>
 
