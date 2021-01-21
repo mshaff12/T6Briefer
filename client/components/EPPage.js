@@ -386,7 +386,7 @@ handleCloseModal(e) {
     *2. CONTROLS - NEUTRAL
     </section>
     <section className="modal-body-line">
-    *3. ALTITUDE - CHECKe
+    *3. ALTITUDE - CHECK
     </section>
     <section className="modal-body-line">
     *4. RECOVER FROM UNUSUAL ATTITUDE
