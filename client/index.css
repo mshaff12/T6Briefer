@@ -48,7 +48,7 @@ body {
 
   position: sticky;
   top: 0px;
-  /* z-index: 99; */
+  z-index: 2;
   background-color: hsl(0, 0%, 96%);
   padding-top: 5px;
   padding-bottom: 5px;
