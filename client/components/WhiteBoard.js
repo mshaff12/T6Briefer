@@ -139,6 +139,9 @@ class WhiteBoard extends Component {
       formationSelected: "F4100",
       navigationSelected: "N4100",
       syllabusModals: {"C41": ""},
+      currentSyllabus: "Syllabus",
+      modalActive: "",
+
     };
 this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
 this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
@@ -149,7 +152,15 @@ this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(t
 this.handleCloseSyllabusModal = this.handleCloseSyllabusModal.bind(this);
   }
 
+
   handleCloseSyllabusModal(e) {
+    // this.props.location.state.hideTitle();
+
+    this.setState({
+      currentSyllabus: 'Syllabus',
+      modalActive: "",
+    })
+
 var modalToClose = e.target.getAttribute('data-id');
 
 var oldModalState = this.state.syllabusModals;
@@ -198,7 +209,17 @@ this.setState({
   }
 
   handleClickOpenSyllabus(e) {
+    console.log(this.props)
+    if(this.props.location.state !== undefined) {
+      this.props.location.state.hideNav();
+    }
+
     var subject = e.target.getAttribute('data-id')
+
+this.setState({
+  currentSyllabus: this.state.contactSelected,
+  modalActive: "hide",
+})
 
 
     if(subject === "contact") {
@@ -230,7 +251,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown4: "",
-        arrow: "fa-angle-up"
+        arrow: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -248,7 +272,10 @@ this.setState({
         dropdown: "",
         dropdown3: "",
         dropdown4: "",
-        arrow2: "fa-angle-up"
+        arrow2: "fa-angle-up",
+        arrow: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -266,7 +293,10 @@ this.setState({
         dropdown2: "",
         dropdown: "",
         dropdown4: "",
-        arrow3: "fa-angle-up"
+        arrow3: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow: "fa-angle-down",
+        arrow4: "fa-angle-down",
       });
     }
     else {
@@ -284,7 +314,10 @@ this.setState({
         dropdown2: "",
         dropdown3: "",
         dropdown: "",
-        arrow4: "fa-angle-up"
+        arrow4: "fa-angle-up",
+        arrow2: "fa-angle-down",
+        arrow3: "fa-angle-down",
+        arrow: "fa-angle-down",
       });
     }
     else {
@@ -299,9 +332,11 @@ this.setState({
     return (
       <React.Fragment>
        <section className={`section container1`}>
+
+
     <div className="container">
-      <h1 className="title">
-        Syllabus
+      <h1 id={this.state.modalActive} className="title">
+        {this.state.currentSyllabus}
       </h1>
     </div>
 
@@ -369,31 +404,27 @@ this.setState({
 {/* =============================== modals ===================================== */}
 
     <div className={`modal ${this.state.syllabusModals["C41"]}`}>
-  <div className="modal-background"></div>
-  <div className="modal-card syllabusModalCard">
-    <header className="modal-card-head">
-      <p className="modal-card-title">{this.state.contactSelected}</p>
-      <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete" aria-label="close"></button>
-    </header>
-    <section className="modal-card-body syllabus-modal-card-body">
-<div className='modal-syllabus-pages syllabus-C41_1'>
-</div>
+  <div className="modal-background">
 
+    <div className='pagesContainer'>
+    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id='C41' onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
+    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete syllabusCloseX is-large" aria-label="close"></button>
+
+<div className='modal-background-C41 syllabus-C41_1 firstPage'>
+
+</div>
 <div className='horizontalDivider'></div>
+<div className='modal-background-C41 syllabus-C41_2'>
 
-<div className='modal-syllabus-pages syllabus-C41_2'>
 </div>
-
 <div className='horizontalDivider'></div>
+<div className='modal-background-C41 syllabus-C41_3'>
 
-<div className='modal-syllabus-pages syllabus-C41_3'>
 </div>
 
-    </section>
+    </div>
 
-    <footer className="modal-card-foot">
-      <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger">Close</button>
-    </footer>
+
   </div>
 </div>
 
