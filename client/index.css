@@ -301,16 +301,17 @@ font-size: medium;
   margin-top: 4px;
   margin-bottom: 10px;
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
 }
 
 .width100 {
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
+
+  margin:auto;
 }
 
 .syllabusContainer {
-
 }
 
 .syllabusTitle {
