@@ -150,7 +150,7 @@ class WhiteBoard extends Component {
       instrumentSelected: "I4100",
       formationSelected: "F4100",
       navigationSelected: "N4100",
-      syllabusModals: {"C41": ""},
+      syllabusModals: {"C4100": {"is-active": "", "pages": ['syllabus-C41_1 firstPage', 'syllabus-C41_2', 'syllabus-C41_3 lastPage']}, "C4200": {"is-active": "", "pages": ['syllabus-C42_1 firstPage', 'syllabus-C42_2', 'syllabus-C42_3 lastPage']}, "C4300": {"is-active": "", "pages": ['syllabus-C43_1 firstPage', 'syllabus-C43_2', 'syllabus-C43_3 lastPage']}, "C4490": {"is-active": "", "pages": ['syllabus-C44_1 firstPage', 'syllabus-C44_2 lastPage']}, "C4501": {"is-active": "", "pages": ['syllabus-C45_1 firstPage', 'syllabus-C45_2 lastPage']}, "C4600": {"is-active": "", "pages": ['syllabus-C46_1 firstPage', 'syllabus-C46_2', 'syllabus-C46_3 lastPage']}, "C4790": {"is-active": "", "pages": ['syllabus-C47_1 firstPage', 'syllabus-C47_2 lastPage']}, "C4801": {"is-active": "", "pages": ['syllabus-C48_1 firstPage', 'syllabus-C48_2 lastPage']}, "C4901": {"is-active": "", "pages": ['syllabus-C49_1 firstPage', 'syllabus-C49_2 lastPage']}},
       currentSyllabus: "Syllabus",
       modalActive: "",
 
@@ -177,7 +177,7 @@ var modalToClose = e.target.getAttribute('data-id');
 
 var oldModalState = this.state.syllabusModals;
 
-oldModalState[modalToClose] = "";
+oldModalState[modalToClose]["is-active"] = "";
 
 this.setState({
   syllabusModals: oldModalState,
@@ -236,19 +236,16 @@ this.setState({
 
     if(subject === "contact") {
 
-      if(this.state.contactSelected === "C4100") {
 
         var oldModalState = this.state.syllabusModals;
 
-        oldModalState["C41"] = "is-active";
+        oldModalState[this.state.contactSelected]["is-active"] = "is-active";
 
         this.setState({
           syllabusModals: oldModalState,
         })
 
-      } else {
-        alert("waiting for more pics :/");
-      }
+    } else if (subject === "instrument") {
 
     } else {
       alert("waiting for more pics :/");
@@ -341,6 +338,7 @@ this.setState({
   };
 
   render() {
+
     return (
       <React.Fragment>
        <section className={`section container1`}>
@@ -413,36 +411,38 @@ this.setState({
 
     <button data-id='navigation' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
 
-{/* =============================== modals ===================================== */}
+{/* =============================== modals ============================================== */}
 
-    <div className={`modal ${this.state.syllabusModals["C41"]}`}>
+{Object.keys(this.state.syllabusModals).map((key) => {
+
+  return <div className={`modal ${this.state.syllabusModals[key]['is-active']}`}>
   <div className="modal-background">
 
-    <div className='pagesContainer'>
-    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id='C41' onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
-    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete is-large" aria-label="close"></button>
+  <div className='pagesContainer'>
 
-<div className='modal-background-C41 syllabus-C41_1 firstPage'>
+  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id={key} onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
 
-</div>
-<div className='horizontalDivider'></div>
-<div className='modal-background-C41 syllabus-C41_2'>
+  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="delete is-large" aria-label="close"></button>
 
-</div>
-<div className='horizontalDivider'></div>
-<div className='modal-background-C41 syllabus-C41_3'>
 
-</div>
+    {this.state.syllabusModals[key]['pages'].map((page) => {
 
+    return <React.Fragment>
+    <div className={`modal-background-syllabus-pages ${page}`}>
     </div>
+    { page.split(' ')[page.split(' ').length - 1] !== 'lastPage' ?
+    <div className='horizontalDivider'></div> :
+    <div id='hide'></div>
+    }
+    </React.Fragment>
 
+    })}
 
   </div>
 </div>
+</div>})}
 
-
-{/* ============================================================================= */}
-
+{/* ====================================================================================== */}
     </div>
   </section>
       </React.Fragment>
