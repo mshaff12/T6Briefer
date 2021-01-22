@@ -108,6 +108,8 @@ if(this.state.modalActive) {
             <div className="nav-item">
               <div className="field is-grouped">
 
+
+<div className='navIconContainer'>
                 <p className="control navIconP" onClick={this.showNav}>
                 <Link to={{
   pathname: '/',
@@ -165,6 +167,7 @@ if(this.state.modalActive) {
 </div>
 </Link>
 </p>
+</div>
 
               </div>
             </div>

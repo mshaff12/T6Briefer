@@ -413,3 +413,15 @@ animation: slideUp forwards 0.5s;
 .smallerTextEp {
   font-size: small;
 }
+
+
+.navIconContainer {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+.navIconContainer p {
+  display: table-cell;
+  text-align: center;
+}
