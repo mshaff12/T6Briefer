@@ -11,7 +11,6 @@ class Told extends Component {
   }
 
 
-
   render() {
     return (
       <React.Fragment>

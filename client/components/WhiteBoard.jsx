@@ -27,18 +27,17 @@ class WhiteBoard extends Component {
       modalActive: "",
 
     };
-this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
-this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
-this.handleUpdateInstrumentSelected = this.handleUpdateInstrumentSelected.bind(this);
-this.handleUpdateFormationSelected = this.handleUpdateFormationSelected.bind(this);
-this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(this);
+      this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);
+      this.handleUpdateContactSelected = this.handleUpdateContactSelected.bind(this);
+      this.handleUpdateInstrumentSelected = this.handleUpdateInstrumentSelected.bind(this);
+      this.handleUpdateFormationSelected = this.handleUpdateFormationSelected.bind(this);
+      this.handleUpdateNavigationSelected = this.handleUpdateNavigationSelected.bind(this);
 
-this.handleCloseSyllabusModal = this.handleCloseSyllabusModal.bind(this);
+      this.handleCloseSyllabusModal = this.handleCloseSyllabusModal.bind(this);
   }
 
 
   handleCloseSyllabusModal(e) {
-    // this.props.location.state.hideTitle();
 
     this.setState({
       currentSyllabus: 'Syllabus',
@@ -105,9 +104,7 @@ this.setState({
   modalActive: "hide",
 })
 
-
     if(subject === "contact") {
-
 
         var oldModalState = this.state.syllabusModals;
 
@@ -148,9 +145,7 @@ this.setState({
         syllabusModals: oldModalState,
       })
 
-
     }
-
   }
 
   handleClick = () => {
@@ -243,7 +238,6 @@ this.setState({
       <React.Fragment>
        <section className={`section container1`}>
 
-
     <div className="container">
       <h1 id={this.state.modalActive} className="title">
         {this.state.currentSyllabus}
@@ -323,42 +317,36 @@ this.setState({
 
 {Object.keys(this.state.syllabusModals).map((key) => {
 
-  return <div className={`modal ${this.state.syllabusModals[key]['is-active']}`}>
-  <div className="modal-background">
+   return <div className={`modal ${this.state.syllabusModals[key]['is-active']}`}>
+             <div className="modal-background">
 
-  <div className='pagesContainer'>
+                <div className='pagesContainer'>
 
-  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id={key} onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
+                  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id={key} onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
 
-  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="delete is-large" aria-label="close"></button>
+                  <button  data-id={key} onClick={this.handleCloseSyllabusModal} className="delete is-large" aria-label="close"></button>
 
+                  {this.state.syllabusModals[key]['pages'].map((page) => {
 
-    {this.state.syllabusModals[key]['pages'].map((page) => {
+                  return <React.Fragment>
+                  <div className={`modal-background-syllabus-pages ${page}`}>
+                  </div>
+                  { page.split(' ')[page.split(' ').length - 1] !== 'lastPage' ?
+                  <div className='horizontalDivider'></div> :
+                  <div id='hide'></div>
+                  }
+                  </React.Fragment>
 
-    return <React.Fragment>
-    <div className={`modal-background-syllabus-pages ${page}`}>
-    </div>
-    { page.split(' ')[page.split(' ').length - 1] !== 'lastPage' ?
-    <div className='horizontalDivider'></div> :
-    <div id='hide'></div>
-    }
-    </React.Fragment>
-
-    })}
-
-  </div>
-</div>
-</div>})}
+                  })}
+               </div>
+            </div>
+          </div>})}
 
 {/* ====================================================================================== */}
-    </div>
-  </section>
+          </div>
+       </section>
       </React.Fragment>
     );
-
-
-
-
   }
 }
 

@@ -7,10 +7,10 @@ import {
   Link,
   Switch,
 } from "react-router-dom";
-import Told from './components/Told.js';
-import WhiteBoard from './components/WhiteBoard.js';
-import EPPage from './components/EPPage.js';
-import GougePage from './components/GougePage.js';
+import Told from './components/Told.jsx';
+import WhiteBoard from './components/WhiteBoard.jsx';
+import EPPage from './components/EPPage.jsx';
+import GougePage from './components/GougePage.jsx';
 
 
 
