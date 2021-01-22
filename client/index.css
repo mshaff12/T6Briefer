@@ -368,13 +368,29 @@ border-top: solid rgba(51, 51, 51, 0.466) 1px;
   background-size: contain;
 z-index: 3;
 
-height: 80%;
+height: 100%;
 width: 100%;
+
+
 }
 
+@media screen and (min-width: 800px) {
+  .modal-background-syllabus-pages {
+
+    height: 1061px;
+    width: 792px;
+    margin: auto
+
+
+  }
+}
+
+
 .pagesContainer {
+
+
   height: 100%;
-width: 100%;
+/* width: 100%; */
 background-color: white;
 overflow-y: scroll;
 padding-bottom: 60px;
@@ -382,7 +398,7 @@ padding-bottom: 60px;
 }
 
 .firstPage {
-  margin-top: 4vh;
+  /* margin-top: 1vh; */
 }
 
 .syllabusPagesCloseButton {
