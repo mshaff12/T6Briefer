@@ -18,11 +18,11 @@
 }
 
 @media screen and (min-width: 800px) {
-  .syllabus-C42_2, .syllabus-C42_3, .syllabus-C41_3 {
+  .syllabus-C42_2, .syllabus-C42_3, .syllabus-C41_3, .syllabus-F41_3, .syllabus-F42_1 {
     height: 1061px;
     width: 793px;
   }
-  .syllabus-C43_1,  .syllabus-C44_1, .syllabus-C44_2, .syllabus-C45_1, .syllabus-C45_2, .syllabus-C46_2, .syllabus-C46_3, .syllabus-C47_1, .syllabus-C48_1, .syllabus-I41_1, .syllabus-I42_3, .syllabus-I43_1, .syllabus-I43_2, .syllabus-I43_3, .syllabus-I44_1, .syllabus-I44_2, .syllabus-I44_3, .syllabus-N41_2{
+  .syllabus-C43_1,  .syllabus-C44_1, .syllabus-C44_2, .syllabus-C45_1, .syllabus-C45_2, .syllabus-C46_2, .syllabus-C46_3, .syllabus-C47_1, .syllabus-C48_1, .syllabus-I41_1, .syllabus-I42_3, .syllabus-I43_1, .syllabus-I43_2, .syllabus-I43_3, .syllabus-I44_1, .syllabus-I44_2, .syllabus-I44_3, .syllabus-N41_2, .syllabus-F41_1, .syllabus-F41_2, .syllabus-F42_2, .syllabus-F43_1, .syllabus-F43_3{
     height: 1062px;
     width: 793px;
   }
@@ -173,3 +173,33 @@
 }
 
 
+
+.syllabus-F41_1 {
+  background-image: url("../images/Syllabus T6/Formation/F4100/F41_1.png");
+}
+.syllabus-F41_2 {
+  background-image: url("../images/Syllabus T6/Formation/F4100/F41_2.png");
+}
+.syllabus-F41_3 {
+  background-image: url("../images/Syllabus T6/Formation/F4100/F41_3.png");
+}
+
+
+
+.syllabus-F42_1 {
+  background-image: url("../images/Syllabus T6/Formation/F4201/F42_1.png");
+}
+.syllabus-F42_2 {
+  background-image: url("../images/Syllabus T6/Formation/F4201/F42_2.png");
+}
+
+
+.syllabus-F43_1 {
+  background-image: url("../images/Syllabus T6/Formation/F4300/F43_1.png");
+}
+.syllabus-F43_2 {
+  background-image: url("../images/Syllabus T6/Formation/F4300/F43_2.png");
+}
+.syllabus-F43_3 {
+  background-image: url("../images/Syllabus T6/Formation/F4300/F43_3.png");
+}
