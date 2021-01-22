@@ -22,11 +22,11 @@
     height: 1061px;
     width: 793px;
   }
-  .syllabus-C43_1,  .syllabus-C44_1, .syllabus-C44_2, .syllabus-C45_1, .syllabus-C45_2, .syllabus-C46_2, .syllabus-C46_3, .syllabus-C47_1, .syllabus-C48_1, .syllabus-I41_1, .syllabus-I42_3, .syllabus-I43_1, .syllabus-I43_2, .syllabus-I43_3, .syllabus-I44_1, .syllabus-I44_2, .syllabus-I44_3{
+  .syllabus-C43_1,  .syllabus-C44_1, .syllabus-C44_2, .syllabus-C45_1, .syllabus-C45_2, .syllabus-C46_2, .syllabus-C46_3, .syllabus-C47_1, .syllabus-C48_1, .syllabus-I41_1, .syllabus-I42_3, .syllabus-I43_1, .syllabus-I43_2, .syllabus-I43_3, .syllabus-I44_1, .syllabus-I44_2, .syllabus-I44_3, .syllabus-N41_2{
     height: 1062px;
     width: 793px;
   }
-  .syllabus-C43_2, .syllabus-C46_1, .syllabus-C47_2, .syllabus-C48_2, .syllabus-C49_1, .syllabus-C49_2, .syllabus-I41_2, .syllabus-I41_3, .syllabus-I42_1, .syllabus-I42_2 {
+  .syllabus-C43_2, .syllabus-C46_1, .syllabus-C47_2, .syllabus-C48_2, .syllabus-C49_1, .syllabus-C49_2, .syllabus-I41_2, .syllabus-I41_3, .syllabus-I42_1, .syllabus-I42_2, .syllabus-N42_2, .syllabus-N41_1 {
     height: 1062px;
     width: 792px;
   }
@@ -156,3 +156,20 @@
 .syllabus-I44_3 {
   background-image: url("../images/Syllabus T6/Instruments/I4490/I44_3.png");
 }
+
+
+.syllabus-N41_1 {
+  background-image: url("../images/Syllabus T6/Navigation/N4100/N41_1.png");
+}
+.syllabus-N41_2 {
+  background-image: url("../images/Syllabus T6/Navigation/N4100/N41_2.png");
+}
+
+.syllabus-N42_1 {
+  background-image: url("../images/Syllabus T6/Navigation/N4200/N42_1.png");
+}
+.syllabus-N42_2 {
+  background-image: url("../images/Syllabus T6/Navigation/N4200/N42_2.png");
+}
+
+
