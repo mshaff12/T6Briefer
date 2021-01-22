@@ -369,7 +369,7 @@ this.setState({
 <button data-id='contact' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
 
     <h1 className='syllabusTitle'>
-      Instrument
+      Instruments
     </h1>
     <div>
     <Dropdown2
