@@ -314,18 +314,26 @@ font-size: medium;
   margin-top: 4px;
   margin-bottom: 10px;
   width: 100%;
-  /* max-width: 400px; */
+  max-width: 500px;
+
+  margin: auto;
+}
+
+.syllabusButtonContainer {
+  display: flex;
 }
 
 .width100 {
   width: 100%;
-  /* max-width: 400px; */
+  max-width: 500px;
 
   margin:auto;
 }
 
-.syllabusContainer {
+.dropdownContainer {
+display: flex;
 }
+
 
 .syllabusTitle {
   margin-top: 10px;

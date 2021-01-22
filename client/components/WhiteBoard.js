@@ -4,6 +4,8 @@ import React, { Component } from "react";
 
 function Dropdown(props) {
   return (
+    <div className='dropdownContainer'>
+
    <div onClick = {props.handleClick} className = {`dropdown width100 ${props.dropdown}`}>
   <div className="dropdown-trigger width100">
     <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -45,11 +47,15 @@ function Dropdown(props) {
     </div>
   </div>
 </div>
+
+</div>
+
   );
 };
 
 function Dropdown2(props) {
   return (
+    <div className='dropdownContainer'>
    <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
   <div className="width100 dropdown-trigger">
     <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -76,11 +82,13 @@ function Dropdown2(props) {
     </div>
   </div>
 </div>
+</div>
   );
 };
 
 function Dropdown3(props) {
   return (
+    <div className='dropdownContainer'>
    <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
   <div className="width100 dropdown-trigger">
     <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -104,11 +112,13 @@ function Dropdown3(props) {
     </div>
   </div>
 </div>
+</div>
   );
 };
 
 function Dropdown4(props) {
   return (
+    <div className='dropdownContainer'>
    <div onClick = {props.handleClick} className = {`width100 dropdown ${props.dropdown}`}>
   <div className="width100 dropdown-trigger">
     <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -128,6 +138,7 @@ function Dropdown4(props) {
       </a>
     </div>
   </div>
+</div>
 </div>
   );
 };
@@ -392,7 +403,9 @@ this.setState({
       />
     </div>
 
+<div className='syllabusButtonContainer'>
 <button data-id='contact' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+</div>
 
     <h1 className='syllabusTitle'>
       Instruments
@@ -407,7 +420,9 @@ this.setState({
       />
     </div>
 
+    <div className='syllabusButtonContainer'>
     <button data-id='instrument' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+</div>
 
     <h1 className='syllabusTitle'>
       Formation
@@ -422,7 +437,9 @@ this.setState({
       />
     </div>
 
+    <div className='syllabusButtonContainer'>
     <button data-id='formation' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+</div>
 
     <h1 className='syllabusTitle'>
       Navigation
@@ -437,7 +454,9 @@ this.setState({
       />
     </div>
 
+    <div className='syllabusButtonContainer'>
     <button data-id='navigation' onClick={this.handleClickOpenSyllabus} className='syllabusButton button is-dark'>open syllabus</button>
+</div>
 
 {/* =============================== modals ============================================== */}
 
