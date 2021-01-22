@@ -1,0 +1,21 @@
+@media screen and (min-width: 800px) {
+
+.t6CircleIcon {
+width: 50px;
+height: 50px;
+}
+
+.wings {
+    width: 483px;
+    height: 234px;
+}
+.vt2Patch, .vt3Patch, .vt6Patch, .vt27Patch, .vt28Patch {
+    width: 112.5px;
+    height: 112.5px;
+}
+
+
+
+
+
+}

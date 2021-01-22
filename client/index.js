@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "./syllabusPages.css";
-import "./desktop.css";
+import "./css/index.css";
+import "./css/syllabusPages.css";
+import "./css/desktop.css";
 import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
