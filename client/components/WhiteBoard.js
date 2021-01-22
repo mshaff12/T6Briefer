@@ -150,7 +150,7 @@ class WhiteBoard extends Component {
       instrumentSelected: "I4100",
       formationSelected: "F4100",
       navigationSelected: "N4100",
-      syllabusModals: {"C4100": {"is-active": "", "pages": ['syllabus-C41_1 firstPage', 'syllabus-C41_2', 'syllabus-C41_3 lastPage']}, "C4200": {"is-active": "", "pages": ['syllabus-C42_1 firstPage', 'syllabus-C42_2', 'syllabus-C42_3 lastPage']}, "C4300": {"is-active": "", "pages": ['syllabus-C43_1 firstPage', 'syllabus-C43_2', 'syllabus-C43_3 lastPage']}, "C4490": {"is-active": "", "pages": ['syllabus-C44_1 firstPage', 'syllabus-C44_2 lastPage']}, "C4501": {"is-active": "", "pages": ['syllabus-C45_1 firstPage', 'syllabus-C45_2 lastPage']}, "C4600": {"is-active": "", "pages": ['syllabus-C46_1 firstPage', 'syllabus-C46_2', 'syllabus-C46_3 lastPage']}, "C4790": {"is-active": "", "pages": ['syllabus-C47_1 firstPage', 'syllabus-C47_2 lastPage']}, "C4801": {"is-active": "", "pages": ['syllabus-C48_1 firstPage', 'syllabus-C48_2 lastPage']}, "C4901": {"is-active": "", "pages": ['syllabus-C49_1 firstPage', 'syllabus-C49_2 lastPage']}},
+      syllabusModals: {"C4100": {"is-active": "", "pages": ['syllabus-C41_1 firstPage', 'syllabus-C41_2', 'syllabus-C41_3 lastPage']}, "C4200": {"is-active": "", "pages": ['syllabus-C42_1 firstPage', 'syllabus-C42_2', 'syllabus-C42_3 lastPage']}, "C4300": {"is-active": "", "pages": ['syllabus-C43_1 firstPage', 'syllabus-C43_2', 'syllabus-C43_3 lastPage']}, "C4490": {"is-active": "", "pages": ['syllabus-C44_1 firstPage', 'syllabus-C44_2 lastPage']}, "C4501": {"is-active": "", "pages": ['syllabus-C45_1 firstPage', 'syllabus-C45_2 lastPage']}, "C4600": {"is-active": "", "pages": ['syllabus-C46_1 firstPage', 'syllabus-C46_2', 'syllabus-C46_3 lastPage']}, "C4790": {"is-active": "", "pages": ['syllabus-C47_1 firstPage', 'syllabus-C47_2 lastPage']}, "C4801": {"is-active": "", "pages": ['syllabus-C48_1 firstPage', 'syllabus-C48_2 lastPage']}, "C4901": {"is-active": "", "pages": ['syllabus-C49_1 firstPage', 'syllabus-C49_2 lastPage']}, "I4100": {"is-active": "", "pages": ['syllabus-I41_1 firstPage', 'syllabus-I41_2', 'syllabus-I41_3 lastPage']}, "I4200": {"is-active": "", "pages": ['syllabus-I42_1 firstPage', 'syllabus-I42_2', 'syllabus-I42_3 lastPage']}, "I4300": {"is-active": "", "pages": ['syllabus-I43_1 firstPage', 'syllabus-I43_2', 'syllabus-I43_3 lastPage']}, "I4490": {"is-active": "", "pages": ['syllabus-I44_1 firstPage', 'syllabus-I44_2', 'syllabus-I44_3 lastPage']}},
       currentSyllabus: "Syllabus",
       modalActive: "",
 
@@ -246,6 +246,14 @@ this.setState({
         })
 
     } else if (subject === "instrument") {
+
+      var oldModalState = this.state.syllabusModals;
+
+      oldModalState[this.state.instrumentSelected]["is-active"] = "is-active";
+
+      this.setState({
+        syllabusModals: oldModalState,
+      })
 
     } else {
       alert("waiting for more pics :/");
