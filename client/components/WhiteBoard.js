@@ -15,9 +15,9 @@ function Dropdown(props) {
   </div>
   <div className="dropdown-menu" id="dropdown-menu" role="menu">
     <div className="dropdown-content">
-      <span  data-id="C4100" onClick={props.handleUpdateContactSelected} className="dropdown-item">
+      <a  data-id="C4100" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4100
-      </span>
+      </a>
       <a data-id="C4200" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4200
       </a>
@@ -29,6 +29,18 @@ function Dropdown(props) {
       </a>
       <a  data-id="C4501" onClick={props.handleUpdateContactSelected} className="dropdown-item">
         C4501
+      </a>
+      <a  data-id="C4600" onClick={props.handleUpdateContactSelected} className="dropdown-item">
+        C4600
+      </a>
+      <a  data-id="C4790" onClick={props.handleUpdateContactSelected} className="dropdown-item">
+        C4790
+      </a>
+      <a  data-id="C4801" onClick={props.handleUpdateContactSelected} className="dropdown-item">
+        C4801
+      </a>
+      <a  data-id="C4901" onClick={props.handleUpdateContactSelected} className="dropdown-item">
+        C4901
       </a>
     </div>
   </div>
@@ -408,7 +420,7 @@ this.setState({
 
     <div className='pagesContainer'>
     <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="button is-danger syllabusPagesCloseButton">  <i data-id='C41' onClick={this.handleCloseSyllabusModal} className="fa fa-undo fa-2x"></i></button>
-    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete syllabusCloseX is-large" aria-label="close"></button>
+    <button  data-id='C41' onClick={this.handleCloseSyllabusModal} className="delete is-large" aria-label="close"></button>
 
 <div className='modal-background-C41 syllabus-C41_1 firstPage'>
 

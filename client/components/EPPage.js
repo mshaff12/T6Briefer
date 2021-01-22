@@ -125,7 +125,7 @@ handleCloseModal(e) {
     *4. CANOPY – OPEN
     </div>
     <div className="modal-body-line">
-    IF CANOPY CANNOT BE OPENED OR SITUATION REQUIRES RIGHT SIDE EGRESS:
+    <span className='smallerTextEp'>IF CANOPY CANNOT BE OPENED OR SITUATION REQUIRES RIGHT SIDE EGRESS: </span>
     </div>
     <div className="modal-body-line">
     *5. CFS HANDLE SAFETY PIN – REMOVE (BOTH)
@@ -218,7 +218,7 @@ handleCloseModal(e) {
     *4. AIRSTART – ATTEMPT IF WARRANTED
     </section>
     <section className="modal-body-line">
-    IF CONDITIONS DO NOT WARRANT AN AIRSTART:
+    <span className='smallerTextEp'>IF CONDITIONS DO NOT WARRANT AN AIRSTART:</span>
     </section>
     <section className="modal-body-line">
     *5. FIREWALL SHUTOFF HANDLE – PULL
@@ -254,7 +254,7 @@ handleCloseModal(e) {
     *4. ENGINE INSTRUMENTS – MONITOR ITT, N1, AND OIL PRESSURE
     </section>
     <section className="modal-body-line">
-    IF AIRSTART IS UNSUCCESSFUL:
+    <span className='smallerTextEp'>IF AIRSTART IS UNSUCCESSFUL:</span>
     </section>
     <section className="modal-body-line">
     *5. PCL – OFF
@@ -266,7 +266,7 @@ handleCloseModal(e) {
     *7. EXECUTE FORCED LANDING OR EJECT
     </section>
     <section className="modal-body-line">
-    IF AIRSTART IS SUCCESSFUL:
+    <span className='smallerTextEp'>IF AIRSTART IS SUCCESSFUL:</span>
     </section>
     <section className="modal-body-line">
     *8. PCL – AS REQUIRED AFTER N1 REACHES IDLE RPM (APPROXIMATELY 67% N1)
@@ -302,13 +302,13 @@ handleCloseModal(e) {
     *4. PCL – AS REQUIRED
     </section>
     <section className="modal-body-line">
-    IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:
+    <span className='smallerTextEp'>IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:</span>
     </section>
     <section className="modal-body-line">
     *5. PEL – EXECUTE
     </section>
     <section className="modal-body-line">
-    IF POWER IS INSUFFICIENT TO COMPLETE PEL:
+    <span className='smallerTextEp'>IF POWER IS INSUFFICIENT TO COMPLETE PEL:</span>
     </section>
     <section className="modal-body-line">
     *6. PROP SYS CIRCUIT BREAKER – RESET, AS REQUIRED
@@ -347,13 +347,13 @@ handleCloseModal(e) {
     *3. PCL – SLOWLY ADVANCE (AS REQUIRED)
     </section>
     <section className="modal-body-line">
-    IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:
+    <span className='smallerTextEp'>IF POWER IS SUFFICIENT FOR CONTINUED FLIGHT:</span>
     </section>
     <section className="modal-body-line">
     *4. PEL – EXECUTE
     </section>
     <section className="modal-body-line">
-    IF POWER IS INSUFFICIENT TO COMPLETE PEL:
+    <span className='smallerTextEp'>IF POWER IS INSUFFICIENT TO COMPLETE PEL:</span>
     </section>
     <section className="modal-body-line">
     *5. PCL – OFF
@@ -407,7 +407,7 @@ handleCloseModal(e) {
     </header>
     <div className='modal-card-body'>
     <section className="modal-body-line">
-    IF FIRE IS CONFIRMED:
+    <span className='smallerTextEp'>IF FIRE IS CONFIRMED:</span>
     </section>
     <section className="modal-body-line">
     *1. PCL – OFF
@@ -416,19 +416,19 @@ handleCloseModal(e) {
     *2. FIREWALL SHUTOFF HANDLE – PULL
     </section>
     <section className="modal-body-line">
-    IF FIRE IS EXTINGUISHED:
+    <span className='smallerTextEp'>IF FIRE IS EXTINGUISHED:</span>
     </section>
     <section className="modal-body-line">
     *3. FORCED LANDING – EXECUTE
     </section>
     <section className="modal-body-line">
-    IF FIRE DOES NOT EXTINGUISH OR FORCED LANDING IS IMPRACTICAL:
+    <span className='smallerTextEp'>IF FIRE DOES NOT EXTINGUISH OR FORCED LANDING IS IMPRACTICAL:</span>
     </section>
     <section className="modal-body-line">
     *4. EJECT (BOTH)
     </section>
     <section className="modal-body-line">
-    IF FIRE IS NOT CONFIRMED:
+    <span className='smallerTextEp'>IF FIRE IS NOT CONFIRMED:</span>
     </section>
     <section className="modal-body-line">
     *5. PEL – EXECUTE
@@ -497,7 +497,7 @@ handleCloseModal(e) {
     </header>
     <div className='modal-card-body'>
     <section className="modal-body-line">
-    IF ONLY AMBER OIL PX caution ILLUMINATES:
+    <span className='smallerTextEp'>IF ONLY AMBER OIL PX caution ILLUMINATES:</span>
     </section>
     <section className="modal-body-line">
     *1. TERMINATE MANEUVER
@@ -506,7 +506,7 @@ handleCloseModal(e) {
     *2. CHECK OIL PRESSURE; IF OIL PRESSURE IS NORMAL, CONTINUE OPERATIONS
     </section>
     <section className="modal-body-line">
-    IF RED OIL PX WARNING ILLUMINATES AND/OR AMBER OIL PX CAUTION REMAINS ILLUMINATED FOR 5 SECONDS:
+    <span className='smallerTextEp'>IF RED OIL PX WARNING ILLUMINATES AND/OR AMBER OIL PX CAUTION REMAINS ILLUMINATED FOR 5 SECONDS:</span>
     </section>
     <section className="modal-body-line">
     *3. PCL – MINIMUM NECESSARY TO INTERCEPT ELP; AVOID UNNECESSARY PCL MOVEMENTS
