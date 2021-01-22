@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Dropdown from './Dropdowns/Dropdown.jsx';
-import Dropdown2 from './Dropdowns/Dropdown2.jsx';
-import Dropdown3 from './Dropdowns/Dropdown3.jsx';
-import Dropdown4 from './Dropdowns/Dropdown4.jsx';
+import Dropdown from '../components/Dropdowns/Dropdown.jsx';
+import Dropdown2 from '../components/Dropdowns/Dropdown2.jsx';
+import Dropdown3 from '../components/Dropdowns/Dropdown3.jsx';
+import Dropdown4 from '../components/Dropdowns/Dropdown4.jsx';
 
 
-class WhiteBoard extends Component {
+class Syllabus extends Component {
 
   constructor(props) {
     super(props);
@@ -350,4 +350,4 @@ this.setState({
   }
 }
 
-  export default WhiteBoard;
+  export default Syllabus;

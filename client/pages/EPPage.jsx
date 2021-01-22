@@ -61,9 +61,6 @@ handleCloseModal(e) {
         {`EPs & Limits`}
       </h1>
 
-
-{/* need one of these for each EP? D: */}
-
       <div className={`modal ${this.state.modalActive.ep1}`}>
   <div className="modal-background"></div>
   <div className="modal-card epModal">
@@ -649,7 +646,6 @@ handleCloseModal(e) {
   </div>
 </div>
 
-{/* picture of limits is added to index.css at ".images" Have this button bring a pop-up of the image */}
 <button onClick={this.handleClickLimits} id='limits' className="button2 button is-dark"><span className='spanLimits'>Limits</span></button>
 
 <div class={`limitsModal modal ${this.state.limitsModal}`}>

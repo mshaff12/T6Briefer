@@ -7,22 +7,24 @@ import {
   Link,
   Switch,
 } from "react-router-dom";
-import Told from './components/Told.jsx';
-import WhiteBoard from './components/WhiteBoard.jsx';
-import EPPage from './components/EPPage.jsx';
-import GougePage from './components/GougePage.jsx';
+import Told from './Told.jsx';
+import Syllabus from './Syllabus.jsx';
+import EPPage from './EPPage.jsx';
+import GougePage from './GougePage.jsx';
 
 
 
 class App extends Component {
   constructor(props) {
+
     super(props);
+
     this.state = {
           homepageVisible: '',
           modalActive: false,
     };
-this.hideNav = this.hideNav.bind(this);
-this.showNav = this.showNav.bind(this);
+      this.hideNav = this.hideNav.bind(this);
+      this.showNav = this.showNav.bind(this);
   }
 
 
@@ -42,7 +44,6 @@ this.setState({
     this.handleSetModalActive = this.handleSetModalActive.bind(this);
       }
 
-
       handleSetModalActive() {
 
 if(this.state.modalActive) {
@@ -57,7 +58,6 @@ if(this.state.modalActive) {
 
       }
 
-
   render() {
 
   return (
@@ -67,22 +67,17 @@ if(this.state.modalActive) {
 
     <div className="container container2">
 
-
      <h1 className="title">
       <span className='forTheMargin'><span className='t6CircleIcon'></span></span>
         T6B App
         <span className='forTheMargin2'><span className='t6CircleIcon'></span></span>
       </h1>
 
-
-
-
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2'><button className="button2 button is-dark">VT-2 Front Page / Schedule</button></a>
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-3'><button id='gray' className="button3 button is-dark">VT-3 Front Page / Schedule</button></a>
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-6'><button className="button6 button is-dark">VT-6 Front Page / Schedule</button></a>
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-27'><button id='gray' className="button27 button is-dark">VT-27 Front Page / Schedule</button></a>
       <a href='https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-28'><button className="button27 button is-dark">VT-28 Front Page / Schedule</button></a>
-
 
 <div className='t6diagram'>
   <div className='wings'></div>
@@ -173,7 +168,6 @@ if(this.state.modalActive) {
             </div>
           </div>
         </nav>
-
 
         <Route path="/Told" component={Told} />
         <Route path="/WhiteBoard" component={WhiteBoard} />

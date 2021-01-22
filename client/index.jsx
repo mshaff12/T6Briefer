@@ -4,6 +4,6 @@ import "./css/index.css";
 import "./css/syllabusPages.css";
 import "./css/desktop.css";
 import "./css/animations.css";
-import App from "./App.jsx";
+import App from "./pages/App.jsx";
 
 ReactDOM.render(<App />, document.getElementById("root"));
