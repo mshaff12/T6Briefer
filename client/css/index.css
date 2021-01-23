@@ -228,7 +228,7 @@ body {
   white-space: normal;
 word-wrap: break-word;
 
-height: 60px;
+height: 80px;
 }
 
 .modal-card-title {
@@ -394,3 +394,4 @@ animation: slideUp forwards 0.5s;
   display: table-cell;
   text-align: center;
 }
+

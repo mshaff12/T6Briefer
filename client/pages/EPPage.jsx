@@ -648,42 +648,42 @@ handleCloseModal(e) {
 
 <button onClick={this.handleClickLimits} id='limits' className="button2 button is-dark"><span className='spanLimits'>Limits</span></button>
 
-<div class={`limitsModal modal ${this.state.limitsModal}`}>
-  <div class="modal-background"></div>
-  <div class="modal-card modal-card-limits">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Limits</p>
-      <button onClick={this.handleCloseLimitsModal} class="delete" aria-label="close"></button>
+<div className={`limitsModal modal ${this.state.limitsModal}`}>
+  <div className="modal-background"></div>
+  <div className="modal-card modal-card-limits">
+    <header className="modal-card-head">
+      <p className="modal-card-title">Limits</p>
+      <button onClick={this.handleCloseLimitsModal} className="delete" aria-label="close"></button>
     </header>
-    <section class="modal-card-body modal-content-limits">
+    <section className="modal-card-body modal-content-limits">
 
     </section>
-    <footer class="modal-card-foot">
-      <button onClick={this.handleCloseLimitsModal} class="button is-danger">Close</button>
+    <footer className="modal-card-foot">
+      <button onClick={this.handleCloseLimitsModal} className="button is-danger">Close</button>
     </footer>
   </div>
 </div>
 
-      <button data-id='ep1' onClick={this.handleClickEP} className="button2 button is-dark">ABORT START PROCEDURE</button>
-      <button data-id='ep2' onClick={this.handleClickEP} id='gray' className="epSmallFont button3 button is-dark">EMERGENCY ENGINE SHUTDOWN ON THE GROUND</button>
-      <button data-id='ep3' onClick={this.handleClickEP} className="button2 button is-dark">EMERGENCY GROUND EGRESS</button>
-      <button data-id='ep4' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">ABORT</button>
-      <button data-id='ep5' onClick={this.handleClickEP} className="epSmallFont button2 button is-dark">ENGINE FAILURE IMMEDIATELY AFTER TAKEOFF (SUFFICIENT RUNWAY REMAINING STRAIGHT AHEAD)</button>
-      <button data-id='ep6' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">ENGINE FAILURE DURING FLIGHT</button>
-      <button data-id='ep7' onClick={this.handleClickEP} className="button2 button is-dark">IMMEDIATE AIRSTART (PMU NORM)</button>
-      <button data-id='ep8' onClick={this.handleClickEP} id='gray' className="epSmallFont button3 button is-dark">UNCOMMANDED POWER CHANGES / LOSS OF POWER/ UNCOMMANDED PROPELLER FEATHER</button>
-      <button data-id='ep9' onClick={this.handleClickEP} className="button2 button is-dark">COMPRESSOR STALLS</button>
-      <button data-id='ep10' onClick={this.handleClickEP} id='gray' className="epSmallFont button3 button is-dark">INADVERTENT DEPARTURE FROM CONTROLLED FLIGHT</button>
-      <button data-id='ep11' onClick={this.handleClickEP} className="button2 button is-dark">FIRE IN FLIGHT</button>
-      <button data-id='ep12' onClick={this.handleClickEP} id='gray' className="epSmallFont button3 button is-dark">SMOKE AND FUME ELIMINATION/ELECTRICAL FIRE</button>
-      <button data-id='ep13' onClick={this.handleClickEP} className="button2 button is-dark">CHIP DETECTOR WARNING</button>
-      <button data-id='ep14' onClick={this.handleClickEP} id='gray' className="epSmallFont button3 button is-dark">OIL SYSTEM MALFUNCTION OR LOW OIL PRESSURE</button>
-      <button data-id='ep15' onClick={this.handleClickEP} className="button2 button is-dark">LOW FUEL PRESSURE</button>
-      <button data-id='ep16' onClick={this.handleClickEP} id='gray' className="button3 button is-dark">HIGH FUEL FLOW</button>
-      <button data-id='ep17' onClick={this.handleClickEP} className="epSmallFont button2 button is-dark">OBOGS FAILURE/OVERTEMP/PHYSIOLOGICAL SYMPTOMS</button>
-      <button data-id='ep18' onClick={this.handleClickEP} id='gray' className="button2 button is-dark">EJECT</button>
-      <button data-id='ep19' onClick={this.handleClickEP} className="button2 button is-dark">FORCED LANDING</button>
-      <button data-id='ep20' onClick={this.handleClickEP} id='gray' className="epSmallFont button2 button is-dark">PRECAUTIONARY EMERGENCY LANDING (PEL)</button>
+      <button data-id='ep1' onClick={this.handleClickEP} className="epButton button2 button is-dark">ABORT START PROCEDURE</button>
+      <button data-id='ep2' onClick={this.handleClickEP} id='gray' className="epButton epSmallFont button3 button is-dark">EMERGENCY ENGINE SHUTDOWN ON THE GROUND</button>
+      <button data-id='ep3' onClick={this.handleClickEP} className="epButton button2 button is-dark">EMERGENCY GROUND EGRESS</button>
+      <button data-id='ep4' onClick={this.handleClickEP} id='gray' className="epButton button3 button is-dark">ABORT</button>
+      <button data-id='ep5' onClick={this.handleClickEP} className="epButton epSmallFont button2 button is-dark">ENGINE FAILURE IMMEDIATELY AFTER TAKEOFF (SUFFICIENT RUNWAY REMAINING STRAIGHT AHEAD)</button>
+      <button data-id='ep6' onClick={this.handleClickEP} id='gray' className="epButton button3 button is-dark">ENGINE FAILURE DURING FLIGHT</button>
+      <button data-id='ep7' onClick={this.handleClickEP} className="epButton button2 button is-dark">IMMEDIATE AIRSTART (PMU NORM)</button>
+      <button data-id='ep8' onClick={this.handleClickEP} id='gray' className="epButton epSmallFont button3 button is-dark">UNCOMMANDED POWER CHANGES / LOSS OF POWER/ UNCOMMANDED PROPELLER FEATHER</button>
+      <button data-id='ep9' onClick={this.handleClickEP} className="epButton button2 button is-dark">COMPRESSOR STALLS</button>
+      <button data-id='ep10' onClick={this.handleClickEP} id='gray' className="epButton epSmallFont button3 button is-dark">INADVERTENT DEPARTURE FROM CONTROLLED FLIGHT</button>
+      <button data-id='ep11' onClick={this.handleClickEP} className="button2 epButton button is-dark">FIRE IN FLIGHT</button>
+      <button data-id='ep12' onClick={this.handleClickEP} id='gray' className="epSmallFont epButton button3 button is-dark">SMOKE AND FUME ELIMINATION/ELECTRICAL FIRE</button>
+      <button data-id='ep13' onClick={this.handleClickEP} className="button2 epButton button is-dark">CHIP DETECTOR WARNING</button>
+      <button data-id='ep14' onClick={this.handleClickEP} id='gray' className="epSmallFont epButton button3 button is-dark">OIL SYSTEM MALFUNCTION OR LOW OIL PRESSURE</button>
+      <button data-id='ep15' onClick={this.handleClickEP} className="button2 epButton button is-dark">LOW FUEL PRESSURE</button>
+      <button data-id='ep16' onClick={this.handleClickEP} id='gray' className="button3 epButton button is-dark">HIGH FUEL FLOW</button>
+      <button data-id='ep17' onClick={this.handleClickEP} className="epSmallFont epButton button2 button is-dark">OBOGS FAILURE/OVERTEMP/PHYSIOLOGICAL SYMPTOMS</button>
+      <button data-id='ep18' onClick={this.handleClickEP} id='gray' className="epButton button2 button is-dark">EJECT</button>
+      <button data-id='ep19' onClick={this.handleClickEP} className="epButton button2 button is-dark">FORCED LANDING</button>
+      <button data-id='ep20' onClick={this.handleClickEP} id='gray' className="epButton epSmallFont button2 button is-dark">PRECAUTIONARY EMERGENCY LANDING (PEL)</button>
 
 
 
