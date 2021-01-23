@@ -25,3 +25,54 @@
     transform:  translate(0px,0px)  ;
   }
 }
+
+.button {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.epButton {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+
+}
+
+#limits {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.syllabusDropdownButton:hover{
+
+  background-color: hsl(348, 100%, 61%);
+  color: white;
+}
+
+.syllabusPagesCloseButton:hover {
+background-color: white !important;
+color: hsl(348, 100%, 61%) !important;
+border: solid hsl(348, 100%, 61%) 1px !important;
+}
+
+.epButton:hover {
+letter-spacing: 1.5px;
+border: solid 1.5px black !important;
+border-right: none !important;
+border-left: none !important;
+background-color: #f3f3f3 !important;
+color: black !important;
+border-radius: 0 !important;
+font-weight: 600;
+}
+
+.dropdown-item:hover {
+  background-color: hsl(348, 100%, 61%) !important;
+  color: white !important;
+}

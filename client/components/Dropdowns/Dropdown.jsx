@@ -6,7 +6,7 @@ function Dropdown(props) {
 
    <div onClick = {props.handleClick} className = {`dropdown width100 ${props.dropdown}`}>
   <div className="dropdown-trigger width100">
-    <button className="width100 button" aria-haspopup="true" aria-controls="dropdown-menu">
+    <button className="width100 syllabusDropdownButton button" aria-haspopup="true" aria-controls="dropdown-menu">
       <span>{props.selected}</span>
       <span className="icon is-small">
         <i className={`fa ${props.arrow}`} aria-hidden="true"></i>
