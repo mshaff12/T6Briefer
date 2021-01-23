@@ -129,7 +129,7 @@ if(this.state.modalActive) {
 
                 <p className="control navIconP whiteboardIcon" onClick={this.hideNav}>
                 <Link to={{
-  pathname: '/WhiteBoard',
+  pathname: '/Syllabus',
   state: {
     hideNav: this.hideNav,
   }
@@ -170,7 +170,7 @@ if(this.state.modalActive) {
         </nav>
 
         <Route path="/Told" component={Told} />
-        <Route path="/WhiteBoard" component={WhiteBoard} />
+        <Route path="/Syllabus" component={Syllabus} />
         <Route path="/EPPage" component={EPPage} />
         <Route path="/Gouge" component={GougePage} />
 
