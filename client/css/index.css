@@ -275,12 +275,12 @@ font-size: medium;
 }
 
 .syllabusButton {
-  margin-top: 4px;
   margin-bottom: 10px;
   width: 100%;
   max-width: 500px;
 
   margin: auto;
+  margin-top: 4px;
 }
 
 .syllabusButtonContainer {
