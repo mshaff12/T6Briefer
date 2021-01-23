@@ -73,6 +73,6 @@ font-weight: 600;
 }
 
 .dropdown-item:hover {
-  background-color:green !important;
+  background-color:hsl(348, 100%, 61%) !important;
   color: white !important;
 }
