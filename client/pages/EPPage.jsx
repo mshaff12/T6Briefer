@@ -648,21 +648,19 @@ handleCloseModal(e) {
 
 <button onClick={this.handleClickLimits} id='limits' className="button2 button is-dark"><span className='spanLimits'>Limits</span></button>
 
-<div className={`limitsModal modal ${this.state.limitsModal}`}>
-  <div className="modal-background"></div>
-  <div className="modal-card modal-card-limits">
-    <header className="modal-card-head">
-      <p className="modal-card-title">Limits</p>
-      <button onClick={this.handleCloseLimitsModal} className="delete" aria-label="close"></button>
-    </header>
-    <section className="modal-card-body modal-content-limits">
 
-    </section>
-    <footer className="modal-card-foot">
-      <button onClick={this.handleCloseLimitsModal} className="button is-danger">Close</button>
-    </footer>
-  </div>
-</div>
+{/* ============================== Limits modal ========================================================= */}
+<div className={`modal ${this.state.limitsModal}`}>
+             <div className="modal-background">
+              <div className='pagesContainer'>
+                  <button onClick={this.handleCloseLimitsModal} className="button is-danger syllabusPagesCloseButton">  <i onClick={this.handleCloseLimitsModal} className="fa fa-undo fa-2x"></i></button>
+                  <button onClick={this.handleCloseLimitsModal} className="delete is-large" aria-label="close"></button>
+                  <div className={`modal-background-syllabus-pages limitsPageBackground`}>
+                  </div>
+               </div>
+            </div>
+          </div>
+{/* ===================================================================================================== */}
 
       <button data-id='ep1' onClick={this.handleClickEP} className="epButton button2 button is-dark">ABORT START PROCEDURE</button>
       <button data-id='ep2' onClick={this.handleClickEP} id='gray' className="epButton epSmallFont button3 button is-dark">EMERGENCY ENGINE SHUTDOWN ON THE GROUND</button>

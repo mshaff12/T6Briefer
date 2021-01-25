@@ -18,6 +18,12 @@
     width: 789px;
   }
 
+  .limitsPageBackground {
+    height: 1457px;
+    width: 1200px;
+  }
+
+
 }
 
 .syllabus-C41_1 {
@@ -201,4 +207,9 @@
 }
 .syllabus-F43_3 {
   background-image: url("../../images/Syllabus T6/Formation/F4300/F43_3.png");
+}
+
+
+.limitsPageBackground {
+  background-image: url("../../images/t6_limits.png");
 }
