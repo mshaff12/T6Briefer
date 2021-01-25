@@ -42,7 +42,7 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "start": "node server/index.js",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=development",
     "watch": "webpack --watch"
   },
   "author": "",

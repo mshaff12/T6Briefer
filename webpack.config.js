@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: "./client/index.jsx",
-  mode: "production",
+  mode: "development",
   module: {
     rules: [
       {
