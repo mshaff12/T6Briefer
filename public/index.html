@@ -4,50 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T6B App</title>
+
     <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+      />
+    </noscript>
+
+    <link
+      rel="preload"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
 
     <script type="text/javascript" src="./dist/bundle.js"></script>
-    <!--
-    <script>
-      (function () {
-        var cssMain = document.createElement("link");
-        cssMain.href = "/css/index.css";
-        cssMain.rel = "stylesheet";
-        cssMain.type = "text/css";
-        document.getElementsByTagName("head")[0].appendChild(cssMain);
-      })();
-    </script>
-
-    <script>
-      (function () {
-        var cssBulma = document.createElement("link");
-        cssBulma.href =
-          "https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css";
-        cssBulma.rel = "stylesheet";
-        cssBulma.type = "text/css";
-        document.getElementsByTagName("head")[0].appendChild(cssBulma);
-      })();
-    </script>
-
-    <script>
-      (function () {
-        var cssFa = document.createElement("link");
-        cssFa.href =
-          "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-        cssFa.rel = "stylesheet";
-        cssFa.type = "text/css";
-        document.getElementsByTagName("head")[0].appendChild(cssFa);
-      })();
-    </script> -->
   </body>
 </html>

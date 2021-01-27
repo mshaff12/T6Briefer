@@ -99,16 +99,6 @@ body {
   margin-top: -5px;
 }
 
-.limits {
-  background-image: url("../../images/t6_limits.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 322px;
-  height: 156px;
-  margin-top: -5px;
-}
-
 .vt2Patch {
   background-image: url("../../images/vt2135.png");
   background-position: center center;
@@ -249,16 +239,6 @@ height: 80px;
 font-size: medium;
 }
 
-.modal-content-limits {
-  width: 95%;
-  height: 80%;
-
-  background-image: url("../../images/t6_limits.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-left: 3%;
-}
 
 .modal-card-limits {
   background-color: white;

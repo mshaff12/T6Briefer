@@ -45,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new CompressionPlugin(),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ]
 
 };

@@ -210,12 +210,33 @@
 }
 
 
+
+
+
 .limitsPageBackground {
   background-image: url("../../images/t6_limits.png");
 }
 
+.limits {
+  background-image: url("../../images/t6_limits.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 322px;
+  height: 156px;
+  margin-top: -5px;
+}
 
 
+.modal-content-limits {
+  width: 95%;
+  height: 80%;
 
+  background-image: url("../../images/t6_limits.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 3%;
+}
 
 
