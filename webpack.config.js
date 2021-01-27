@@ -1,6 +1,7 @@
 const path = require("path");
-const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionPlugin = require("compression-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./client/index.jsx",
@@ -14,14 +15,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader'
+        loader: "url-loader",
       },
       {
         test: /\.js$|jsx/,
@@ -29,15 +27,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [
-              "@babel/preset-react",
-              "@babel/preset-env",
-            ],
+            presets: ["@babel/preset-react", "@babel/preset-env"],
           },
         },
       },
-
-    ]
+    ],
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),
@@ -46,6 +40,5 @@ module.exports = {
   plugins: [
     new CompressionPlugin(),
     // new BundleAnalyzerPlugin()
-  ]
-
+  ],
 };

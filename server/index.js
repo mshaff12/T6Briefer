@@ -1,44 +1,36 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 var PORT = process.env.PORT || 3000;
-var path = require('path');
+var path = require("path");
 const db = require("../database");
 var expressStaticGzip = require("express-static-gzip");
 
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
+app.get("*.js", function (req, res, next) {
+  req.url = req.url + ".gz";
+  res.set("Content-Encoding", "gzip");
   next();
 });
 
+app.use(expressStaticGzip(path.join(__dirname, "public"), {}));
+
 app.use(
-  expressStaticGzip(path.join(__dirname, 'public'), {
-  }),
+  cors({ origin: "*", preflightContinue: false, optionsSuccessStatus: 204 })
 );
-
-
-app.use(cors({ origin: '*', preflightContinue: false, optionsSuccessStatus: 204 }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname + '/../public')));
+app.use(express.static(path.join(__dirname + "/../public")));
 
-
-app.listen(PORT, function() {
-console.log('listening')
+app.listen(PORT, function () {
+  console.log("listening");
 });
 
-
-
-
-app.get('/', function (req, res) {
-  res.render('index', {});
+app.get("/", function (req, res) {
+  res.render("index", {});
 });
 
-app.get('/test', function (req, res) {
+app.get("/test", function (req, res) {
   res.status(200);
-  res.send('its working!')
-  });
-
-
+  res.send("its working!");
+});
