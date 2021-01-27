@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -7,11 +7,13 @@ import {
   Link,
   Switch,
 } from "react-router-dom";
+
 import Told from './Told.jsx';
 import Syllabus from './Syllabus.jsx';
 import EPPage from './EPPage.jsx';
 import GougePage from './GougePage.jsx';
 
+const LazyCss = lazy(() => import('./LazyCss.jsx'));
 
 
 class App extends Component {
@@ -62,6 +64,7 @@ if(this.state.modalActive) {
 
   return (
    <React.Fragment>
+
      <HashRouter>
      <section className={`section container1 ${this.state.homepageVisible}`}>
 
@@ -93,9 +96,16 @@ if(this.state.modalActive) {
 <span className='vt28Patch'></span>
 </div>
 
+
+
+<Suspense fallback={<div id='hide'></div>}>
+        <LazyCss />
+        </ Suspense>
+
     </div>
 
   </section>
+
 
 
 <nav className="nav navBar">

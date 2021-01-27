@@ -1,8 +1,10 @@
 const path = require("path");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: "./client/index.jsx",
-  mode: "development",
+  mode: "production",
+
   module: {
     rules: [
       {
@@ -30,10 +32,14 @@ module.exports = {
         },
       },
 
-    ],
+    ]
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),
     filename: "bundle.js",
   },
+  plugins: [
+    new CompressionPlugin()
+  ]
+
 };

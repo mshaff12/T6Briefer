@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Suspense, lazy } from "react";
 import Dropdown from '../components/Dropdowns/Dropdown.jsx';
 import Dropdown2 from '../components/Dropdowns/Dropdown2.jsx';
 import Dropdown3 from '../components/Dropdowns/Dropdown3.jsx';
 import Dropdown4 from '../components/Dropdowns/Dropdown4.jsx';
 
+const LazyCss = lazy(() => import('./LazyCss.jsx'));
 
 class Syllabus extends Component {
 
@@ -236,6 +237,11 @@ this.setState({
 
     return (
       <React.Fragment>
+
+
+
+
+
        <section className={`section container1`}>
 
     <div className="container">
@@ -315,6 +321,7 @@ this.setState({
 
 {/* =============================== modals ============================================== */}
 
+
 {Object.keys(this.state.syllabusModals).map((key) => {
 
    return <div className={`modal ${this.state.syllabusModals[key]['is-active']}`}>
@@ -329,8 +336,15 @@ this.setState({
                   {this.state.syllabusModals[key]['pages'].map((page) => {
 
                   return <React.Fragment>
+
+<Suspense fallback={<div>Page is Loading...</div>}>
+        <LazyCss />
+
                   <div className={`modal-background-syllabus-pages ${page}`}>
                   </div>
+
+                  </Suspense>
+
                   { page.split(' ')[page.split(' ').length - 1] !== 'lastPage' ?
                   <div className='horizontalDivider'></div> :
                   <div id='hide'></div>
@@ -345,6 +359,7 @@ this.setState({
 {/* ====================================================================================== */}
           </div>
        </section>
+
       </React.Fragment>
     );
   }
