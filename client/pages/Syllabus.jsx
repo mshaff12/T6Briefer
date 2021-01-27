@@ -337,7 +337,7 @@ this.setState({
 
                   return <React.Fragment>
 
-<Suspense fallback={<div>Page is Loading...</div>}>
+<Suspense fallback={<div className='modal-background-syllabus-pages2'><i className="fa fa-spinner fa-2x fa-spin"></i>Page is loading...</div>}>
         <LazyCss />
 
                   <div className={`modal-background-syllabus-pages ${page}`}>
