@@ -6,10 +6,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 module.exports = {
   entry: "./client/index.jsx",
   mode: "production",
-  // watch: true,
-  // watchOptions: {
-  //   ignored: ["node_modules/**"],
-  // },
 
   module: {
     rules: [
