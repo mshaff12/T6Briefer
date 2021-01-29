@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 class Told extends Component {
   constructor(props) {
@@ -6,12 +7,13 @@ class Told extends Component {
     this.state = {
       headwind: null,
     };
-    this.temp = 20; // placeholder temp
-    this.windSpeed = 20; //placeholder wind
-    this.windDirection = 360;
+    this.temperatureKNSE;
+    this.windSpeedKNSE;
+    this.windDirectionKNSE;
+    this.windDirectionKNGP;
   }
 
-  setHeadwind = (windDirection) => {
+  setHeadwindKNSE = (windDirection, windSpeed) => {
     let runwayHeading;
     // rwys at KNSE are 05, 14, 23, and 32
     if (windDirection > 5 && windDirection <= 95) {
@@ -27,12 +29,30 @@ class Told extends Component {
     let windRadian = windDirection * Math.PI / 180;
     let runwayRadian = runwayHeading * Math.PI / 180;
     this.setState({
-      headwind: Math.trunc(Math.cos(Math.abs(windRadian - runwayRadian)) * this.windSpeed),
+      headwind: Math.trunc(Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed),
     });
   }
 
   componentDidMount() {
-    this.setHeadwind(this.windDirection);
+    axios
+      .get("getWeatherDataKNSE", {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      })
+      .then((res) => {
+        console.log("here: ", res);
+        this.temperatureKNSE = res.data.temperature.value;
+        this.windSpeedKNSE = res.data.wind_speed.value;
+        this.windDirectionKNSE = res.data.wind_direction.value;
+        this.setHeadwindKNSE(this.windDirectionKNSE, this.windSpeedKNSE);
+      });
+
+    axios
+      .get("getWeatherDataKNGP", {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      })
+      .then((res) => {
+        console.log("here: ", res);
+      });
   }
 
   render() {
