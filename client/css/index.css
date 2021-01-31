@@ -388,7 +388,7 @@ animation: slideUp forwards 0.5s;
 .KNSEMetar, .KNGPMetar {
 font-size: small;
 
-color: red;
+color: hsl(217, 71%, 53%);
 margin-bottom: 10px;
 }
 
@@ -434,6 +434,8 @@ width: 64px !important;
 
 .smallerText {
   font-size: small;
+  display: flex;
+  align-items: center;
 }
 
 .marginBottomTold {
@@ -446,5 +448,12 @@ width: 64px !important;
 }
 
 .toldData {
-  color: red;
+  color: hsl(217, 71%, 53%);
+  margin-left: 5px;
+}
+
+.toldDataInputFields {
+  width: 60px;
+  margin-left: 3px;
+  margin-bottom: 2px;
 }

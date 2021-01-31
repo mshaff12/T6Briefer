@@ -18,6 +18,7 @@ class Told extends Component {
       headwind: null,
       KNSEMetar: "",
       KNGPMetar: "",
+      toldModalActive: "",
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -45,7 +46,21 @@ class Told extends Component {
         Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
       ),
     });
+    this.activateToldModal = this.activateToldModal.bind(this);
+    this.exitToldModal = this.exitToldModal.bind(this);
   };
+
+  activateToldModal() {
+    this.setState({
+      toldModalActive: "is-active",
+    });
+  }
+
+  exitToldModal() {
+    this.setState({
+      toldModalActive: "",
+    });
+  }
 
   componentDidMount() {
     axios
@@ -100,17 +115,17 @@ class Told extends Component {
             </div>
 
             <div className="smallerText">
-              MIN TORQUE AT 60 KIAS:<span className="toldData">{` data`}</span>
+              MIN TORQUE AT 60 KIAS:<span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">{` data`}</span>
+              <span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText">
-              MAX DRY ABORT SPEED:<span className="toldData">{` data`}</span>
+              MAX DRY ABORT SPEED:<span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText marginBottomTold">
-              MAX WET ABORT SPEED:<span className="toldData">{` data`}</span>
+              MAX WET ABORT SPEED:<span className="toldData">{`data`}</span>
             </div>
 
             <h2 className="metarTitle">NAS CORPUS CHRISTI</h2>
@@ -129,20 +144,97 @@ class Told extends Component {
             </div>
 
             <div className="smallerText">
-              MIN TORQUE AT 60 KIAS:<span className="toldData">{` data`}</span>
+              MIN TORQUE AT 60 KIAS:<span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">{` data`}</span>
+              <span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText">
-              MAX DRY ABORT SPEED:<span className="toldData">{` data`}</span>
+              MAX DRY ABORT SPEED:<span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText marginBottomTold">
-              MAX WET ABORT SPEED:<span className="toldData">{` data`}</span>
+              MAX WET ABORT SPEED:<span className="toldData">{`data`}</span>
             </div>
 
             <h2 className="metarTitle">MANUAL ENTRY</h2>
+
+            <div className="smallerText">
+              TEMPERATURE(°C):
+              <input
+                className="input toldDataInputFields is-small"
+                type="text"
+                placeholder="Ex: 15"
+              ></input>
+            </div>
+            <div className="smallerText">
+              WIND DIRECTION:{" "}
+              <input
+                className="input toldDataInputFields is-small"
+                type="text"
+                placeholder="Ex: 120"
+              ></input>
+            </div>
+            <div className="smallerText">
+              WIND SPEED:{" "}
+              <input
+                className="input toldDataInputFields is-small"
+                type="text"
+                placeholder="Ex: 10"
+              ></input>
+            </div>
+            <div className="smallerText marginBottomTold">
+              RUNWAY HEADING:{" "}
+              <input
+                className="input toldDataInputFields is-small"
+                type="text"
+                placeholder="Ex: 230"
+              ></input>
+            </div>
+
+            <button onClick={this.activateToldModal} className="button is-info">
+              calculate
+            </button>
+
+            <div className={`modal ${this.state.toldModalActive}`}>
+              <div className="modal-background"></div>
+              <div className="modal-card epModal">
+                <header className="modal-card-head">
+                  <p className="modal-card-title">TOLD MANUAL ENTRY</p>
+                  <button
+                    onClick={this.exitToldModal}
+                    className="delete"
+                    aria-label="close"
+                  ></button>
+                </header>
+                <section className="modal-card-body">
+                  <div className="smallerText">
+                    MIN TORQUE AT 60 KIAS:
+                    <span className="toldData">{`data`}</span>
+                  </div>
+                  <div className="smallerText">
+                    TAKEOFF DISTANCE (FLAPS T/O):
+                    <span className="toldData">{`data`}</span>
+                  </div>
+                  <div className="smallerText">
+                    MAX DRY ABORT SPEED:
+                    <span className="toldData">{`data`}</span>
+                  </div>
+                  <div className="smallerText marginBottomTold">
+                    MAX WET ABORT SPEED:
+                    <span className="toldData">{`data`}</span>
+                  </div>
+                </section>
+                <footer className="modal-card-foot">
+                  <button
+                    onClick={this.exitToldModal}
+                    className="button is-dark"
+                  >
+                    Close
+                  </button>
+                </footer>
+              </div>
+            </div>
           </div>
         </section>
       </React.Fragment>
