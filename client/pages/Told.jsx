@@ -26,6 +26,17 @@ class Told extends Component {
     this.windDirectionKNGP;
   }
 
+  // 1) update runways for corpus in the drop down
+  // 2) write a function that uses the wind data to display the only 2 possible runways in the drop down (or just leave all 4)
+  // 3) create state variables for both runway drop downs
+  // 4) write onClick functions for the drop downs which set the state
+
+  // 5) add a state variable for each told data, as well as each manual entry input
+  // 6) write onChange functions for the manual entry inputs which sets the respective states
+  // 7) write functions which use the weather API to calculate each told data, and use setState to update them
+  // 8) call your functions in componentDidMount (make sure you call after the API loads the data)
+  // 9) replace all the 'data' text on the page to be 'this.state.whateverStateNameYouMade'
+
   setHeadwindKNSE = (windDirection, windSpeed) => {
     let runwayHeading;
     // rwys at KNSE are 05, 14, 23, and 32
@@ -68,7 +79,7 @@ class Told extends Component {
         headers: { "Access-Control-Allow-Origin": "*" },
       })
       .then((res) => {
-        console.log("here: ", res);
+        console.log("KNSE Data: ", res);
         this.temperatureKNSE = res.data.temperature.value;
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
@@ -84,7 +95,7 @@ class Told extends Component {
         headers: { "Access-Control-Allow-Origin": "*" },
       })
       .then((res) => {
-        console.log("here: ", res);
+        console.log("KNGP Data: ", res);
 
         this.setState({
           KNGPMetar: res.data.sanitized,
