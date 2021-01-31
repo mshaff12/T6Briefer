@@ -385,3 +385,66 @@ animation: slideUp forwards 0.5s;
   text-align: center;
 }
 
+.KNSEMetar, .KNGPMetar {
+font-size: small;
+
+color: red;
+margin-bottom: 10px;
+}
+
+.metarTitle {
+  margin-bottom: 10px;
+  /* color: blue; */
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.toldForRunway {
+  /* font-size: small; */
+  display: flex;
+align-items: center;
+margin-bottom: 10px;
+
+}
+
+
+.Dropdown-root {
+  width: 50px;
+  margin-left: 10px;
+  font-size: small;
+}
+
+
+.toldForRunwayText {
+}
+
+.Dropdown-menu {
+width: 64px !important;
+}
+
+.Dropdown-option:hover {
+  background-color: hsl(348, 100%, 61%) !important;
+  color: white !important;
+}
+
+.is-selected {
+  background-color: white !important;
+}
+
+.smallerText {
+  font-size: small;
+}
+
+.marginBottomTold {
+  margin-bottom: 10px;
+}
+
+.Dropdown-control:hover {
+  background-color: hsl(348, 100%, 61%);
+  color: white;
+}
+
+.toldData {
+  color: red;
+}
