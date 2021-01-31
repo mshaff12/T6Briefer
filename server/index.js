@@ -68,4 +68,8 @@ app.get("/getWeatherDataKNGP", function (req, res) {
       }
     }
   );
+
 });
+
+});
+

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
@@ -10,6 +11,7 @@ const defaultOption = options[0];
 const options2 = ["??", "??", "??", "??"];
 
 const defaultOption2 = options2[0];
+
 
 class Told extends Component {
   constructor(props) {
@@ -100,6 +102,16 @@ class Told extends Component {
         this.setState({
           KNGPMetar: res.data.sanitized,
         });
+      });
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://www.aviationweather.gov/cgi-bin/json/MetarJSON.php", {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      })
+      .then((res) => {
+        console.log("here: ", res);
       });
   }
 
