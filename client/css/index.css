@@ -457,3 +457,8 @@ width: 64px !important;
   margin-left: 3px;
   margin-bottom: 2px;
 }
+
+.calculateToldButton {
+  width: 100%;
+  max-width: 600px;
+}

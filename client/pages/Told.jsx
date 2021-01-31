@@ -192,7 +192,10 @@ class Told extends Component {
               ></input>
             </div>
 
-            <button onClick={this.activateToldModal} className="button is-info">
+            <button
+              onClick={this.activateToldModal}
+              className="calculateToldButton button is-info"
+            >
               calculate
             </button>
 
