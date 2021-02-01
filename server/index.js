@@ -36,7 +36,7 @@ app.get("/test", function (req, res) {
   res.send("its working!");
 });
 
-app.get("/getWeatherDataKNSE", function (req, res) {
+app.get("https://t6briefer.com/getWeatherDataKNSE", function (req, res) {
   res.status(200);
   request(
     {
@@ -53,7 +53,7 @@ app.get("/getWeatherDataKNSE", function (req, res) {
   );
 });
 
-app.get("/getWeatherDataKNGP", function (req, res) {
+app.get("https://t6briefer.com/getWeatherDataKNGP", function (req, res) {
   res.status(200);
   request(
     {
