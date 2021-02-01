@@ -7,7 +7,7 @@ const options = ["05", "14", "23", "32"];
 
 const defaultOption = options[0];
 
-const options2 = ["??", "??", "??", "??"];
+const options2 = ["4", "13L", "13R", "18", "22", "31L", "31R", "36"];
 
 const defaultOption2 = options2[0];
 
@@ -16,6 +16,8 @@ class Told extends Component {
     super(props);
     this.state = {
       headwind: null,
+      runwayHeading: 31,
+      stringHeading: "31L",
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
@@ -37,8 +39,8 @@ class Told extends Component {
   // 8) call your functions in componentDidMount (make sure you call after the API loads the data)
   // 9) replace all the 'data' text on the page to be 'this.state.whateverStateNameYouMade'
 
-  setHeadwindKNSE = (windDirection, windSpeed) => {
-    let runwayHeading;
+  setHeadwindKNSE = (windDirection, windSpeed, runwayHeading) => {
+    /*let runwayHeading;
     // rwys at KNSE are 05, 14, 23, and 32
     if (windDirection > 5 && windDirection <= 95) {
       runwayHeading = 50;
@@ -48,18 +50,34 @@ class Told extends Component {
       runwayHeading = 230;
     } else {
       runwayHeading = 320;
-    }
+    } */
+
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
     this.setState({
-      headwind: Math.trunc(
+      headwind: Math.floor(
         Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
       ),
     });
     this.activateToldModal = this.activateToldModal.bind(this);
     this.exitToldModal = this.exitToldModal.bind(this);
-  };
+  }
+
+  maxAbortSpeed = (headWind, temperature, stringHeading) => {
+    let runwayDistance;
+    let speedCache;
+    if (stringHeading == "22" || stringHeading == "4"|| stringHeading == "18" || stringHeading == "36" || stringHeading == "13L" || stringHeading == "31R") {
+      speedCache = [[]];
+      //runwayDistance = 5000
+    } else if (stringHeading == "13R" || stringHeading == "31L") {
+      speedCache = [[]];
+      //runwayDistance = 8000
+    } else {
+      speedCache = [[108, 110, 112, 116, 120], [102, 105, 109, 112, 116], [98, 100, 104, 108, 110], [96, 99, 102, 106, 109]];
+      //runwayDistance = 6000
+    }
+  }
 
   activateToldModal() {
     this.setState({
@@ -83,7 +101,7 @@ class Told extends Component {
         this.temperatureKNSE = res.data.temperature.value;
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
-        this.setHeadwindKNSE(this.windDirectionKNSE, this.windSpeedKNSE);
+        this.setHeadwindKNSE(this.windDirectionKNSE, this.windSpeedKNSE, this.state.runwayHeading);
 
         this.setState({
           KNSEMetar: res.data.sanitized,
@@ -109,6 +127,7 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
+            <h1>{this.state.headwind}</h1>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
             <div className="KNSEMetar">{this.state.KNSEMetar}</div>
