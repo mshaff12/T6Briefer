@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { ThemeProvider } from "react-bootstrap";
+import { speed } from "jquery";
 
 const options = ["05", "14", "23", "32"];
 
@@ -21,6 +23,7 @@ class Told extends Component {
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
+      maxAbortKNSE: null,
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -64,8 +67,13 @@ class Told extends Component {
     this.exitToldModal = this.exitToldModal.bind(this);
   }
 
-  maxAbortSpeed = (headWind, temperature, stringHeading) => {
-    let runwayDistance;
+  maxAbortSpeed = (headwind, temperature, stringHeading) => {
+    console.log("test");
+    // Need to add try {} catch{] to program to account for out of limits entry 
+    // Still need to calculate for negative headwind (aka tailwind)
+    if (temperature > 40 || temperature < 0 || headwind > 40 || headwind < 0) {
+      throw "Input is out of limits.";
+    }
     let speedCache;
     if (stringHeading == "22" || stringHeading == "4"|| stringHeading == "18" || stringHeading == "36" || stringHeading == "13L" || stringHeading == "31R") {
       speedCache = [[]];
@@ -77,6 +85,19 @@ class Told extends Component {
       speedCache = [[108, 110, 112, 116, 120], [102, 105, 109, 112, 116], [98, 100, 104, 108, 110], [96, 99, 102, 106, 109]];
       //runwayDistance = 6000
     }
+    headwind /= 10;
+    temperature /= 10;
+    let temperatureIdx1 = Math.floor(temperature);
+    let temperatureIdx2 = Math.ceil(temperature);
+    let headwindIdx1 = Math.floor(headwind);
+    let headwindIdx2 = Math.ceil(headwind);
+    let minuend = (speedCache[temperatureIdx1][headwindIdx2] - speedCache[temperatureIdx1][headwindIdx1]) * (headwind - headwindIdx1) + speedCache[temperatureIdx1][headwindIdx1];
+    let subtrahend = (speedCache[temperatureIdx2][headwindIdx2] - speedCache[temperatureIdx2][headwindIdx1]) * (headwind - headwindIdx1) + speedCache[temperatureIdx2][headwindIdx1];
+    let maxAbort = (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+    this.setState({
+      maxAbortKNSE:
+        Math.ceil(maxAbort),
+    });
   }
 
   activateToldModal() {
@@ -102,7 +123,8 @@ class Told extends Component {
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
         this.setHeadwindKNSE(this.windDirectionKNSE, this.windSpeedKNSE, this.state.runwayHeading);
-
+        //this.maxAbortSpeed(this.state.headwind, this.temperatureKNSE, 23);
+        this.maxAbortSpeed(10, 10, 23); // test example
         this.setState({
           KNSEMetar: res.data.sanitized,
         });
@@ -127,7 +149,7 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
-            <h1>{this.state.headwind}</h1>
+            <h1>{this.state.maxAbortKNSE}</h1>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
             <div className="KNSEMetar">{this.state.KNSEMetar}</div>
