@@ -75,7 +75,7 @@ class Told extends Component {
 
   componentDidMount() {
     axios
-      .get("https://t6briefer.com/getWeatherDataKNSE", {
+      .get("getWeatherDataKNSE", {
         headers: { "Access-Control-Allow-Origin": "*" },
       })
       .then((res) => {
@@ -91,7 +91,7 @@ class Told extends Component {
       });
 
     axios
-      .get("https://t6briefer.com/getWeatherDataKNSE", {
+      .get("getWeatherDataKNSE", {
         headers: { "Access-Control-Allow-Origin": "*" },
       })
       .then((res) => {
