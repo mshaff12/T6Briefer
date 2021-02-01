@@ -188,7 +188,7 @@ class App extends Component {
                         </div>
                       </Link>
                     </p>
-                    <p
+                    {/* <p
                       className="control navIconP gougeIcon"
                       onClick={this.hideNav}
                     >
@@ -202,7 +202,7 @@ class App extends Component {
                           <div className="iconText">Gouge</div>
                         </div>
                       </Link>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
