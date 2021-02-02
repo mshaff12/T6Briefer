@@ -177,14 +177,16 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
-            <h1>{this.state.maxAbortKNSE}</h1>
+            {/* <h1>{this.state.maxAbortKNSE}</h1> */}
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
-            {this.state.metarLoadingKNSE ? (
-              <i className="fa fa-spinner fa-spin"></i>
-            ) : (
-              <div className="KNSEMetar">{this.state.KNSEMetar}</div>
-            )}
+            <div className="metarWrapperDiv">
+              {this.state.metarLoadingKNSE ? (
+                <i className="fa fa-spinner fa-spin fa-2x"></i>
+              ) : (
+                <div className="KNSEMetar">{this.state.KNSEMetar}</div>
+              )}
+            </div>
 
             <div className="toldForRunway">
               <span className="toldForRunwayText">TOLD FOR RUNWAY</span>
@@ -214,11 +216,13 @@ class Told extends Component {
 
             <h2 className="metarTitle">NAS CORPUS CHRISTI</h2>
 
-            {this.state.metarLoadingKNGP ? (
-              <i className="fa fa-spinner fa-spin"></i>
-            ) : (
-              <div className="KNGPMetar">{this.state.KNGPMetar}</div>
-            )}
+            <div className="metarWrapperDiv">
+              {this.state.metarLoadingKNGP ? (
+                <i className="fa fa-spinner fa-spin fa-2x"></i>
+              ) : (
+                <div className="KNGPMetar">{this.state.KNGPMetar}</div>
+              )}
+            </div>
 
             <div className="toldForRunway">
               <span className="toldForRunwayText">TOLD FOR RUNWAY</span>

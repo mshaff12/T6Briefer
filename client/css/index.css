@@ -463,3 +463,9 @@ width: 64px !important;
   max-width: 600px;
 }
 
+
+.metarWrapperDiv {
+  min-height: 67px;
+  display: flex;
+  align-items: center;
+}
