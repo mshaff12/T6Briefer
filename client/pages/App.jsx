@@ -67,7 +67,7 @@ class App extends Component {
                 <span className="forTheMargin">
                   <span className="t6CircleIcon"></span>
                 </span>
-                T6 Briefer
+                T6 BRIEFER
                 <span className="forTheMargin2">
                   <span className="t6CircleIcon"></span>
                 </span>

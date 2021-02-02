@@ -74,7 +74,7 @@ class EPPage extends Component {
       <React.Fragment>
         <section className={`section container1`}>
           <div className="container">
-            <h1 className="title">{`EPs & Limits`}</h1>
+            <h1 className="title">{`EP'S & LIMITS`}</h1>
 
             <div className={`modal ${this.state.modalActive.ep1}`}>
               <div className="modal-background"></div>
