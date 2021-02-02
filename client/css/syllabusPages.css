@@ -18,15 +18,11 @@
     width: 789px;
   }
 
-  .limitsPageBackground {
+  .limitsPageBackground, .limitsPageBackgroundEmpty {
     height: 1457px;
     width: 1200px;
   }
 
-  .limitsPageBackgroundEmpty {
-    height: 1125px;
-    width: 917px;
-  }
 
 
 }
