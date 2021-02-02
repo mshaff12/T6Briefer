@@ -136,7 +136,7 @@ class Syllabus extends Component {
           ],
         },
       },
-      currentSyllabus: "Syllabus",
+      currentSyllabus: "SYLLABUS",
       modalActive: "",
     };
     this.handleClickOpenSyllabus = this.handleClickOpenSyllabus.bind(this);

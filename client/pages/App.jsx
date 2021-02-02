@@ -132,7 +132,7 @@ class App extends Component {
                       >
                         <div className="center">
                           <i className="icon fa fa-home fa-2x"></i>
-                          <div className="iconText">Home</div>
+                          <div className="iconText">HOME</div>
                         </div>
                       </Link>
                     </p>
@@ -169,7 +169,7 @@ class App extends Component {
                           <div>
                             <i className=" fa fa-desktop fa-2x"></i>
                           </div>
-                          <div className="iconText">Syllabus</div>
+                          <div className="iconText">SYLLABUS</div>
                         </div>
                       </Link>
                     </p>
@@ -184,7 +184,7 @@ class App extends Component {
                       >
                         <div className="center">
                           <i className="fa fa-tachometer fa-2x"></i>
-                          <div className="iconText">{`EPs & Limits`}</div>
+                          <div className="iconText">{`EP'S & LIMITS`}</div>
                         </div>
                       </Link>
                     </p>
