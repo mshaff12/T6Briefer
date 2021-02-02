@@ -184,7 +184,7 @@ class App extends Component {
                       >
                         <div className="center">
                           <i className="fa fa-tachometer fa-2x"></i>
-                          <div className="iconText">{`EPs & LIMITS`}</div>
+                          <div className="iconText">{`EP'S & LIMITS`}</div>
                         </div>
                       </Link>
                     </p>
