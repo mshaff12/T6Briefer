@@ -27,12 +27,29 @@ class EPPage extends Component {
         ep20: "",
       },
       limitsModal: "",
+      limitsPageBackground: "limitsPageBackground",
+      limitsPageButtonName: "Toggle Blank",
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleClickEP = this.handleClickEP.bind(this);
 
     this.handleClickLimits = this.handleClickLimits.bind(this);
     this.handleCloseLimitsModal = this.handleCloseLimitsModal.bind(this);
+    this.toggleLimitsPage = this.toggleLimitsPage.bind(this);
+  }
+
+  toggleLimitsPage() {
+    if (this.state.limitsPageBackground === "limitsPageBackground") {
+      this.setState({
+        limitsPageBackground: "limitsPageBackgroundEmpty",
+        limitsPageButtonName: "Toggle Filled",
+      });
+    } else {
+      this.setState({
+        limitsPageBackground: "limitsPageBackground",
+        limitsPageButtonName: "Toggle Blank",
+      });
+    }
   }
 
   handleCloseLimitsModal() {
@@ -943,8 +960,14 @@ class EPPage extends Component {
                     className="delete is-large"
                     aria-label="close"
                   ></button>
+                  <button
+                    onClick={this.toggleLimitsPage}
+                    className="button is-info toggleLimitsPageButton"
+                  >
+                    {this.state.limitsPageButtonName}
+                  </button>
                   <div
-                    className={`modal-background-syllabus-pages limitsPageBackground`}
+                    className={`modal-background-syllabus-pages ${this.state.limitsPageBackground}`}
                   ></div>
                 </div>
               </div>

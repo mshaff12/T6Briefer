@@ -23,6 +23,11 @@
     width: 1200px;
   }
 
+  .limitsPageBackgroundEmpty {
+    height: 1125px;
+    width: 917px;
+  }
+
 
 }
 
@@ -215,6 +220,10 @@
 
 .limitsPageBackground {
   background-image: url("../../images/t6_limits.png");
+}
+
+.limitsPageBackgroundEmpty {
+  background-image: url("../../images/t6_limits_blank.png");
 }
 
 .limits {

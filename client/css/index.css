@@ -34,7 +34,7 @@ body {
 }
 
 .title {
-  color: black;
+  color: rgb(0, 0, 0);
   text-align: center;
 
   display: flex;
@@ -47,6 +47,7 @@ body {
   background-color: hsl(0, 0%, 96%);
   padding-top: 5px;
   padding-bottom: 5px;
+
 }
 
 .center {
@@ -468,4 +469,15 @@ width: 64px !important;
   min-height: 67px;
   display: flex;
   align-items: center;
+}
+
+
+.toggleLimitsPageButton {
+  position: absolute;
+  bottom: 53px;
+  left: 90px;
+  width: 120px;
+border-radius: 0;
+
+animation: slideUp forwards 0.5s;
 }
