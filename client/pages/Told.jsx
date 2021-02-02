@@ -24,6 +24,8 @@ class Told extends Component {
       KNGPMetar: "",
       toldModalActive: "",
       maxAbortKNSE: null,
+      metarLoadingKNSE: true,
+      metarLoadingKNGP: true,
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -65,24 +67,36 @@ class Told extends Component {
     });
     this.activateToldModal = this.activateToldModal.bind(this);
     this.exitToldModal = this.exitToldModal.bind(this);
-  }
+  };
 
   maxAbortSpeed = (headwind, temperature, stringHeading) => {
     console.log("test");
-    // Need to add try {} catch{] to program to account for out of limits entry 
+    // Need to add try {} catch{] to program to account for out of limits entry
     // Still need to calculate for negative headwind (aka tailwind)
     if (temperature > 40 || temperature < 0 || headwind > 40 || headwind < 0) {
       throw "Input is out of limits.";
     }
     let speedCache;
-    if (stringHeading == "22" || stringHeading == "4"|| stringHeading == "18" || stringHeading == "36" || stringHeading == "13L" || stringHeading == "31R") {
+    if (
+      stringHeading == "22" ||
+      stringHeading == "4" ||
+      stringHeading == "18" ||
+      stringHeading == "36" ||
+      stringHeading == "13L" ||
+      stringHeading == "31R"
+    ) {
       speedCache = [[]];
       //runwayDistance = 5000
     } else if (stringHeading == "13R" || stringHeading == "31L") {
       speedCache = [[]];
       //runwayDistance = 8000
     } else {
-      speedCache = [[108, 110, 112, 116, 120], [102, 105, 109, 112, 116], [98, 100, 104, 108, 110], [96, 99, 102, 106, 109]];
+      speedCache = [
+        [108, 110, 112, 116, 120],
+        [102, 105, 109, 112, 116],
+        [98, 100, 104, 108, 110],
+        [96, 99, 102, 106, 109],
+      ];
       //runwayDistance = 6000
     }
     headwind /= 10;
@@ -91,14 +105,22 @@ class Told extends Component {
     let temperatureIdx2 = Math.ceil(temperature);
     let headwindIdx1 = Math.floor(headwind);
     let headwindIdx2 = Math.ceil(headwind);
-    let minuend = (speedCache[temperatureIdx1][headwindIdx2] - speedCache[temperatureIdx1][headwindIdx1]) * (headwind - headwindIdx1) + speedCache[temperatureIdx1][headwindIdx1];
-    let subtrahend = (speedCache[temperatureIdx2][headwindIdx2] - speedCache[temperatureIdx2][headwindIdx1]) * (headwind - headwindIdx1) + speedCache[temperatureIdx2][headwindIdx1];
-    let maxAbort = (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+    let minuend =
+      (speedCache[temperatureIdx1][headwindIdx2] -
+        speedCache[temperatureIdx1][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      speedCache[temperatureIdx1][headwindIdx1];
+    let subtrahend =
+      (speedCache[temperatureIdx2][headwindIdx2] -
+        speedCache[temperatureIdx2][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      speedCache[temperatureIdx2][headwindIdx1];
+    let maxAbort =
+      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
     this.setState({
-      maxAbortKNSE:
-        Math.ceil(maxAbort),
+      maxAbortKNSE: Math.ceil(maxAbort),
     });
-  }
+  };
 
   activateToldModal() {
     this.setState({
@@ -122,11 +144,16 @@ class Told extends Component {
         this.temperatureKNSE = res.data.temperature.value;
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
-        this.setHeadwindKNSE(this.windDirectionKNSE, this.windSpeedKNSE, this.state.runwayHeading);
+        this.setHeadwindKNSE(
+          this.windDirectionKNSE,
+          this.windSpeedKNSE,
+          this.state.runwayHeading
+        );
         //this.maxAbortSpeed(this.state.headwind, this.temperatureKNSE, 23);
         this.maxAbortSpeed(10, 10, 23); // test example
         this.setState({
           KNSEMetar: res.data.sanitized,
+          metarLoadingKNSE: false,
         });
       });
 
@@ -139,6 +166,7 @@ class Told extends Component {
 
         this.setState({
           KNGPMetar: res.data.sanitized,
+          metarLoadingKNGP: false,
         });
       });
   }
@@ -152,7 +180,11 @@ class Told extends Component {
             <h1>{this.state.maxAbortKNSE}</h1>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
-            <div className="KNSEMetar">{this.state.KNSEMetar}</div>
+            {this.state.metarLoadingKNSE ? (
+              <i className="fa fa-spinner fa-spin"></i>
+            ) : (
+              <div className="KNSEMetar">{this.state.KNSEMetar}</div>
+            )}
 
             <div className="toldForRunway">
               <span className="toldForRunwayText">TOLD FOR RUNWAY</span>
@@ -181,7 +213,12 @@ class Told extends Component {
             </div>
 
             <h2 className="metarTitle">NAS CORPUS CHRISTI</h2>
-            <div className="KNGPMetar">{this.state.KNGPMetar}</div>
+
+            {this.state.metarLoadingKNGP ? (
+              <i className="fa fa-spinner fa-spin"></i>
+            ) : (
+              <div className="KNGPMetar">{this.state.KNGPMetar}</div>
+            )}
 
             <div className="toldForRunway">
               <span className="toldForRunwayText">TOLD FOR RUNWAY</span>
