@@ -22,9 +22,24 @@ class App extends Component {
     this.state = {
       homepageVisible: "",
       modalActive: false,
+      installEvent: "",
     };
     this.hideNav = this.hideNav.bind(this);
     this.showNav = this.showNav.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      this.setState(
+        {
+          installEvent: e,
+        },
+        () => {
+          console.log(this.state.installEvent);
+        }
+      );
+    });
   }
 
   hideNav(e) {
@@ -124,6 +139,12 @@ class App extends Component {
                   <span className="vt28Patch"></span>
                 </a>
               </div>
+
+              {this.state.installEvent === "" ? (
+                <div id="hide"></div>
+              ) : (
+                <button className="button is-success">install as app</button>
+              )}
 
               <Suspense fallback={<div id="hide"></div>}>
                 <LazyCss />
