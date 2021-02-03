@@ -23,14 +23,19 @@ app.listen(PORT, function () {
   console.log(`listening on port ${PORT}`);
 });
 
+// app.get("http://localhost:3000/", function (req, res) {
+//   res.status(200);
+//   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+// });
+
 app.get("http://localhost:3000/", function (req, res) {
   res.status(200);
-  res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+  res.sendFile(path.resolve(__dirname, "public", "manifest.json"));
 });
 
 app.get("http://www.t6briefer.com/", function (req, res) {
   res.status(200);
-  res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+  res.sendFile(path.resolve(__dirname, "public", "manifest.json"));
 });
 
 app.get("/manifest.json", function (req, res) {
@@ -46,7 +51,7 @@ app.get("/icons/manifest-icon-512.png", (req, res) => {
 });
 
 app.get("/service-worker.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../public/dist", "service-worker.js"));
+  res.sendFile(path.resolve(__dirname, "public", "dist", "service-worker.js"));
 });
 
 // app.get("*.js", function (req, res, next) {
