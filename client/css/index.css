@@ -498,3 +498,14 @@ border-radius: 0;
 
 animation: slideUp forwards 0.5s;
 }
+
+
+#installButton {
+  position: fixed;
+  bottom: 53px;
+  left: 0;
+  width: 100px;
+border-radius: 0;
+
+animation: slideUp forwards 0.5s;
+}

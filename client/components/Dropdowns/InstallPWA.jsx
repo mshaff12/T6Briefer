@@ -28,13 +28,12 @@ const InstallPWA = () => {
   }
   return (
     <button
-      className="link-button button is-danger installButton"
-      id="setup_button"
+      className="link-button button is-danger"
       aria-label="install app"
       title="install app"
       onClick={onClick}
     >
-      Install
+      install app
     </button>
   );
 };
