@@ -106,13 +106,23 @@ class App extends Component {
               </div>
 
               <div className="vtPatches">
-                <span className="vt2Patch"></span>
-                <span className="vt3Patch"></span>
-                <span className="vt6Patch"></span>
+                <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
+                  <span className="vt2Patch"></span>
+                </a>
+                <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-3">
+                  <span className="vt3Patch"></span>
+                </a>
+                <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-6">
+                  <span className="vt6Patch"></span>
+                </a>
               </div>
               <div className="vtPatches2">
-                <span className="vt27Patch"></span>
-                <span className="vt28Patch"></span>
+                <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-27">
+                  <span className="vt27Patch"></span>
+                </a>
+                <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-28">
+                  <span className="vt28Patch"></span>
+                </a>
               </div>
 
               <Suspense fallback={<div id="hide"></div>}>
