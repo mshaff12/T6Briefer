@@ -487,3 +487,14 @@ animation: slideUp forwards 0.5s;
   margin-top: -28px;
   margin-bottom: 20px;
 }
+
+
+.installButton {
+  position: fixed;
+  bottom: 53px;
+  left: 0;
+  width: 100px;
+border-radius: 0;
+
+animation: slideUp forwards 0.5s;
+}
