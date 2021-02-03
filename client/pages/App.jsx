@@ -73,6 +73,8 @@ class App extends Component {
                 </span>
               </h1>
 
+              <h3 className="earlyAccess">(early access)</h3>
+
               <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
                 <button className="button2 button is-dark">
                   VT-2 Front Page / Schedule

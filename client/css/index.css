@@ -481,3 +481,9 @@ border-radius: 0;
 
 animation: slideUp forwards 0.5s;
 }
+
+.earlyAccess {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
