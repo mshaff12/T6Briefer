@@ -8,6 +8,11 @@ const db = require("../database");
 var expressStaticGzip = require("express-static-gzip");
 var request = require("request");
 
+app.get("http://localhost:3000/", function (req, res) {
+  res.status(200);
+  res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+});
+
 app.get("/manifest.json", function (req, res) {
   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
 });
@@ -21,7 +26,11 @@ app.get("/icons/manifest-icon-512.png", (req, res) => {
 });
 
 app.get("/service-worker.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../public/dist", "service-worker.js"));
+  res.sendFile(path.join(__dirname, "/../service-worker.js"));
+});
+
+app.get("/sw.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../src", "src-sw.js"));
 });
 
 app.get("*.js", function (req, res, next) {

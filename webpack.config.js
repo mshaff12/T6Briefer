@@ -8,10 +8,6 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 module.exports = {
   entry: "./client/index.jsx",
   mode: "production",
-  // watch: true,
-  // watchOptions: {
-  //   ignored: ["node_modules/**"],
-  // },
 
   module: {
     rules: [
@@ -49,6 +45,7 @@ module.exports = {
     new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
+      swDest: "service-worker.js",
       clientsClaim: true,
       skipWaiting: true,
     }),
