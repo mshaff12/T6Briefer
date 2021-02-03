@@ -26,11 +26,7 @@ app.get("/icons/manifest-icon-512.png", (req, res) => {
 });
 
 app.get("/service-worker.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../service-worker.js"));
-});
-
-app.get("/sw.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../src", "src-sw.js"));
+  res.sendFile(path.join(__dirname, "/../public/dist", "service-worker.js"));
 });
 
 app.get("*.js", function (req, res, next) {
