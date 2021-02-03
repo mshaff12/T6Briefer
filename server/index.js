@@ -8,6 +8,22 @@ const db = require("../database");
 var expressStaticGzip = require("express-static-gzip");
 var request = require("request");
 
+app.get("/manifest.json", function (req, res) {
+  res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+});
+
+app.get("/icons/manifest-icon-192.png", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../icons", "manifest-icon-192.png"));
+});
+
+app.get("/icons/manifest-icon-512.png", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../icons", "manifest-icon-512.png"));
+});
+
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../public/dist", "service-worker.js"));
+});
+
 app.get("*.js", function (req, res, next) {
   req.url = req.url + ".gz";
   res.set("Content-Encoding", "gzip");
@@ -15,6 +31,8 @@ app.get("*.js", function (req, res, next) {
 });
 
 app.use(expressStaticGzip(path.join(__dirname, "dist"), {}));
+
+// app.get("/icons", express.static(path.join(__dirname, "icons")));
 
 app.use(
   cors({ origin: "*", preflightContinue: false, optionsSuccessStatus: 204 })
