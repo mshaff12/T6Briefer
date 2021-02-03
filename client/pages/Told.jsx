@@ -178,6 +178,7 @@ class Told extends Component {
           <div className="container">
             <h1 className="title">TOLD</h1>
             {/* <h1>{this.state.maxAbortKNSE}</h1> */}
+            <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
             <div className="metarWrapperDiv">
