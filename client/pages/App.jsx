@@ -12,6 +12,7 @@ import Told from "./Told.jsx";
 import Syllabus from "./Syllabus.jsx";
 import EPPage from "./EPPage.jsx";
 import GougePage from "./GougePage.jsx";
+import InstallPWA from "../components/Dropdowns/InstallPWA.jsx";
 
 const LazyCss = lazy(() => import("./LazyCss.jsx"));
 
@@ -28,19 +29,19 @@ class App extends Component {
     this.showNav = this.showNav.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      this.setState(
-        {
-          installEvent: e,
-        },
-        () => {
-          console.log(this.state.installEvent);
-        }
-      );
-    });
-  }
+  // componentDidMount() {
+  //   window.addEventListener("beforeinstallprompt", (e) => {
+  //     e.preventDefault();
+  //     this.setState(
+  //       {
+  //         installEvent: e,
+  //       },
+  //       () => {
+  //         console.log(this.state.installEvent);
+  //       }
+  //     );
+  //   });
+  // }
 
   hideNav(e) {
     this.setState({
@@ -140,11 +141,7 @@ class App extends Component {
                 </a>
               </div>
 
-              {this.state.installEvent === "" ? (
-                <div id="hide"></div>
-              ) : (
-                <button className="button is-success">install as app</button>
-              )}
+              <InstallPWA />
 
               <Suspense fallback={<div id="hide"></div>}>
                 <LazyCss />
