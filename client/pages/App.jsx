@@ -141,7 +141,7 @@ class App extends Component {
                 </a>
               </div>
 
-              <InstallPWA />
+              <InstallPWA id="installButton" />
               {/* <button className="installButton button is-danger">
                 install app
               </button> */}
