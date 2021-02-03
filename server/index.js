@@ -30,12 +30,12 @@ app.listen(PORT, function () {
 
 app.get("/", function (req, res) {
   res.status(200);
-  res.sendFile(path.resolve(__dirname, "public", "manifest.json"));
+  res.sendFile(path.join(__dirname, "..", "public", "manifest.json"));
 });
 
 app.get("http://www.t6briefer.com/", function (req, res) {
   res.status(200);
-  res.sendFile(path.resolve(__dirname, "public", "manifest.json"));
+  res.sendFile(path.join(__dirname, "..", "public", "manifest.json"));
 });
 
 app.get("/manifest.json", function (req, res) {
