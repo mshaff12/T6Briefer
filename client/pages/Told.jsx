@@ -23,7 +23,8 @@ class Told extends Component {
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
-      maxAbortKNSE: null,
+      maxAbortDryKNSE: "Loading: ",
+      maxAbortWetKNSE: null,
       metarLoadingKNSE: true,
       metarLoadingKNGP: true,
     };
@@ -91,13 +92,23 @@ class Told extends Component {
       speedCache = [[]];
       //runwayDistance = 8000
     } else {
-      speedCache = [
-        [108, 110, 112, 116, 120],
-        [102, 105, 109, 112, 116],
-        [98, 100, 104, 108, 110],
-        [96, 99, 102, 106, 109],
-      ];
       //runwayDistance = 6000
+      speedCacheDry = [
+        [84, 100, 108, 110, 112, 116, 120],
+        [74, 88, 102, 105, 109, 112, 116],
+        [71, 84, 98, 100, 104, 108, 110],
+        [69, 80, 96, 99, 102, 106, 109],
+        [69, 80, 95, 98, 102, 105, 109],
+        [69, 80, 94, 97, 101, 104, 108]
+      ];
+      speedCacheWet = [
+        [60, 72, 77, 78, 82, 86, 88],
+        [54, 60, 76, 77 ,78, 82, 86],
+        [52, 59, 70, 72, 76, 77, 78],
+        [47, 56, 68, 72, 76, 77, 78],
+        [47, 56, 68, 72, 76, 77, 78],
+        [47, 56, 68, 70, 75, 76, 77]
+      ];
     }
     headwind /= 10;
     temperature /= 10;
@@ -106,21 +117,42 @@ class Told extends Component {
     let headwindIdx1 = Math.floor(headwind);
     let headwindIdx2 = Math.ceil(headwind);
     let minuend =
-      (speedCache[temperatureIdx1][headwindIdx2] -
-        speedCache[temperatureIdx1][headwindIdx1]) *
+      (speedCacheDry[temperatureIdx1][headwindIdx2] -
+        speedCacheDry[temperatureIdx1][headwindIdx1]) *
         (headwind - headwindIdx1) +
-      speedCache[temperatureIdx1][headwindIdx1];
+      speedCacheDry[temperatureIdx1][headwindIdx1];
     let subtrahend =
-      (speedCache[temperatureIdx2][headwindIdx2] -
-        speedCache[temperatureIdx2][headwindIdx1]) *
+      (speedCacheDry[temperatureIdx2][headwindIdx2] -
+        speedCacheDry[temperatureIdx2][headwindIdx1]) *
         (headwind - headwindIdx1) +
-      speedCache[temperatureIdx2][headwindIdx1];
+      speedCacheDry[temperatureIdx2][headwindIdx1];
     let maxAbort =
       (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
     this.setState({
-      maxAbortKNSE: Math.ceil(maxAbort),
+      maxAbortDryKNSE: Math.ceil(maxAbort),
     });
-  };
+
+    temperatureIdx1 = Math.floor(temperature);
+    temperatureIdx2 = Math.ceil(temperature);
+    headwindIdx1 = Math.floor(headwind);
+    headwindIdx2 = Math.ceil(headwind);
+    minuend =
+      (speedCacheWet[temperatureIdx1][headwindIdx2] -
+        speedCacheWet[temperatureIdx1][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      speedCacheWet[temperatureIdx1][headwindIdx1];
+    subtrahend =
+      (speedCacheWet[temperatureIdx2][headwindIdx2] -
+        speedCacheWet[temperatureIdx2][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      speedCacheWet[temperatureIdx2][headwindIdx1];
+    maxAbort =
+      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+    this.setState({
+      maxAbortWetKNSE: Math.ceil(maxAbort),
+    });
+
+  }
 
   activateToldModal() {
     this.setState({
@@ -177,7 +209,8 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
-            <h1>{this.state.maxAbortKNSE}</h1>
+            <h1>{this.state.maxAbortDryKNSE}</h1>
+            <h1>{this.state.maxAbortWetKNSE}</h1>
             <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
