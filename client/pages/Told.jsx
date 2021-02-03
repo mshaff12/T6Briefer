@@ -9,7 +9,7 @@ const options = ["05", "14", "23", "32"];
 
 const defaultOption = options[0];
 
-const options2 = ["4", "13L", "13R", "18", "22", "31L", "31R", "36"];
+const options2 = ["04", "13L", "13R", "18", "22", "31L", "31R", "36"];
 
 const defaultOption2 = options2[0];
 
@@ -79,7 +79,7 @@ class Told extends Component {
     let speedCache;
     if (
       stringHeading == "22" ||
-      stringHeading == "4" ||
+      stringHeading == "04" ||
       stringHeading == "18" ||
       stringHeading == "36" ||
       stringHeading == "13L" ||
@@ -150,7 +150,7 @@ class Told extends Component {
           this.state.runwayHeading
         );
         //this.maxAbortSpeed(this.state.headwind, this.temperatureKNSE, 23);
-        this.maxAbortSpeed(10, 10, 23); // test example
+        this.maxAbortSpeed(10, 10, "23"); // test example
         this.setState({
           KNSEMetar: res.data.sanitized,
           metarLoadingKNSE: false,
@@ -177,7 +177,7 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
-            {/* <h1>{this.state.maxAbortKNSE}</h1> */}
+            <h1>{this.state.maxAbortKNSE}</h1>
             <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
