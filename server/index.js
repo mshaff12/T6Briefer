@@ -28,7 +28,7 @@ app.listen(PORT, function () {
 //   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
 // });
 
-app.get("http://localhost:3000/", function (req, res) {
+app.get("/", function (req, res) {
   res.status(200);
   res.sendFile(path.resolve(__dirname, "public", "manifest.json"));
 });
