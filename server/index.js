@@ -29,11 +29,11 @@ app.get("/service-worker.js", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/dist", "service-worker.js"));
 });
 
-app.get("*.js", function (req, res, next) {
-  req.url = req.url + ".gz";
-  res.set("Content-Encoding", "gzip");
-  next();
-});
+// app.get("*.js", function (req, res, next) {
+//   req.url = req.url + ".gz";
+//   res.set("Content-Encoding", "gzip");
+//   next();
+// });
 
 app.use(expressStaticGzip(path.join(__dirname, "dist"), {}));
 

@@ -43,6 +43,26 @@ module.exports = {
       title: "Progressive Web Application",
     }),
     new WorkboxPlugin.GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [
+        {
+          // Match any request that ends with .png, .jpg, .jpeg or .svg.
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+          // Apply a cache-first strategy.
+          handler: "CacheFirst",
+
+          options: {
+            // Use a custom cache name.
+            cacheName: "images",
+
+            // Only cache 10 images.
+            expiration: {
+              maxEntries: 10,
+            },
+          },
+        },
+      ],
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
       swDest: "service-worker.js",
