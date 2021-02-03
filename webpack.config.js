@@ -58,7 +58,7 @@ module.exports = {
 
             // Only cache 10 images.
             expiration: {
-              maxEntries: 10,
+              maxEntries: 10000,
             },
           },
         },
