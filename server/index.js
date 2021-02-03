@@ -8,6 +8,21 @@ const db = require("../database");
 var expressStaticGzip = require("express-static-gzip");
 var request = require("request");
 
+app.use(expressStaticGzip(path.join(__dirname, "dist"), {}));
+
+// app.get("/icons", express.static(path.join(__dirname, "icons")));
+
+app.use(
+  cors({ origin: "*", preflightContinue: false, optionsSuccessStatus: 204 })
+);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname + "/../public/dist")));
+
+app.listen(PORT, function () {
+  console.log(`listening on port ${PORT}`);
+});
+
 app.get("http://localhost:3000/", function (req, res) {
   res.status(200);
   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
@@ -39,21 +54,6 @@ app.get("/service-worker.js", (req, res) => {
 //   res.set("Content-Encoding", "gzip");
 //   next();
 // });
-
-app.use(expressStaticGzip(path.join(__dirname, "dist"), {}));
-
-// app.get("/icons", express.static(path.join(__dirname, "icons")));
-
-app.use(
-  cors({ origin: "*", preflightContinue: false, optionsSuccessStatus: 204 })
-);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname + "/../public/dist")));
-
-app.listen(PORT, function () {
-  console.log(`listening on port ${PORT}`);
-});
 
 app.get("/", function (req, res) {
   res.render("index", {});
