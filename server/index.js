@@ -51,6 +51,10 @@ app.get("/icons/manifest-icon-512.png", (req, res) => {
 });
 
 app.get("/service-worker.js", (req, res) => {
+  response.writeHead(200, {
+    "Service-Worker-Allowed": "/",
+    "Content-Type": "application/javascript",
+  });
   res.sendFile(path.resolve(__dirname, "public", "dist", "service-worker.js"));
 });
 
