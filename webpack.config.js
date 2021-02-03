@@ -2,6 +2,7 @@ const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./client/index.jsx",
@@ -35,10 +36,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
   },
   plugins: [
     new CompressionPlugin(),
     // new BundleAnalyzerPlugin()
+    new HtmlWebpackPlugin({
+      template: "./public/template.html",
+    }),
   ],
 };
