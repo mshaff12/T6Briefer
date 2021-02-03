@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname + "/../public/dist")));
 
 app.listen(PORT, function () {
-  console.log("listening");
+  console.log(`listening on port ${PORT}`);
 });
 
 app.get("/", function (req, res) {
