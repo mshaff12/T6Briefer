@@ -938,7 +938,7 @@ class EPPage extends Component {
               id="limits"
               className="button2 button is-dark"
             >
-              <span className="spanLimits">Limits</span>
+              <span className="spanLimits">Operating Limits</span>
             </button>
 
             {/* ============================== Limits modal ========================================================= */}
