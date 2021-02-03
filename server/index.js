@@ -14,14 +14,14 @@ app.get("*.js", function (req, res, next) {
   next();
 });
 
-app.use(expressStaticGzip(path.join(__dirname, "public"), {}));
+app.use(expressStaticGzip(path.join(__dirname, "dist"), {}));
 
 app.use(
   cors({ origin: "*", preflightContinue: false, optionsSuccessStatus: 204 })
 );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname + "/../public")));
+app.use(express.static(path.join(__dirname + "/../public/dist")));
 
 app.listen(PORT, function () {
   console.log("listening");
