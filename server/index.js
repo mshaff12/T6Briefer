@@ -13,6 +13,11 @@ app.get("http://localhost:3000/", function (req, res) {
   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
 });
 
+app.get("http://www.t6briefer.com/", function (req, res) {
+  res.status(200);
+  res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
+});
+
 app.get("/manifest.json", function (req, res) {
   res.sendFile(path.join(__dirname, "/../public", "manifest.json"));
 });
