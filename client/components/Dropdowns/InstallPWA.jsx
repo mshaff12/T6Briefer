@@ -32,6 +32,7 @@ const InstallPWA = () => {
       aria-label="install app"
       title="install app"
       onClick={onClick}
+      id="installButton"
     >
       install app
     </button>
