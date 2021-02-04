@@ -25,6 +25,10 @@ height: 50px;
 
 }
 
+.container, .container3 {
+margin-top: -20px;
+}
+
 .icon {
     font-size: 4em !important; /*size whatever you like*/
 
