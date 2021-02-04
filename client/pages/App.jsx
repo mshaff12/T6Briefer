@@ -13,6 +13,7 @@ import Syllabus from "./Syllabus.jsx";
 import EPPage from "./EPPage.jsx";
 import GougePage from "./GougePage.jsx";
 import InstallPWA from "../components/Dropdowns/InstallPWA.jsx";
+import FeedbackForm from "../components/Dropdowns/FeedbackForm.jsx";
 
 const LazyCss = lazy(() => import("./LazyCss.jsx"));
 
@@ -24,9 +25,24 @@ class App extends Component {
       homepageVisible: "",
       modalActive: false,
       installEvent: "",
+      feedbackModalActive: "",
     };
     this.hideNav = this.hideNav.bind(this);
     this.showNav = this.showNav.bind(this);
+    this.closeFeedbackModal = this.closeFeedbackModal.bind(this);
+    this.openFeedbackModal = this.openFeedbackModal.bind(this);
+  }
+
+  closeFeedbackModal() {
+    this.setState({
+      feedbackModalActive: "",
+    });
+  }
+
+  openFeedbackModal() {
+    this.setState({
+      feedbackModalActive: "is-active",
+    });
   }
 
   // componentDidMount() {
@@ -141,6 +157,25 @@ class App extends Component {
                 </a>
               </div>
 
+              <div className={`modal ${this.state.feedbackModalActive}`}>
+                <div className="modal-background"></div>
+                <div className="modal-card epModal">
+                  <header className="modal-card-head">
+                    <p className="modal-card-title">Submit Feedback</p>
+                    <button
+                      onClick={this.closeFeedbackModal}
+                      className="delete"
+                      aria-label="close"
+                    ></button>
+                  </header>
+                  <div className="modal-card-body">
+                    <FeedbackForm
+                      closeFeedbackModal={this.closeFeedbackModal}
+                    />
+                  </div>
+                </div>
+              </div>
+
               <InstallPWA />
               {/* <button
                 id="installButtonTest"
@@ -148,6 +183,13 @@ class App extends Component {
               >
                 install app
               </button> */}
+
+              <button
+                onClick={this.openFeedbackModal}
+                className="feedbackButton button is-dark"
+              >
+                send feedback
+              </button>
 
               <Suspense fallback={<div id="hide"></div>}>
                 <LazyCss />

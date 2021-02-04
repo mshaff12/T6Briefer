@@ -508,10 +508,10 @@ animation: slideUp forwards 0.5s;
   position: fixed;
   bottom: 53px;
   left: 0;
-  width: 100px;
+  width: 75px;
 border-radius: 0;
 
-height: 45px;
+height: 35px;
 
 border-top-left-radius: 80%;
 border-top-right-radius: 80%;
@@ -519,4 +519,31 @@ border-top-right-radius: 80%;
 background-color: hsl(217, 71%, 53%) !important;
 
 animation: slideUp forwards 0.5s;
+font-size: small;
+}
+
+
+.feedbackButton {
+  position: fixed;
+  bottom: 53px;
+  left: 80px;
+  width: 95px;
+border-radius: 0;
+
+height: 35px;
+
+border-top-left-radius: 80%;
+border-top-right-radius: 80%;
+
+animation: slideUp forwards 0.5s;
+font-size: small;
+}
+
+.sendMessageButton {
+  margin-top: 10px;
+}
+
+.feedbackCancelButton {
+  margin-top: 10px;
+  margin-left: 5px;
 }
