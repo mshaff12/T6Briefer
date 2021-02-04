@@ -27,6 +27,18 @@ export default function FeedbackForm(props) {
     <React.Fragment>
       <form autocomplete="off" onSubmit={sendEmail}>
         <div className="field">
+          <label className="label">Email</label>
+          <div className="control">
+            <input
+              name="subject"
+              className="input is-info"
+              type="text"
+              placeholder="Email"
+            ></input>
+          </div>
+        </div>
+
+        <div className="field">
           <label className="label">Subject</label>
           <div className="control">
             <input
@@ -40,7 +52,7 @@ export default function FeedbackForm(props) {
 
         <div className="field">
           <label className="label">Message</label>
-          <div className="control">
+          <div className="control has-icons-left">
             <textarea
               name="message"
               className="textarea is-info"

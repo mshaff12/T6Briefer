@@ -547,3 +547,10 @@ font-size: small;
   margin-top: 10px;
   margin-left: 5px;
 }
+
+.feedbackModal {
+  width: 90%;
+  max-width: 700px;
+  animation: forwardIn 0.2s;
+  max-height: 80vh;
+}

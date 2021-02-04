@@ -159,7 +159,7 @@ class App extends Component {
 
               <div className={`modal ${this.state.feedbackModalActive}`}>
                 <div className="modal-background"></div>
-                <div className="modal-card epModal">
+                <div className="modal-card feedbackModal">
                   <header className="modal-card-head">
                     <p className="modal-card-title">Submit Feedback</p>
                     <button
