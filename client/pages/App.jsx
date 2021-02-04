@@ -225,7 +225,7 @@ class App extends Component {
                         }}
                       >
                         <div className="center">
-                          <i className="fa fa-plane fa-2x"></i>
+                          <i className="fa icon2 fa-plane fa-2x"></i>
                           <div className="iconText">TOLD</div>
                         </div>
                       </Link>
@@ -245,7 +245,7 @@ class App extends Component {
                       >
                         <div className="center">
                           <div>
-                            <i className=" fa fa-desktop fa-2x"></i>
+                            <i className=" fa icon3 fa-desktop fa-2x"></i>
                           </div>
                           <div className="iconText">SYLLABUS</div>
                         </div>
@@ -261,7 +261,7 @@ class App extends Component {
                         }}
                       >
                         <div className="center">
-                          <i className="fa fa-tachometer fa-2x"></i>
+                          <i className="fa icon4 fa-tachometer fa-2x"></i>
                           <div className="iconText">{`EP'S & LIMITS`}</div>
                         </div>
                       </Link>

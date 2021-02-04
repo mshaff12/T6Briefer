@@ -25,10 +25,27 @@ height: 50px;
 
 }
 
+.icon {
+    font-size: 4em !important; /*size whatever you like*/
+
+    margin-right: 32px;
+  }
+.icon2, .icon4 {
+    font-size: 4em !important; /*size whatever you like*/
+}
+.icon3 {
+    font-size: 3.5em !important; /*size whatever you like*/
+}
+
+.iconText {
+    font-size: large;
+
+}
+
 
 #installButton {
     position: fixed;
-    bottom: 53px;
+    bottom: 95px;
     left: 200px;
     width: 150px;
   border-radius: 0;
@@ -47,7 +64,7 @@ height: 50px;
 
   .feedbackButton {
     position: fixed;
-    bottom: 53px;
+    bottom: 95px;
     left: 2px;
     width: 190px;
   border-radius: 0;
