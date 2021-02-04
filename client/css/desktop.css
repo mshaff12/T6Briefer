@@ -41,6 +41,13 @@ height: 50px;
     font-size: large;
 
 }
+.KNSEMetar, .KNGPMetar {
+    font-size: large;
+}
+
+.container3 {
+    font-size: large;
+}
 
 
 #installButton {
