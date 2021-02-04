@@ -75,8 +75,8 @@ border: solid hsl(217, 71%, 53%) 1px !important;
 
   #installButton:hover {
     background-color: white !important;
-    color: hsl(348, 100%, 61%) !important;
-    border: solid hsl(348, 100%, 61%) 1px !important;
+    color: hsl(217, 71%, 53%) !important;
+    border: solid hsl(217, 71%, 53%) 1px !important;
       }
 
 .epButton:hover {
