@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new CompressionPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/template.html",
       title: "Progressive Web Application",
