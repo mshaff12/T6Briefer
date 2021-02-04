@@ -488,12 +488,12 @@ animation: slideUp forwards 0.5s;
   margin-bottom: 20px;
 }
 
-
+/*
 .installButton {
   position: fixed;
   bottom: 53px;
-  left: 0;
-  width: 100px;
+  left: 102;
+  width: 75px;
 border-radius: 0;
 height: 45px;
 
@@ -501,13 +501,13 @@ border-top-left-radius: 80%;
 border-top-right-radius: 80%;
 
 animation: slideUp forwards 0.5s;
-}
+} */
 
 
 #installButton {
   position: fixed;
   bottom: 53px;
-  left: 0;
+  left: 102px;
   width: 75px;
 border-radius: 0;
 
@@ -526,7 +526,7 @@ font-size: small;
 .feedbackButton {
   position: fixed;
   bottom: 53px;
-  left: 80px;
+  left: 2px;
   width: 95px;
 border-radius: 0;
 
