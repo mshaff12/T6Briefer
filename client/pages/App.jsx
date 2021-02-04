@@ -141,13 +141,13 @@ class App extends Component {
                 </a>
               </div>
 
-              {/* <InstallPWA /> */}
-              <button
+              <InstallPWA />
+              {/* <button
                 id="installButtonTest"
                 className="installButton button is-link"
               >
                 install app
-              </button>
+              </button> */}
 
               <Suspense fallback={<div id="hide"></div>}>
                 <LazyCss />
