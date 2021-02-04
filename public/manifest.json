@@ -4,7 +4,7 @@
   "description": "A simple way to log your workouts.",
   "display": "standalone",
   "start_url": "/",
-  "background_color": "#494e57",
+  "background_color": "#ffffff",
   "theme_color": "#333333",
   "scope": ".",
 
