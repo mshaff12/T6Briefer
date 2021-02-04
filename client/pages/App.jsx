@@ -168,7 +168,7 @@ class App extends Component {
                       aria-label="close"
                     ></button>
                   </header>
-                  <div className="modal-card-body">
+                  <div className="modal-card-body modal-card-body-feedback">
                     <FeedbackForm
                       closeFeedbackModal={this.closeFeedbackModal}
                     />

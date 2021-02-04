@@ -1,9 +1,10 @@
 @media screen and (min-width: 800px) {
 
 .t6CircleIcon {
-/* width: 50px;
-height: 50px; */
+width: 50px;
+height: 50px;
 }
+
 
 .wings {
     width: 483px;
@@ -19,5 +20,45 @@ height: 50px; */
     justify-content: center;
 }
 
+.title {
+    height: 100px;
+
+}
+
+
+#installButton {
+    position: fixed;
+    bottom: 53px;
+    left: 200px;
+    width: 150px;
+  border-radius: 0;
+
+  height: 70px;
+
+  border-top-left-radius: 80%;
+  border-top-right-radius: 80%;
+
+  background-color: hsl(217, 71%, 53%) !important;
+
+  animation: slideUp forwards 0.5s;
+  font-size: large;
+  }
+
+
+  .feedbackButton {
+    position: fixed;
+    bottom: 53px;
+    left: 2px;
+    width: 190px;
+  border-radius: 0;
+
+  height: 70px;
+
+  border-top-left-radius: 80%;
+  border-top-right-radius: 80%;
+
+  animation: slideUp forwards 0.5s;
+  font-size: large;
+  }
 
 }
