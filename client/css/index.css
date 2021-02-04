@@ -516,7 +516,7 @@ height: 45px;
 border-top-left-radius: 80%;
 border-top-right-radius: 80%;
 
-background-color: #fd5722 !important;
+background-color: hsl(217, 71%, 53%) !important;
 
 animation: slideUp forwards 0.5s;
 }
