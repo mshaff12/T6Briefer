@@ -175,7 +175,7 @@ class Told extends Component {
     return (
       <React.Fragment>
         <section className={`section container1`}>
-          <div className="container">
+          <div className="container3">
             <h1 className="title">TOLD</h1>
             {/* <h1>{this.state.maxAbortKNSE}</h1> */}
             <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
@@ -286,12 +286,14 @@ class Told extends Component {
               ></input>
             </div>
 
-            <button
-              onClick={this.activateToldModal}
-              className="calculateToldButton button is-link"
-            >
-              calculate
-            </button>
+            <div className="calculateContainer">
+              <button
+                onClick={this.activateToldModal}
+                className="calculateToldButton button is-link"
+              >
+                calculate
+              </button>
+            </div>
 
             <div className={`modal ${this.state.toldModalActive}`}>
               <div className="modal-background"></div>

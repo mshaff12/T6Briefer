@@ -436,7 +436,7 @@ width: 64px !important;
 .smallerText {
   font-size: small;
   display: flex;
-  align-items: center;
+  /* justify-content: center; */
 }
 
 .marginBottomTold {
@@ -555,3 +555,13 @@ font-size: small;
   max-height: 80vh;
 
 }
+
+.calculateContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* .container3 {
+  display: flex;
+ align-items: center;
+} */
