@@ -63,11 +63,11 @@ app.get("/workbox-3a2d8142.js", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../workbox-3a2d8142.js"));
 });
 
-// app.get("*.js", function (req, res, next) {
-//   req.url = req.url + ".gz";
-//   res.set("Content-Encoding", "gzip");
-//   next();
-// });
+app.get("*.js", function (req, res, next) {
+  req.url = req.url + ".gz";
+  res.set("Content-Encoding", "gzip");
+  next();
+});
 
 app.get("/", function (req, res) {
   res.render("index", {});
