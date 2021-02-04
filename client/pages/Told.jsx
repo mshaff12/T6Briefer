@@ -17,13 +17,13 @@ class Told extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headwind: null,
-      runwayHeading: 31,
-      stringHeading: "31L",
+      headwind: 10,
+      runwayHeading: 32,
+      stringHeading: "32",
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
-      maxAbortDryKNSE: "Loading: ",
+      maxAbortDryKNSE: null,
       maxAbortWetKNSE: null,
       metarLoadingKNSE: true,
       metarLoadingKNGP: true,
@@ -71,13 +71,14 @@ class Told extends Component {
   };
 
   maxAbortSpeed = (headwind, temperature, stringHeading) => {
-    console.log("test");
     // Need to add try {} catch{] to program to account for out of limits entry
-    // Still need to calculate for negative headwind (aka tailwind)
-    if (temperature > 40 || temperature < 0 || headwind > 40 || headwind < 0) {
+    // I tried adding isNaN() for temperature and headwind, but it didn't work
+    if (temperature > 50 || temperature < 0 ||
+        headwind > 40 || headwind < -20) {
       throw "Input is out of limits.";
     }
-    let speedCache;
+    let speedCacheDry;
+    let speedCacheWet;
     if (
       stringHeading == "22" ||
       stringHeading == "04" ||
@@ -86,10 +87,26 @@ class Told extends Component {
       stringHeading == "13L" ||
       stringHeading == "31R"
     ) {
-      speedCache = [[]];
       //runwayDistance = 5000
+      speedCacheDry = [
+        [71, 86, 100, 104, 107, 110, 114],
+        [70, 84, 98, 101, 104, 107, 110],
+        [68, 80, 94, 97, 100, 104, 108],
+        [60, 72, 90, 94, 97, 101, 104],
+        [59,	73,	88,	91,	94,	98,	102],
+        [58,	71,	86,	89,	92,	96,	100]
+      ];
+      speedCacheWet = [
+        [49,	60,	72,	76,	77,	78,	84],
+        [48,	59,	70,	75,	76,	77,	78],
+        [46,	56,	68,	70,	72,	76,	77],
+        [40,	54,	62,	68,	70,	75,	76],
+        [38,	54,	60,	67,	68,	70,	74],
+        [36,	52,	60,	62,	67,	68,	72]
+      ];
     } else if (stringHeading == "13R" || stringHeading == "31L") {
-      speedCache = [[]];
+      speedCacheDry = [[]];
+      speedCacheWet = [[]];
       //runwayDistance = 8000
     } else {
       //runwayDistance = 6000
@@ -110,6 +127,7 @@ class Told extends Component {
         [47, 56, 68, 70, 75, 76, 77]
       ];
     }
+    headwind += 20;
     headwind /= 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
@@ -174,6 +192,7 @@ class Told extends Component {
       .then((res) => {
         console.log("KNSE Data: ", res);
         this.temperatureKNSE = res.data.temperature.value;
+        console.log(this.temperatureKNSE);
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
         this.setHeadwindKNSE(
@@ -181,12 +200,12 @@ class Told extends Component {
           this.windSpeedKNSE,
           this.state.runwayHeading
         );
-        //this.maxAbortSpeed(this.state.headwind, this.temperatureKNSE, 23);
-        this.maxAbortSpeed(10, 10, "23"); // test example
         this.setState({
           KNSEMetar: res.data.sanitized,
           metarLoadingKNSE: false,
         });
+        //this.maxAbortSpeed(this.state.headwind, this.temperatureKNSE, 23);
+        this.maxAbortSpeed(15, 25, "32"); // test example
       });
 
     axios
@@ -211,6 +230,7 @@ class Told extends Component {
             <h1 className="title">TOLD</h1>
             <h1>{this.state.maxAbortDryKNSE}</h1>
             <h1>{this.state.maxAbortWetKNSE}</h1>
+            <h1>{`headwind: ${this.state.headwind}`}</h1>
             <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
@@ -242,10 +262,10 @@ class Told extends Component {
               <span className="toldData">{`data`}</span>
             </div>
             <div className="smallerText">
-              MAX DRY ABORT SPEED:<span className="toldData">{`data`}</span>
+              MAX DRY ABORT SPEED:<span className="toldData">{`${this.state.maxAbortDryKNSE} KIAS`}</span>
             </div>
             <div className="smallerText marginBottomTold">
-              MAX WET ABORT SPEED:<span className="toldData">{`data`}</span>
+              MAX WET ABORT SPEED:<span className="toldData">{`${this.state.maxAbortWetKNSE} KIAS`}</span>
             </div>
 
             <h2 className="metarTitle">NAS CORPUS CHRISTI</h2>
