@@ -41,6 +41,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/template.html",
       title: "Progressive Web Application",
+      favicon: "./images/t6iconOrange.png",
     }),
     new WorkboxPlugin.GenerateSW({
       exclude: [/\.(?:png|jpg|jpeg|svg)$/],
@@ -56,7 +57,7 @@ module.exports = {
             // Use a custom cache name.
             cacheName: "images",
 
-            // Only cache 10 images.
+            // Only cache 10 images. edit: cache 10000
             expiration: {
               maxEntries: 10000,
             },
