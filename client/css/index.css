@@ -495,6 +495,10 @@ animation: slideUp forwards 0.5s;
   left: 0;
   width: 100px;
 border-radius: 0;
+height: 45px;
+
+border-top-left-radius: 80%;
+border-top-right-radius: 80%;
 
 animation: slideUp forwards 0.5s;
 }
@@ -506,6 +510,11 @@ animation: slideUp forwards 0.5s;
   left: 0;
   width: 100px;
 border-radius: 0;
+
+height: 45px;
+
+border-top-left-radius: 80%;
+border-top-right-radius: 80%;
 
 animation: slideUp forwards 0.5s;
 }

@@ -288,7 +288,7 @@ class Told extends Component {
 
             <button
               onClick={this.activateToldModal}
-              className="calculateToldButton button is-info"
+              className="calculateToldButton button is-link"
             >
               calculate
             </button>
