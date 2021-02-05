@@ -26,12 +26,14 @@ class Told extends Component {
       toldModalActive: "",
       maxAbortDryKNSE: null,
       maxAbortWetKNSE: null,
-      minPower60KNSE: 100,
-      minPower60KNGP: 100,
+      maxAbortDryKNGP: null,
+      maxAbortWetKNGP: null,
+      minPower60KNSE: null,
+      minPower60KNGP: null,
       metarLoadingKNSE: true,
       metarLoadingKNGP: true,
-      takeoffDistKNSE: 0,
-      takeoffDistKNGP: 0
+      takeoffDistKNSE: null,
+      takeoffDistKNGP: null
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -405,7 +407,7 @@ class Told extends Component {
     });
   }
 
-  takeoffDistKNGP = () => {
+  takeoffDistKNGP = (headwind, temperature) => {
     if (temperature > 50 || temperature < 0 ||
       headwind > 40 || headwind < -20) {
         throw "Input out of limits.";
@@ -484,7 +486,10 @@ class Told extends Component {
         //this.maxAbortSpeed(this.state.headwindKNSE, this.temperatureKNSE, 23);
         this.maxAbortSpeedKNSE(15, 25, "32"); // test example
         this.maxAbortSpeedKNGP(10, 20, "04") // test
-        this.takeoffDistKNSE(33, 0);
+        this.takeoffDistKNSE(10, 33);
+        this.takeoffDistKNGP(10, 44 )
+        this.minPower60KNSE(33),
+        this.minPower60KNGP(44)
       });
 
     axios
@@ -507,10 +512,6 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
-            <h1>{this.state.takeoffDistKNSE}</h1>
-            <h1>{this.state.maxAbortDryKNSE}</h1>
-            <h1>{this.state.maxAbortWetKNSE}</h1>
-            <h1>{`headwind KNSE: ${this.state.headwindKNSE}`}</h1>
             <h3 className="earlyAccess">*BUILD IN PROGRESS*</h3>
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
@@ -535,11 +536,11 @@ class Told extends Component {
             </div>
 
             <div className="smallerText">
-              MIN TORQUE AT 60 KIAS:<span className="toldData">{`data`}</span>
+              MIN TORQUE AT 60 KIAS:<span className="toldData">{`${this.state.minPower60KNSE}`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">{`data`}</span>
+              <span className="toldData">{`${this.state.takeoffDistKNSE} FT`}</span>
             </div>
             <div className="smallerText">
               MAX DRY ABORT SPEED:<span className="toldData">{`${this.state.maxAbortDryKNSE} KIAS`}</span>
@@ -571,17 +572,17 @@ class Told extends Component {
             </div>
 
             <div className="smallerText">
-              MIN TORQUE AT 60 KIAS:<span className="toldData">{`data`}</span>
+              MIN TORQUE AT 60 KIAS:<span className="toldData">{`${this.state.minPower60KNGP}`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">{`data`}</span>
+              <span className="toldData">{`${this.state.takeoffDistKNGP} FT`}</span>
             </div>
             <div className="smallerText">
-              MAX DRY ABORT SPEED:<span className="toldData">{`data`}</span>
+              MAX DRY ABORT SPEED:<span className="toldData">{`${this.state.maxAbortDryKNGP} KIAS`}</span>
             </div>
             <div className="smallerText marginBottomTold">
-              MAX WET ABORT SPEED:<span className="toldData">{`data`}</span>
+              MAX WET ABORT SPEED:<span className="toldData">{`${this.state.maxAbortWetKNGP} KIAS`}</span>
             </div>
 
             <h2 className="metarTitle">MANUAL ENTRY</h2>
