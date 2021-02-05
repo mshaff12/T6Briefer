@@ -65,6 +65,7 @@ body {
 
 .icon {
   font-size: 2.1em !important; /*size whatever you like*/
+  margin-right: 7px;
 }
 .icon2 {
   font-size: 2.0em !important; /*size whatever you like*/
