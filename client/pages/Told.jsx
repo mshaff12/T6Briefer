@@ -366,12 +366,82 @@ class Told extends Component {
 
   }
 
-  takeoffDistKNSE = () => {
+  takeoffDistKNSE = (headwind, temperature) => {
+    if (temperature > 50 || temperature < 0 ||
+        headwind > 40 || headwind < -20) {
+          throw "Input out of limits.";
+        }
+    
+    let distanceCache = [
+      [2700, 2200, 1500, 1400, 1300, 1200, 1100],
+      [2800, 2300, 1600, 1500, 1400, 1300, 1200],
+      [2800, 2300, 1700, 1600, 1500, 1400, 1300],
+      [2900, 2400, 1800, 1700, 1600, 1500, 1400],
+      [3500, 2800, 2100, 1900, 1800, 1600, 1400],
+      [4200, 3500, 2600, 2500, 2300, 2100, 2000]
+    ];
 
+    headwind += 20;
+    headwind /= 10;
+    temperature /= 10;
+    let temperatureIdx1 = Math.floor(temperature);
+    let temperatureIdx2 = Math.ceil(temperature);
+    let headwindIdx1 = Math.floor(headwind);
+    let headwindIdx2 = Math.ceil(headwind);
+    let minuend =
+      (distanceCache[temperatureIdx1][headwindIdx2] -
+        distanceCache[temperatureIdx1][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      distanceCache[temperatureIdx1][headwindIdx1];
+    let subtrahend =
+      (distanceCache[temperatureIdx2][headwindIdx2] -
+        distanceCache[temperatureIdx2][headwindIdx1]) *
+        (headwind - headwindIdx1) +
+      distanceCache[temperatureIdx2][headwindIdx1];
+    let takeoffDistance =
+      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+    this.setState({
+      takeoffDistKNSE: Math.ceil(takeoffDistance),
+    });
   }
 
   takeoffDistKNGP = () => {
-    
+    if (temperature > 50 || temperature < 0 ||
+      headwind > 40 || headwind < -20) {
+        throw "Input out of limits.";
+      }
+  
+  let distanceCache = [
+    [2700, 2200, 1500, 1400, 1300, 1200, 1100],
+    [2800, 2300, 1600, 1500, 1400, 1300, 1200],
+    [2800, 2300, 1700, 1600, 1500, 1400, 1300],
+    [2900, 2400, 1800, 1700, 1600, 1500, 1400],
+    [3500, 2800, 2100, 1900, 1800, 1600, 1400],
+    [4200, 3500, 2600, 2500, 2300, 2100, 2000]
+  ];
+
+  headwind += 20;
+  headwind /= 10;
+  temperature /= 10;
+  let temperatureIdx1 = Math.floor(temperature);
+  let temperatureIdx2 = Math.ceil(temperature);
+  let headwindIdx1 = Math.floor(headwind);
+  let headwindIdx2 = Math.ceil(headwind);
+  let minuend =
+    (distanceCache[temperatureIdx1][headwindIdx2] -
+      distanceCache[temperatureIdx1][headwindIdx1]) *
+      (headwind - headwindIdx1) +
+    distanceCache[temperatureIdx1][headwindIdx1];
+  let subtrahend =
+    (distanceCache[temperatureIdx2][headwindIdx2] -
+      distanceCache[temperatureIdx2][headwindIdx1]) *
+      (headwind - headwindIdx1) +
+    distanceCache[temperatureIdx2][headwindIdx1];
+  let takeoffDistance =
+    (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+  this.setState({
+    takeoffDistKNGP: Math.ceil(takeoffDistance),
+  });
   }
 
   activateToldModal() {
@@ -414,6 +484,7 @@ class Told extends Component {
         //this.maxAbortSpeed(this.state.headwindKNSE, this.temperatureKNSE, 23);
         this.maxAbortSpeedKNSE(15, 25, "32"); // test example
         this.maxAbortSpeedKNGP(10, 20, "04") // test
+        this.takeoffDistKNSE(33, 0);
       });
 
     axios
@@ -436,6 +507,7 @@ class Told extends Component {
         <section className={`section container1`}>
           <div className="container">
             <h1 className="title">TOLD</h1>
+            <h1>{this.state.takeoffDistKNSE}</h1>
             <h1>{this.state.maxAbortDryKNSE}</h1>
             <h1>{this.state.maxAbortWetKNSE}</h1>
             <h1>{`headwind KNSE: ${this.state.headwindKNSE}`}</h1>
