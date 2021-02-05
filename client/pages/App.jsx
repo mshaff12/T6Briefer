@@ -12,8 +12,14 @@ import Told from "./Told.jsx";
 import Syllabus from "./Syllabus.jsx";
 import EPPage from "./EPPage.jsx";
 import GougePage from "./GougePage.jsx";
-import InstallPWA from "../components/Dropdowns/InstallPWA.jsx";
-import FeedbackForm from "../components/Dropdowns/FeedbackForm.jsx";
+
+// import InstallPWA from "../components/Dropdowns/InstallPWA.jsx";
+// import FeedbackForm from "../components/Dropdowns/FeedbackForm.jsx";
+
+const InstallPWA = lazy(() => import("../components/Dropdowns/InstallPWA.jsx"));
+const FeedbackForm = lazy(() =>
+  import("../components/Dropdowns/FeedbackForm.jsx")
+);
 
 const LazyCss = lazy(() => import("./LazyCss.jsx"));
 
@@ -169,14 +175,18 @@ class App extends Component {
                     ></button>
                   </header>
                   <div className="modal-card-body modal-card-body-feedback">
-                    <FeedbackForm
-                      closeFeedbackModal={this.closeFeedbackModal}
-                    />
+                    <Suspense fallback={<div id="hide"></div>}>
+                      <FeedbackForm
+                        closeFeedbackModal={this.closeFeedbackModal}
+                      />
+                    </Suspense>
                   </div>
                 </div>
               </div>
 
-              <InstallPWA />
+              <Suspense fallback={<div id="hide"></div>}>
+                <InstallPWA />
+              </Suspense>
               {/* <button
                 id="installButtonTest"
                 className="installButton button is-danger"
