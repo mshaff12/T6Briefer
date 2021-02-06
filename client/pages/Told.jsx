@@ -277,7 +277,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheDry[temperatureIdx2][headwindIdx1];
     let maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortDryKNSE: Math.ceil(maxAbort),
     });
@@ -297,7 +297,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheWet[temperatureIdx2][headwindIdx1];
     maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortWetKNSE: Math.ceil(maxAbort),
     });
@@ -379,7 +379,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheDry[temperatureIdx2][headwindIdx1];
     let maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortDryKNGP: Math.ceil(maxAbort),
     });
@@ -399,7 +399,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheWet[temperatureIdx2][headwindIdx1];
     maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortWetKNGP: Math.ceil(maxAbort),
     });
@@ -492,7 +492,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheDry[temperatureIdx2][headwindIdx1];
     let maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortDryManual: Math.ceil(maxAbort),
     });
@@ -512,7 +512,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       speedCacheWet[temperatureIdx2][headwindIdx1];
     maxAbort =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       maxAbortWetManual: Math.ceil(maxAbort),
     });
