@@ -7,11 +7,11 @@ import { speed } from "jquery";
 
 const options = ["05", "14", "23", "32"];
 
-const defaultOption = "XX";
+const defaultOption = "  ";
 
 const options2 = ["04", "13L", "13R", "18", "22", "31L", "31R", "36"];
 
-const defaultOption2 = "XX";
+const defaultOption2 = "  ";
 
 class Told extends Component {
   constructor(props) {

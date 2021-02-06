@@ -519,6 +519,10 @@ width: 64px !important;
   color: white;
   cursor: pointer;
 }
+.Dropdown-control {
+  min-height: 37px;
+}
+
 
 .toldData {
   color: #00aff0;
