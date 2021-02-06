@@ -10,6 +10,7 @@ class Syllabus extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      notHomePage: true,
       dropdown: "",
       arrow: "fa-angle-down",
       dropdown2: "",
@@ -335,7 +336,7 @@ class Syllabus extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className={`section container1`}>
+        <section className={`section container5`}>
           <div className="container">
             <h1 id={this.state.modalActive} className="title">
               {this.state.currentSyllabus}

@@ -7,8 +7,11 @@ height: 50px;
 
 
 .wings {
-    width: 483px;
-    height: 234px;
+    /* width: 483px;
+    height: 234px; */
+
+      width: 322px;
+  height: 156px;
 }
 .vt2Patch, .vt3Patch, .vt6Patch, .vt27Patch, .vt28Patch {
     width: 112.5px;
@@ -75,6 +78,10 @@ margin-bottom: 40px;
 
   animation: slideUp forwards 0.5s;
   font-size: large;
+  }
+
+  .squadronFrontPagesTitle {
+      /* margin-top: 5%; */
   }
 
 
