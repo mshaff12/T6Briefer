@@ -65,6 +65,7 @@ class Home extends Component {
         </div>
 
         <h3 className="earlyAccess">*EARLY ACCESS*</h3>
+        <h2 className="squadronFrontPagesTitle">SQUADRON FRONT PAGES</h2>
 
         <section className={`section container6`}>
           <div className="container container2">
@@ -95,8 +96,6 @@ class Home extends Component {
       </a> */}
 
             <div className="containerSquadronButtons">
-              <h2 className="squadronFrontPagesTitle">SQUADRON FRONT PAGES</h2>
-
               <div className="vtPatches">
                 <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
                   <span className="vt2Patch"></span>
@@ -118,9 +117,9 @@ class Home extends Component {
               </div>
             </div>
 
-            <div className="t6diagram">
+            {/* <div className="t6diagram">
               <div className="wings"></div>
-            </div>
+            </div> */}
 
             <div className={`modal ${this.state.feedbackModalActive}`}>
               <div className="modal-background"></div>
