@@ -101,11 +101,11 @@ font-weight: 600;
   color: white !important;
 }
 
-.calculateToldButton:hover {
+#calculateButton:hover {
 
   background-color: white !important;
-  color: hsl(217, 71%, 53%) !important;
-  border: solid hsl(217, 71%, 53%) 1px !important;
+  color: #00aff0 !important;
+  border: solid #00aff0 1px !important;
   letter-spacing: 1.5px;
 }
 

@@ -6,3 +6,5 @@ npm-debug.log
 dist/
 bundle.js
 debug.log
+service-worker.js
+service-worker.js.gz
