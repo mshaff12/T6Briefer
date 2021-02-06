@@ -7,11 +7,11 @@ import { speed } from "jquery";
 
 const options = ["05", "14", "23", "32"];
 
-const defaultOption = options[0];
+const defaultOption = "XX";
 
 const options2 = ["04", "13L", "13R", "18", "22", "31L", "31R", "36"];
 
-const defaultOption2 = options2[0];
+const defaultOption2 = "XX";
 
 class Told extends Component {
   constructor(props) {
@@ -20,8 +20,8 @@ class Told extends Component {
       headwindKNSE: 10,
       headwindKNGP: 15,
       headwindManual: null,
-      runwayHeading: 32,
-      stringHeading: "32",
+      runwayHeadingKNSE: 50,
+      runwayHeadingKNGP: 40,
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
@@ -43,33 +43,22 @@ class Told extends Component {
     this.temperatureKNSE;
     this.windSpeedKNSE;
     this.windDirectionKNSE;
+    this.temperatureKNGP;
+    this.windSpeedKNGP;
     this.windDirectionKNGP;
   }
 
-  // 1) update runways for corpus in the drop down
-  // 2) write a function that uses the wind data to display the only 2 possible runways in the drop down (or just leave all 4)
+
   // 3) create state variables for both runway drop downs
   // 4) write onClick functions for the drop downs which set the state
 
-  // 5) add a state variable for each told data, as well as each manual entry input
+
   // 6) write onChange functions for the manual entry inputs which sets the respective states
   // 7) write functions which use the weather API to calculate each told data, and use setState to update them
   // 8) call your functions in componentDidMount (make sure you call after the API loads the data)
   // 9) replace all the 'data' text on the page to be 'this.state.whateverStateNameYouMade'
 
   setHeadwindKNSE = (windDirection, windSpeed, runwayHeading) => {
-    /*let runwayHeading;
-    // rwys at KNSE are 05, 14, 23, and 32
-    if (windDirection > 5 && windDirection <= 95) {
-      runwayHeading = 50;
-    } else if (windDirection > 95 && windDirection <= 185) {
-      runwayHeading = 140;
-    } else if (windDirection > 185 && windDirection <= 275) {
-      runwayHeading = 230;
-    } else {
-      runwayHeading = 320;
-    } */
-
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
@@ -146,7 +135,7 @@ class Told extends Component {
         minPower60KNSE: 86
       })
     } else {
-      throw "Fuck this guy, he shouldn't be flying. Temperature exceeds our bounds."
+      throw "Fuck this guy (or woman), they shouldn't be flying. Temperature exceeds our bounds."
     }
   }
 
@@ -188,7 +177,7 @@ class Told extends Component {
         minPower60KNGP: 86
       })
     } else {
-      throw "Fuck this guy, he shouldn't be flying. Temperature exceeds our bounds."
+      throw "Fuck this guy (or woman), they shouldn't be flying. Temperature exceeds our bounds."
     }
   }
 
@@ -230,7 +219,7 @@ class Told extends Component {
         minPower60Manual: 86
       })
     } else {
-      throw "Fuck this guy, he shouldn't be flying. Temperature exceeds our bounds."
+      throw "Fuck this guy (or woman), they shouldn't be flying. Temperature exceeds our bounds."
     }
   }
 
@@ -666,30 +655,21 @@ class Told extends Component {
       .then((res) => {
         console.log("KNSE Data: ", res);
         this.temperatureKNSE = res.data.temperature.value;
-        console.log(this.temperatureKNSE);
         this.windSpeedKNSE = res.data.wind_speed.value;
         this.windDirectionKNSE = res.data.wind_direction.value;
         this.setHeadwindKNSE(
           this.windDirectionKNSE,
           this.windSpeedKNSE,
-          this.state.runwayHeading
-        );
-        this.setHeadwindKNGP(
-          this.windDirectionKNGP, // define these and runwayHeading
-          this.windSpeedKNGP,
-          this.state.runwayHeading
+          this.state.runwayHeadingKNSE
         );
         this.setState({
           KNSEMetar: res.data.sanitized,
           metarLoadingKNSE: false,
         });
         //this.maxAbortSpeed(this.state.headwindKNSE, this.temperatureKNSE, 23);
-        this.maxAbortSpeedKNSE(15, 25, "32"); // test example
-        this.maxAbortSpeedKNGP(10, 20, "04") // test
+        this.maxAbortSpeedKNSE(15, 25, 32); // test example
         this.takeoffDistKNSE(10, 33);
-        this.takeoffDistKNGP(10, 44 )
-        this.minPower60KNSE(33),
-        this.minPower60KNGP(44)
+        this.minPower60KNSE(33)
       });
 
     axios
@@ -698,11 +678,22 @@ class Told extends Component {
       })
       .then((res) => {
         console.log("KNGP Data: ", res);
-
+        this.temperatureKNGP = res.data.temperature.value;
+        this.windSpeedKNGP = res.data.wind_speed.value;
+        this.windDirectionKNGP = res.data.wind_direction.value;
+        this.setHeadwindKNGP( 
+          this.windDirectionKNGP,
+          this.windSpeedKNGP,
+          this.state.runwayHeadingKNGP
+        );
         this.setState({
           KNGPMetar: res.data.sanitized,
           metarLoadingKNGP: false,
         });
+        console.log(this. windDirectionKNGP, this.windSpeedKNGP, this.state.headwindKNGP, this.temperatureKNGP);
+        this.maxAbortSpeedKNGP(10, 20, 4) 
+        this.takeoffDistKNGP(10, 44)
+        this.minPower60KNGP(44)
       });
   }
 
