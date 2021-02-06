@@ -17,11 +17,11 @@ class Told extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headwindKNSE: 10,
-      headwindKNGP: 15,
+      headwindKNSE: null,
+      headwindKNGP: null,
       headwindManual: null,
-      runwayHeadingKNSE: 50,
-      runwayHeadingKNGP: 40,
+      runwayHeadingKNSE: null,
+      runwayHeadingKNGP: null,
       KNSEMetar: "",
       KNGPMetar: "",
       toldModalActive: "",
@@ -72,6 +72,7 @@ class Told extends Component {
   };
 
   setHeadwindKNGP = (windDirection, windSpeed, runwayHeading) => {
+    console.log(runwayHeading);
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
@@ -317,8 +318,8 @@ class Told extends Component {
       stringHeading == "40" ||
       stringHeading == "180" ||
       stringHeading == "360" ||
-      stringHeading == "130L" || // these are going to be invalid
-      stringHeading == "310R"
+      stringHeading == "130" || // these are going to be invalid
+      stringHeading == "310"
     ) {
       //runwayDistance = 5000
       speedCacheDry = [
@@ -337,7 +338,7 @@ class Told extends Component {
         [38, 54,	60,	67,	68,	70,	74],
         [36, 52,	60,	62,	67,	68,	72]
       ];
-    } else if (stringHeading == "130R" || stringHeading == "310L") { // these will be invalid
+    } else if (stringHeading == "131" || stringHeading == "311") { // these will be invalid
       //runwayDistance = 8000
       speedCacheDry = [
         [101, 115, 130,	133, 136,	139, 142],
@@ -647,7 +648,39 @@ class Told extends Component {
     });
   }
 
-  componentDidMount() {
+  handleClickKNSE = (event) => {
+    let heading = event.value * 10;
+    this.setState({
+      runwayHeadingKNSE: heading
+    }, () => {
+      this.updateDataKNSE(); 
+    });
+    
+  }
+
+  handleClickKNGP = (event) => {
+    if (event.value == "31L") {
+      event.value = "31.1";
+    }
+    if (event.value == "13R") {
+      event.value = "13.1";
+    }
+    if (event.value == "13L") {
+      event.value = "13"
+    }
+    if (event.value == "31R") {
+      event.value = "31"
+    }
+    let heading = event.value * 10;
+    this.setState({
+      runwayHeadingKNGP: heading
+    }, () => {
+      this.updateDataKNGP()
+    });
+    
+  }
+
+  updateDataKNSE = () => {
     axios
       .get("getWeatherDataKNSE", {
         headers: { "Access-Control-Allow-Origin": "*" },
@@ -671,7 +704,9 @@ class Told extends Component {
         this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
         this.minPower60KNSE(this.temperatureKNSE);
       });
+  }
 
+  updateDataKNGP = () => {
     axios
       .get("getWeatherDataKNGP", {
         headers: { "Access-Control-Allow-Origin": "*" },
@@ -696,6 +731,11 @@ class Told extends Component {
         this.minPower60KNGP(this.temperatureKNGP);
       });
   }
+  
+  componentDidMount() {
+    this.updateDataKNSE();
+    this.updateDataKNGP();
+  }
 
   render() {
     return (
@@ -719,8 +759,12 @@ class Told extends Component {
               <span>
                 <Dropdown
                   options={options}
-                  onChange={this._onSelect}
                   value={defaultOption}
+                  onChange={
+                    this.handleClickKNSE
+                    //this._onSelect;
+                    //this.handleClickKNSE(this._onSelect);
+                  }
                   placeholder="Select an option"
                 />
               </span>
@@ -755,7 +799,7 @@ class Told extends Component {
               <span>
                 <Dropdown
                   options={options2}
-                  onChange={this._onSelect2}
+                  onChange={this.handleClickKNGP}
                   value={defaultOption2}
                   placeholder="Select an option"
                 />
