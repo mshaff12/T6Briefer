@@ -51,7 +51,7 @@
 
 .syllabusDropdownButton:hover{
 
-  background-color: hsl(348, 100%, 61%);
+  background-color: #00aff0;
   color: white;
 }
 
@@ -69,14 +69,14 @@ border: solid hsl(348, 100%, 61%) 1px !important;
 
   .installButton:hover {
 background-color: white !important;
-color: hsl(217, 71%, 53%) !important;
-border: solid hsl(217, 71%, 53%) 1px !important;
+color: #00aff0 !important;
+border: solid #00aff0 1px !important;
   }
 
   #installButton:hover {
     background-color: white !important;
-    color: hsl(217, 71%, 53%) !important;
-    border: solid hsl(217, 71%, 53%) 1px !important;
+    color: #00aff0 !important;
+    border: solid #00aff0 1px !important;
       }
 
       .feedbackButton:hover {
@@ -97,7 +97,7 @@ font-weight: 600;
 }
 
 .dropdown-item:hover {
-  background-color:hsl(348, 100%, 61%) !important;
+  background-color:#00aff0 !important;
   color: white !important;
 }
 

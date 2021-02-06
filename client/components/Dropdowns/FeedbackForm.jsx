@@ -31,7 +31,7 @@ export default function FeedbackForm(props) {
           <div className="control">
             <input
               name="subject"
-              className="input is-link"
+              className="input is-info"
               type="text"
               placeholder="Email"
             ></input>
@@ -43,7 +43,7 @@ export default function FeedbackForm(props) {
           <div className="control">
             <input
               name="subject"
-              className="input is-link"
+              className="input is-info"
               type="text"
               placeholder="Subject"
             ></input>
@@ -55,7 +55,7 @@ export default function FeedbackForm(props) {
           <div className="control has-icons-left">
             <textarea
               name="message"
-              className="textarea is-link"
+              className="textarea is-info"
               type="text"
               placeholder="Message"
             ></textarea>
@@ -63,7 +63,8 @@ export default function FeedbackForm(props) {
 
           <input
             type="submit"
-            className="button is-link sendMessageButton"
+            className="button is-info sendMessageButton"
+            id="sendMessageButton"
             value="Send Message"
           ></input>
         </div>

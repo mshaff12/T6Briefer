@@ -113,7 +113,7 @@ class App extends Component {
 
               <h3 className="earlyAccess">*EARLY ACCESS*</h3>
 
-              <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
+              {/* <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
                 <button className="button2 button is-dark">
                   VT-2 Front Page / Schedule
                 </button>
@@ -137,11 +137,9 @@ class App extends Component {
                 <button className="button27 button is-dark">
                   VT-28 Front Page / Schedule
                 </button>
-              </a>
+              </a> */}
 
-              <div className="t6diagram">
-                <div className="wings"></div>
-              </div>
+              <h2 className="squadronFrontPagesTitle">SQUADRON FRONT PAGES</h2>
 
               <div className="vtPatches">
                 <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-2">
@@ -161,6 +159,10 @@ class App extends Component {
                 <a href="https://www.cnatra.navy.mil/scheds/schedule_data.aspx?sq=vt-28">
                   <span className="vt28Patch"></span>
                 </a>
+              </div>
+
+              <div className="t6diagram">
+                <div className="wings"></div>
               </div>
 
               <div className={`modal ${this.state.feedbackModalActive}`}>

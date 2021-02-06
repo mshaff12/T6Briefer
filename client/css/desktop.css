@@ -94,4 +94,11 @@ margin-bottom: 40px;
   font-size: large;
   }
 
+  .syllabusPagesCloseButton {
+      bottom: 95px;
+      width: 190px;
+      height: 70px;
+
+
+  }
 }
