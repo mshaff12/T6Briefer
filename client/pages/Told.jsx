@@ -290,6 +290,7 @@ class Told extends Component {
               <button
                 onClick={this.activateToldModal}
                 className="calculateToldButton button is-link"
+                id="calculateButton"
               >
                 calculate
               </button>
