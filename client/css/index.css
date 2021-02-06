@@ -9,6 +9,7 @@ html {
 
 .container1 {
   background-color: hsl(0, 0%, 96%);
+  /* background-color: black; */
   min-height: 100%;
   width: 100%;
   position: absolute;
