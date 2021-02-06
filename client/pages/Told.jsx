@@ -39,6 +39,10 @@ class Told extends Component {
       takeoffDistKNSE: null,
       takeoffDistKNGP: null,
       takeoffDistManual: null,
+      toldData1: "toldData",
+      toldData2: "toldData",
+      selectedKNSE: false,
+      selectedKNGP: false,
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -67,6 +71,18 @@ class Told extends Component {
     });
     this.activateToldModal = this.activateToldModal.bind(this);
     this.exitToldModal = this.exitToldModal.bind(this);
+
+    var doneLoading =
+      this.state.selectedKNSE &&
+      !this.state.takeoffDistKNSE &&
+      !this.state.maxAbortDryKNSE &&
+      !this.state.maxAbortWetKNSE
+        ? "fa fa-spinner fa-spin"
+        : "toldData";
+
+    this.setState({
+      toldData1: "toldData",
+    });
   };
 
   setHeadwindKNGP = (windDirection, windSpeed, runwayHeading) => {
@@ -671,10 +687,28 @@ class Told extends Component {
     let heading = event.value * 10;
     this.setState(
       {
+        // toldData1: "fa fa-spinner fa-spin",
+        maxAbortDryKNSE: null,
+        maxAbortWetKNSE: null,
+        takeoffDistKNSE: null,
+        selectedKNSE: true,
+        minPower60KNSE: "",
         runwayHeadingKNSE: heading,
       },
       () => {
         this.updateDataKNSE();
+
+        var loading =
+          this.state.selectedKNSE &&
+          !this.state.takeoffDistKNSE &&
+          !this.state.maxAbortDryKNSE &&
+          !this.state.maxAbortWetKNSE
+            ? "fa fa-spinner fa-spin"
+            : "toldData";
+
+        this.setState({
+          toldData1: loading,
+        });
       }
     );
   };
@@ -695,10 +729,27 @@ class Told extends Component {
     let heading = event.value * 10;
     this.setState(
       {
+        maxAbortDryKNGP: null,
+        maxAbortWetKNGP: null,
+        takeoffDistKNGP: null,
+        selectedKNGP: true,
+        minPower60KNGP: "",
         runwayHeadingKNGP: heading,
       },
       () => {
         this.updateDataKNGP();
+
+        var loading =
+          this.state.selectedKNGP &&
+          !this.state.takeoffDistKNGP &&
+          !this.state.maxAbortDryKNGP &&
+          !this.state.maxAbortWetKNGP
+            ? "fa fa-spinner fa-spin"
+            : "toldData";
+
+        this.setState({
+          toldData2: loading,
+        });
       }
     );
   };
@@ -772,6 +823,18 @@ class Told extends Component {
         );
         this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
         this.minPower60KNGP(this.temperatureKNGP);
+
+        var doneLoading =
+          this.state.selectedKNGP &&
+          !this.state.takeoffDistKNGP &&
+          !this.state.maxAbortDryKNGP &&
+          !this.state.maxAbortWetKNGP
+            ? "fa fa-spinner fa-spin"
+            : "toldData";
+
+        this.setState({
+          toldData2: doneLoading,
+        });
       });
   };
 
@@ -815,11 +878,13 @@ class Told extends Component {
 
             <div className="smallerText">
               MIN TORQUE AT 60 KIAS:
-              <span className="toldData">{`${this.state.minPower60KNSE}`}</span>
+              <span
+                className={`${this.state.toldData1}`}
+              >{`${this.state.minPower60KNSE}`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">
+              <span className={`${this.state.toldData1}`}>
                 {" "}
                 {this.state.takeoffDistKNSE
                   ? `${this.state.takeoffDistKNSE} FT`
@@ -828,7 +893,7 @@ class Told extends Component {
             </div>
             <div className="smallerText">
               MAX DRY ABORT SPEED:
-              <span className="toldData">
+              <span className={`${this.state.toldData1}`}>
                 {this.state.maxAbortDryKNSE
                   ? `${this.state.maxAbortDryKNSE} KIAS`
                   : ""}
@@ -836,7 +901,7 @@ class Told extends Component {
             </div>
             <div className="smallerText marginBottomTold">
               MAX WET ABORT SPEED:
-              <span className="toldData">
+              <span className={`${this.state.toldData1}`}>
                 {" "}
                 {this.state.maxAbortWetKNSE
                   ? `${this.state.maxAbortWetKNSE} KIAS`
@@ -868,11 +933,13 @@ class Told extends Component {
 
             <div className="smallerText">
               MIN TORQUE AT 60 KIAS:
-              <span className="toldData">{`${this.state.minPower60KNGP}`}</span>
+              <span
+                className={`${this.state.toldData2}`}
+              >{`${this.state.minPower60KNGP}`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
-              <span className="toldData">
+              <span className={`${this.state.toldData2}`}>
                 {" "}
                 {this.state.takeoffDistKNGP
                   ? `${this.state.takeoffDistKNGP} FT`
@@ -881,7 +948,7 @@ class Told extends Component {
             </div>
             <div className="smallerText">
               MAX DRY ABORT SPEED:
-              <span className="toldData">
+              <span className={`${this.state.toldData2}`}>
                 {" "}
                 {this.state.maxAbortDryKNGP
                   ? `${this.state.maxAbortDryKNGP} KIAS`
@@ -890,7 +957,7 @@ class Told extends Component {
             </div>
             <div className="smallerText marginBottomTold">
               MAX WET ABORT SPEED:
-              <span className="toldData">
+              <span className={`${this.state.toldData2}`}>
                 {" "}
                 {this.state.maxAbortWetKNGP
                   ? `${this.state.maxAbortWetKNGP} KIAS`
