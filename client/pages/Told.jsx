@@ -232,10 +232,10 @@ class Told extends Component {
     }
     let speedCacheDry;
     let speedCacheWet;
-    if (stringHeading == "05" ||
-        stringHeading == "14" ||
-        stringHeading == "32" ||
-        stringHeading == "23") 
+    if (stringHeading == "50" ||
+        stringHeading == "140" ||
+        stringHeading == "320" ||
+        stringHeading == "230") 
         //runway distance = 6000
         {
           speedCacheDry = [
@@ -313,12 +313,12 @@ class Told extends Component {
     let speedCacheDry;
     let speedCacheWet;
     if (
-      stringHeading == "22" ||
-      stringHeading == "04" ||
-      stringHeading == "18" ||
-      stringHeading == "36" ||
-      stringHeading == "13L" ||
-      stringHeading == "31R"
+      stringHeading == "220" ||
+      stringHeading == "40" ||
+      stringHeading == "180" ||
+      stringHeading == "360" ||
+      stringHeading == "130L" || // these are going to be invalid
+      stringHeading == "310R"
     ) {
       //runwayDistance = 5000
       speedCacheDry = [
@@ -337,7 +337,7 @@ class Told extends Component {
         [38, 54,	60,	67,	68,	70,	74],
         [36, 52,	60,	62,	67,	68,	72]
       ];
-    } else if (stringHeading == "13R" || stringHeading == "31L") {
+    } else if (stringHeading == "130R" || stringHeading == "310L") { // these will be invalid
       //runwayDistance = 8000
       speedCacheDry = [
         [101, 115, 130,	133, 136,	139, 142],
@@ -666,10 +666,10 @@ class Told extends Component {
           KNSEMetar: res.data.sanitized,
           metarLoadingKNSE: false,
         });
-        //this.maxAbortSpeed(this.state.headwindKNSE, this.temperatureKNSE, 23);
-        this.maxAbortSpeedKNSE(15, 25, 32); // test example
-        this.takeoffDistKNSE(10, 33);
-        this.minPower60KNSE(33)
+        console.log("KNSE", this.windDirectionKNSE, this.windSpeedKNSE, this.state.headwindKNSE, this.temperatureKNSE);
+        this.maxAbortSpeedKNSE(this.state.headwindKNSE, this.temperatureKNSE, this.state.runwayHeadingKNSE);
+        this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
+        this.minPower60KNSE(this.temperatureKNSE);
       });
 
     axios
@@ -690,10 +690,10 @@ class Told extends Component {
           KNGPMetar: res.data.sanitized,
           metarLoadingKNGP: false,
         });
-        console.log(this. windDirectionKNGP, this.windSpeedKNGP, this.state.headwindKNGP, this.temperatureKNGP);
-        this.maxAbortSpeedKNGP(10, 20, 4) 
-        this.takeoffDistKNGP(10, 44)
-        this.minPower60KNGP(44)
+        console.log("KNGP", this. windDirectionKNGP, this.windSpeedKNGP, this.state.headwindKNGP, this.temperatureKNGP);
+        this.maxAbortSpeedKNGP(this.state.headwindKNGP, this.temperatureKNGP, this.state.runwayHeadingKNGP) ;
+        this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
+        this.minPower60KNGP(this.temperatureKNGP);
       });
   }
 
