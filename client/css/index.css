@@ -432,7 +432,7 @@ width: 64px !important;
 }
 
 .Dropdown-option:hover {
-  background-color: hsl(217, 71%, 53%) !important;
+  background-color: #00aff0 !important;
   color: white !important;
 }
 
@@ -451,7 +451,7 @@ width: 64px !important;
 }
 
 .Dropdown-control:hover {
-  background-color: hsl(217, 71%, 53%);
+  background-color: #00aff0;
   color: white;
   cursor: pointer;
 }
