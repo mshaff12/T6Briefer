@@ -65,8 +65,8 @@ border: solid  #00aff0 1px !important;
 
 .toggleLimitsPageButton:hover {
   background-color: white !important;
-  color: hsl(204, 86%, 53%) !important;
-  border: solid hsl(204, 86%, 53%) 1px !important;
+  color: hsl(0, 0%, 21%) !important;
+  border: solid hsl(0, 0%, 21%) 1px !important;
   }
 
   .installButton:hover {
@@ -87,16 +87,6 @@ border: solid #fd5722 1px !important;
         border: solid black 1px !important;
           }
 
-.epButton:hover {
-letter-spacing: 1.5px;
-border: solid 1.5px hsl(204, 86%, 53%) !important;
-border-right: none !important;
-border-left: none !important;
-background-color: #f3f3f3 !important;
-color: hsl(204, 86%, 53%) !important;
-border-radius: 0 !important;
-font-weight: 600;
-}
 
 .dropdown-item:hover {
   background-color:white !important;

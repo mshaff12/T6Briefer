@@ -946,6 +946,7 @@ class EPPage extends Component {
               <div className="modal-background">
                 <div className="pagesContainer">
                   <button
+                    id="syllabusPagesCloseButton"
                     onClick={this.handleCloseLimitsModal}
                     className="button is-danger syllabusPagesCloseButton"
                   >
@@ -961,8 +962,9 @@ class EPPage extends Component {
                     aria-label="close"
                   ></button>
                   <button
+                    id="toggleLimitsPageButton"
                     onClick={this.toggleLimitsPage}
-                    className="button is-info toggleLimitsPageButton"
+                    className="button is-dark toggleLimitsPageButton"
                   >
                     {this.state.limitsPageButtonName}
                   </button>
