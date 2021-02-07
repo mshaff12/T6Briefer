@@ -849,7 +849,7 @@ class Told extends Component {
         <section className={`section container5`}>
           <div className="container3">
             <h1 className="title">TOLD</h1>
-            <h3 className="buildInProgress earlyAccess">*BUILD IN PROGRESS*</h3>
+            {/* <h3 className="buildInProgress earlyAccess">*BUILD IN PROGRESS*</h3> */}
             <h2 className="metarTitle">NAS WHITING FIELD</h2>
 
             <div className="metarWrapperDiv">

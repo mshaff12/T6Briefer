@@ -64,7 +64,7 @@ class Home extends Component {
           </span>
         </div>
 
-        <h3 className="earlyAccess">*EARLY ACCESS*</h3>
+        {/* <h3 className="earlyAccess">*EARLY ACCESS*</h3> */}
         <h2 className="squadronFrontPagesTitle">SQUADRON FRONT PAGES</h2>
 
         <section className={`section container6`}>
@@ -154,6 +154,7 @@ class Home extends Component {
 
             <button
               onClick={this.openFeedbackModal}
+              id="feedbackButton"
               className="feedbackButton button is-dark"
             >
               send feedback

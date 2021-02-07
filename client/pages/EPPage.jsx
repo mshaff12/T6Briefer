@@ -975,6 +975,7 @@ class EPPage extends Component {
             {/* ===================================================================================================== */}
 
             <button
+              id="babyBlue"
               data-id="ep1"
               onClick={this.handleClickEP}
               className="epButton button2 button is-dark"
@@ -990,6 +991,7 @@ class EPPage extends Component {
               EMERGENCY ENGINE SHUTDOWN ON THE GROUND
             </button>
             <button
+              id="babyBlue"
               data-id="ep3"
               onClick={this.handleClickEP}
               className="epButton button2 button is-dark"
@@ -1005,6 +1007,7 @@ class EPPage extends Component {
               ABORT
             </button>
             <button
+              id="babyBlue"
               data-id="ep5"
               onClick={this.handleClickEP}
               className="epButton epSmallFont button2 button is-dark"
@@ -1021,6 +1024,7 @@ class EPPage extends Component {
               ENGINE FAILURE DURING FLIGHT
             </button>
             <button
+              id="babyBlue"
               data-id="ep7"
               onClick={this.handleClickEP}
               className="epButton button2 button is-dark"
@@ -1037,6 +1041,7 @@ class EPPage extends Component {
               FEATHER
             </button>
             <button
+              id="babyBlue"
               data-id="ep9"
               onClick={this.handleClickEP}
               className="epButton button2 button is-dark"
@@ -1052,6 +1057,7 @@ class EPPage extends Component {
               INADVERTENT DEPARTURE FROM CONTROLLED FLIGHT
             </button>
             <button
+              id="babyBlue"
               data-id="ep11"
               onClick={this.handleClickEP}
               className="button2 epButton button is-dark"
@@ -1067,6 +1073,7 @@ class EPPage extends Component {
               SMOKE AND FUME ELIMINATION/ELECTRICAL FIRE
             </button>
             <button
+              id="babyBlue"
               data-id="ep13"
               onClick={this.handleClickEP}
               className="button2 epButton button is-dark"
@@ -1082,6 +1089,7 @@ class EPPage extends Component {
               OIL SYSTEM MALFUNCTION OR LOW OIL PRESSURE
             </button>
             <button
+              id="babyBlue"
               data-id="ep15"
               onClick={this.handleClickEP}
               className="button2 epButton button is-dark"
@@ -1097,6 +1105,7 @@ class EPPage extends Component {
               HIGH FUEL FLOW
             </button>
             <button
+              id="babyBlue"
               data-id="ep17"
               onClick={this.handleClickEP}
               className="epSmallFont epButton button2 button is-dark"
@@ -1112,6 +1121,7 @@ class EPPage extends Component {
               EJECT
             </button>
             <button
+              id="babyBlue"
               data-id="ep19"
               onClick={this.handleClickEP}
               className="epButton button2 button is-dark"

@@ -357,6 +357,7 @@ class Syllabus extends Component {
 
             <div className="syllabusButtonContainer">
               <button
+                id="syllabusButton"
                 data-id="contact"
                 onClick={this.handleClickOpenSyllabus}
                 className="syllabusButton button is-dark"
@@ -380,6 +381,7 @@ class Syllabus extends Component {
 
             <div className="syllabusButtonContainer">
               <button
+                id="syllabusButton"
                 data-id="instrument"
                 onClick={this.handleClickOpenSyllabus}
                 className="syllabusButton button is-dark"
@@ -403,6 +405,7 @@ class Syllabus extends Component {
 
             <div className="syllabusButtonContainer">
               <button
+                id="syllabusButton"
                 data-id="formation"
                 onClick={this.handleClickOpenSyllabus}
                 className="syllabusButton button is-dark"
@@ -426,6 +429,7 @@ class Syllabus extends Component {
 
             <div className="syllabusButtonContainer">
               <button
+                id="syllabusButton"
                 data-id="navigation"
                 onClick={this.handleClickOpenSyllabus}
                 className="syllabusButton button is-dark"

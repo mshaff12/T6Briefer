@@ -51,8 +51,10 @@
 
 .syllabusDropdownButton:hover{
 
-  background-color: #00aff0;
-  color: white;
+  background-color: white;
+}
+.syllabusDropdownButton {
+  color:  #fd5722;
 }
 
 .syllabusPagesCloseButton:hover {
@@ -97,8 +99,11 @@ font-weight: 600;
 }
 
 .dropdown-item:hover {
-  background-color:#00aff0 !important;
-  color: white !important;
+  background-color:white !important;
+  /* color: white !important; */
+}
+.dropdown-item {
+  color: #fd5722
 }
 
 #calculateButton:hover {
