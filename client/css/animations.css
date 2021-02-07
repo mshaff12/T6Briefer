@@ -59,8 +59,8 @@
 
 .syllabusPagesCloseButton:hover {
 background-color: white !important;
-color: hsl(348, 100%, 61%) !important;
-border: solid hsl(348, 100%, 61%) 1px !important;
+color: #00aff0 !important;
+border: solid  #00aff0 1px !important;
 }
 
 .toggleLimitsPageButton:hover {

@@ -450,6 +450,7 @@ class Syllabus extends Component {
                       <button
                         data-id={key}
                         onClick={this.handleCloseSyllabusModal}
+                        id="syllabusPagesCloseButton"
                         className="button is-danger syllabusPagesCloseButton"
                       >
                         {" "}

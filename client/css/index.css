@@ -450,7 +450,12 @@ padding-bottom: 60px;
   width: 80px;
 border-radius: 0;
 
+
 animation: slideUp forwards 0.5s;
+}
+
+#syllabusPagesCloseButton {
+  background-color:#00aff0;
 }
 
 .smallerTextEp {
@@ -625,7 +630,7 @@ font-size: small;
 }
 
 #feedbackButton {
-  background-color: gray;
+  background-color: hsl(0, 0%, 29%);
 }
 
 .sendMessageButton {
@@ -666,7 +671,7 @@ border-bottom-right-radius: 4px;
 }
 
 .fa-tachometer, .iconText, .fa-desktop, .fa-plane,  .fa-home{
-  color: gray;
+  color: hsl(0, 0%, 29%);
   /* color: #4b4b4b */
   /* color: hsl(204, 86%, 53%) */
   /* color: hsl(348, 100%, 61%); */
@@ -681,7 +686,7 @@ border-bottom-right-radius: 4px;
   font-weight: 600;
 
 
-  margin-top: 45px;
+  margin-top: 65px;
   /* margin-bottom: 5%; */
   margin-bottom: 0;
 }
@@ -694,7 +699,7 @@ border-bottom-right-radius: 4px;
   /* min-height: 80vh; */
      /* display: flex;
   align-items: center; */
-  margin-top: -80px;
+  margin-top: -65px;
 }
 
 .containerSquadronButtons {

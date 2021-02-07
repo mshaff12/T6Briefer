@@ -80,7 +80,7 @@ margin-bottom: 40px;
   border-top-left-radius: 80%;
   border-top-right-radius: 80%;
 
-  background-color: hsl(217, 71%, 53%) !important;
+  background-color: #fd5722 !important;
 
   animation: slideUp forwards 0.5s;
   font-size: large;
