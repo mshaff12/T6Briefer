@@ -585,7 +585,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       distanceCache[temperatureIdx2][headwindIdx1];
     let takeoffDistance =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       takeoffDistKNSE: Math.ceil(takeoffDistance),
     });
@@ -628,7 +628,7 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       distanceCache[temperatureIdx2][headwindIdx1];
     let takeoffDistance =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       takeoffDistKNGP: Math.ceil(takeoffDistance),
     });
@@ -671,14 +671,14 @@ class Told extends Component {
         (headwind - headwindIdx1) +
       distanceCache[temperatureIdx2][headwindIdx1];
     let takeoffDistance =
-      (minuend - subtrahend) * (temperature - temperatureIdx1) + subtrahend;
+      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
     this.setState({
       takeoffDistManual: Math.ceil(takeoffDistance),
     });
   };
 
   activateToldModal() {
-    this.setHeadwindManual(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual);
+    this.setHeadwindManual(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual); // bug here
     this.minPower60Manual(this.state.temperatureManual);
     this.maxAbortSpeedManual(this.state.headwindManual, this.state.temperatureManual, this.state.runwayLengthManual);
     this.takeoffDistManual(this.state.headwindManual, this.state.temperatureManual);
@@ -691,7 +691,11 @@ class Told extends Component {
   exitToldModal() {
     this.setState({
       toldModalActive: "",
-    });
+      maxAbortDryManual: null,
+      maxAbortWetManual: null,
+      minPower60Manual: null,
+      takeoffDistManual: null,
+    }, () => {console.log("test: ", this.state.maxAbortDryManual)});
   }
 
   handleClickKNSE = (event) => {
@@ -868,6 +872,9 @@ class Told extends Component {
   }*/
 
   handleClickManual = (event) => {
+    this.setState({
+      runwayLengthManual: null
+    });
     this.setState({
       runwayLengthManual: event.value
     });
@@ -1089,19 +1096,19 @@ class Told extends Component {
                 <section className="modal-card-body">
                   <div className="smallerText">
                     MIN TORQUE AT 60 KIAS:
-                    <span className="toldData">{this.state.minPower60Manual}</span>
+                    <span className="toldData">{`${this.state.minPower60Manual}`}</span>
                   </div>
                   <div className="smallerText">
                     TAKEOFF DISTANCE (FLAPS T/O):
-                    <span className="toldData">{this.state.takeoffDistManual}</span>
+                    <span className="toldData">{`${this.state.takeoffDistManual}`}</span>
                   </div>
                   <div className="smallerText">
                     MAX DRY ABORT SPEED:
-                    <span className="toldData">{this.state.maxAbortDryManual}</span>
+                    <span className="toldData">{`${this.state.maxAbortDryManual}`}</span>
                   </div>
                   <div className="smallerText marginBottomTold">
                     MAX WET ABORT SPEED:
-                    <span className="toldData">{this.state.maxAbortWetManual}</span>
+                    <span className="toldData">{`${this.state.maxAbortWetManual}`}</span>
                   </div>
                 </section>
                 <footer className="modal-card-foot">
