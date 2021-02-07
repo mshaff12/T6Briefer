@@ -80,6 +80,15 @@ class Told extends Component {
       },
       () => {
         console.log("Headwind Updated ", this.state.headwindKNSE);
+        if (this.state.runwayHeadingKNSE) {
+          this.maxAbortSpeedKNSE(
+            this.state.headwindKNSE,
+            this.temperatureKNSE,
+            this.state.runwayHeadingKNSE
+          );
+          this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
+          this.minPower60KNSE(this.temperatureKNSE);
+        }
       }
     );
     // this.activateToldModal = this.activateToldModal.bind(this);
@@ -102,11 +111,24 @@ class Told extends Component {
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
-    this.setState({
-      headwindKNGP: Math.floor(
-        Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
-      ),
-    });
+    this.setState(
+      {
+        headwindKNGP: Math.floor(
+          Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
+        ),
+      },
+      () => {
+        if (this.state.runwayHeadingKNGP) {
+          this.maxAbortSpeedKNGP(
+            this.state.headwindKNGP,
+            this.temperatureKNGP,
+            this.state.runwayHeadingKNGP
+          );
+        }
+        this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
+        this.minPower60KNGP(this.temperatureKNGP);
+      }
+    );
     console.log("Headwind Updated", this.state.headwindKNGP);
     // this.activateToldModal = this.activateToldModal.bind(this);
     // this.exitToldModal = this.exitToldModal.bind(this);
@@ -833,13 +855,13 @@ class Told extends Component {
           this.state.headwindKNSE,
           this.temperatureKNSE
         );
-        this.maxAbortSpeedKNSE(
-          this.state.headwindKNSE,
-          this.temperatureKNSE,
-          this.state.runwayHeadingKNSE
-        );
-        this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
-        this.minPower60KNSE(this.temperatureKNSE);
+        // this.maxAbortSpeedKNSE(
+        //   this.state.headwindKNSE,
+        //   this.temperatureKNSE,
+        //   this.state.runwayHeadingKNSE
+        // );
+        // this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
+        // this.minPower60KNSE(this.temperatureKNSE);
       });
   };
 
@@ -869,13 +891,13 @@ class Told extends Component {
           this.state.headwindKNGP,
           this.temperatureKNGP
         );
-        this.maxAbortSpeedKNGP(
-          this.state.headwindKNGP,
-          this.temperatureKNGP,
-          this.state.runwayHeadingKNGP
-        );
-        this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
-        this.minPower60KNGP(this.temperatureKNGP);
+        // this.maxAbortSpeedKNGP(
+        //   this.state.headwindKNGP,
+        //   this.temperatureKNGP,
+        //   this.state.runwayHeadingKNGP
+        // );
+        // this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
+        // this.minPower60KNGP(this.temperatureKNGP);
 
         var doneLoading =
           this.state.selectedKNGP &&
