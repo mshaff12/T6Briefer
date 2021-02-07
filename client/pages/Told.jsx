@@ -679,6 +679,7 @@ class Told extends Component {
   };
 
   activateToldModal() {
+    console.log("Modal values2: ", this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual);
     this.setHeadwindManual(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual); // bug here
     this.minPower60Manual(this.state.temperatureManual);
     this.maxAbortSpeedManual(this.state.headwindManual, this.state.temperatureManual, this.state.runwayLengthManual);
@@ -697,7 +698,7 @@ class Told extends Component {
       maxAbortWetManual: null,
       minPower60Manual: null,
       takeoffDistManual: null,
-    }, () => {console.log("test: ", this.state.maxAbortDryManual, this.state.headwindManual)});
+    });
   }
 
   handleClickKNSE = (event) => {
@@ -862,9 +863,12 @@ class Told extends Component {
     this.setState({
       runwayLengthManual: event.value
     });
+    console.log("Modal values: ", this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual, this.state.headwindManual);
   }
 
   componentDidMount() {
+    this.activateToldModal = this.activateToldModal.bind(this);
+    this.exitToldModal = this.exitToldModal.bind(this);
     this.updateDataKNSE();
     this.updateDataKNGP();
   }
