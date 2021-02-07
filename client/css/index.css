@@ -155,11 +155,11 @@ font-weight: 600;
 
 #gray {
   background-color: white !important;
-  color:  #fd5722;
+  color:  #00aff0;
 }
 
 #babyBlue {
-  background-color: gray;
+  background-color: #00aff0;
 
 }
 
@@ -267,16 +267,16 @@ font-weight: 600;
 
 
 #limits {
-  color: #fd5722;
+  color: #00aff0;
   font-size: large;
   background: repeating-linear-gradient(
     45deg,
-    #fd5722,
-    #fd5722 20px,
+    #00aff0,
+    #00aff0 20px,
     white 20px,
     white 40px
   );
-  border: solid  #fd5722 1px;
+  border: solid  #00aff0 1px;
   margin-bottom: 40px;
 }
 
@@ -661,7 +661,7 @@ border-bottom-right-radius: 4px;
 }
 
 #calculateButton {
-  background-color:#fd5722 !important;
+  background-color:#00aff0 !important;
   color: white;
 }
 
@@ -706,5 +706,5 @@ border-bottom-right-radius: 4px;
 }
 
 #syllabusButton {
-  background-color: #fd5722 !important;
+  background-color: #00aff0 !important;
 }

@@ -54,7 +54,7 @@
   background-color: white;
 }
 .syllabusDropdownButton {
-  color:  #fd5722;
+  color:  #00aff0;
 }
 
 .syllabusPagesCloseButton:hover {
@@ -71,14 +71,14 @@ border: solid hsl(348, 100%, 61%) 1px !important;
 
   .installButton:hover {
 background-color: white !important;
-color: #00aff0 !important;
-border: solid #00aff0 1px !important;
+color: #fd5722 !important;
+border: solid #fd5722 1px !important;
   }
 
   #installButton:hover {
     background-color: white !important;
-    color: #00aff0 !important;
-    border: solid #00aff0 1px !important;
+    color: #fd5722 !important;
+    border: solid #fd5722 1px !important;
       }
 
       .feedbackButton:hover {
@@ -103,7 +103,7 @@ font-weight: 600;
   /* color: white !important; */
 }
 .dropdown-item {
-  color: #fd5722
+  color: #00aff0
 }
 
 #calculateButton:hover {
