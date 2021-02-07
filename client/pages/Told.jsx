@@ -17,7 +17,6 @@ class Told extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
       headwindKNSE: null,
       headwindKNGP: null,
       headwindManual: null,
@@ -48,7 +47,7 @@ class Told extends Component {
       windDirectionManual: null,
       windSpeedManual: null,
       runwayHeadingManual: null,
-      runwayLengthManual: null
+      runwayLengthManual: null,
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -56,6 +55,8 @@ class Told extends Component {
     this.temperatureKNGP;
     this.windSpeedKNGP;
     this.windDirectionKNGP;
+
+    this.activateToldModal = this.activateToldModal.bind(this);
   }
 
   // 3) create state variables for both runway drop downs
@@ -70,11 +71,16 @@ class Told extends Component {
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
-    this.setState({
-      headwindKNSE: Math.floor(
-        Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
-      ),
-    }, () => {console.log("Headwind Updated ", this.state.headwindKNSE)});
+    this.setState(
+      {
+        headwindKNSE: Math.floor(
+          Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
+        ),
+      },
+      () => {
+        console.log("Headwind Updated ", this.state.headwindKNSE);
+      }
+    );
     // this.activateToldModal = this.activateToldModal.bind(this);
     // this.exitToldModal = this.exitToldModal.bind(this);
 
@@ -109,12 +115,26 @@ class Told extends Component {
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
-    this.setState({
-      headwindManual: Math.floor(
-        Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
-      ),
-    });
-    console.log("Headwind Updated ", this.state.headwindManual)
+    this.setState(
+      {
+        headwindManual: Math.floor(
+          Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
+        ),
+      },
+      () => {
+        console.log("Headwind Updated ", this.state.headwindManual);
+        this.maxAbortSpeedManual(
+          this.state.headwindManual,
+          this.state.temperatureManual,
+          this.state.runwayLengthManual
+        );
+        this.takeoffDistManual(
+          this.state.headwindManual,
+          this.state.temperatureManual
+        );
+      }
+    );
+
     // this.activateToldModal = this.activateToldModal.bind(this);
     // this.exitToldModal = this.exitToldModal.bind(this);
   };
@@ -679,12 +699,33 @@ class Told extends Component {
   };
 
   activateToldModal() {
-    console.log("Modal values2: ", this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual);
-    this.setHeadwindManual(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual); // bug here
+    console.log(
+      "Modal values2: ",
+      this.state.windDirectionManual,
+      this.state.windSpeedManual,
+      this.state.runwayHeadingManual
+    );
+    this.setHeadwindManual(
+      this.state.windDirectionManual,
+      this.state.windSpeedManual,
+      this.state.runwayHeadingManual
+    ); // bug here
     this.minPower60Manual(this.state.temperatureManual);
-    this.maxAbortSpeedManual(this.state.headwindManual, this.state.temperatureManual, this.state.runwayLengthManual);
-    this.takeoffDistManual(this.state.headwindManual, this.state.temperatureManual);
-    console.log(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual, this.state.headwindManual)
+    // this.maxAbortSpeedManual(
+    //   this.state.headwindManual,
+    //   this.state.temperatureManual,
+    //   this.state.runwayLengthManual
+    // );
+    // this.takeoffDistManual(
+    //   this.state.headwindManual,
+    //   this.state.temperatureManual
+    // );
+    console.log(
+      this.state.windDirectionManual,
+      this.state.windSpeedManual,
+      this.state.runwayHeadingManual,
+      this.state.headwindManual
+    );
     this.setState({
       toldModalActive: "is-active",
     });
@@ -858,16 +899,21 @@ class Told extends Component {
 
   handleClickManual = (event) => {
     this.setState({
-      runwayLengthManual: null
+      runwayLengthManual: null,
     });
     this.setState({
-      runwayLengthManual: event.value
+      runwayLengthManual: event.value,
     });
-    console.log("Modal values: ", this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual, this.state.headwindManual);
-  }
+    console.log(
+      "Modal values: ",
+      this.state.windDirectionManual,
+      this.state.windSpeedManual,
+      this.state.runwayHeadingManual,
+      this.state.headwindManual
+    );
+  };
 
   componentDidMount() {
-    this.activateToldModal = this.activateToldModal.bind(this);
     this.exitToldModal = this.exitToldModal.bind(this);
     this.updateDataKNSE();
     this.updateDataKNGP();
@@ -997,11 +1043,11 @@ class Told extends Component {
               TEMPERATURE(°C):
               <input
                 className="input toldDataInputFields is-small"
-                value = {this.state.temperatureManual}
-                onChange = {(event) => {
+                value={this.state.temperatureManual}
+                onChange={(event) => {
                   this.setState({
-                    temperatureManual: event.target.value
-                  })
+                    temperatureManual: event.target.value,
+                  });
                 }}
                 type="text"
                 placeholder="Ex: 15"
@@ -1011,11 +1057,11 @@ class Told extends Component {
               WIND DIRECTION:{" "}
               <input
                 className="input toldDataInputFields is-small"
-                value = {this.state.windDirectionManual}
-                onChange = {(event) => {
+                value={this.state.windDirectionManual}
+                onChange={(event) => {
                   this.setState({
-                    windDirectionManual: event.target.value
-                  })
+                    windDirectionManual: event.target.value,
+                  });
                 }}
                 type="text"
                 placeholder="Ex: 120"
@@ -1025,11 +1071,11 @@ class Told extends Component {
               WIND SPEED:{" "}
               <input
                 className="input toldDataInputFields is-small"
-                value = {this.state.windSpeedManual}
-                onChange = {(event) => {
+                value={this.state.windSpeedManual}
+                onChange={(event) => {
                   this.setState({
-                    windSpeedManual: event.target.value
-                  })
+                    windSpeedManual: event.target.value,
+                  });
                 }}
                 type="text"
                 placeholder="Ex: 10"
@@ -1039,11 +1085,11 @@ class Told extends Component {
               RUNWAY HEADING:{" "}
               <input
                 className="input toldDataInputFields is-small"
-                value = {this.state.manualRunwayHeading}
-                onChange = {(event) => {
+                value={this.state.manualRunwayHeading}
+                onChange={(event) => {
                   this.setState({
-                    runwayHeadingManual: event.target.value
-                  })
+                    runwayHeadingManual: event.target.value,
+                  });
                 }}
                 type="text"
                 placeholder="Ex: 230"
@@ -1052,14 +1098,14 @@ class Told extends Component {
             <div className="toldForRunway">
               <span>RUNWAY LENGTH: </span>
               <span>
-              <Dropdown
-                    options={["5000", "6000", "8000"]}
-                    onChange={this.handleClickManual}
-                    value={defaultOption}
-                    placeholder="Select an option"
-                  />
+                <Dropdown
+                  options={["5000", "6000", "8000"]}
+                  onChange={this.handleClickManual}
+                  value={defaultOption}
+                  placeholder="Select an option"
+                />
               </span>
-            </div>         
+            </div>
             <div className="calculateContainer">
               <button
                 onClick={this.activateToldModal}
