@@ -74,9 +74,9 @@ class Told extends Component {
       headwindKNSE: Math.floor(
         Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
       ),
-    });
-    this.activateToldModal = this.activateToldModal.bind(this);
-    this.exitToldModal = this.exitToldModal.bind(this);
+    }, () => {console.log("Headwind Updated ", this.state.headwindKNSE)});
+    // this.activateToldModal = this.activateToldModal.bind(this);
+    // this.exitToldModal = this.exitToldModal.bind(this);
 
     var doneLoading =
       this.state.selectedKNSE &&
@@ -92,7 +92,6 @@ class Told extends Component {
   };
 
   setHeadwindKNGP = (windDirection, windSpeed, runwayHeading) => {
-    console.log(runwayHeading);
     // Math.cos uses radians. Conversion is Radians = Angle in degrees x PI / 180.
     let windRadian = (windDirection * Math.PI) / 180;
     let runwayRadian = (runwayHeading * Math.PI) / 180;
@@ -101,8 +100,9 @@ class Told extends Component {
         Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
       ),
     });
-    this.activateToldModal = this.activateToldModal.bind(this);
-    this.exitToldModal = this.exitToldModal.bind(this);
+    console.log("Headwind Updated", this.state.headwindKNGP);
+    // this.activateToldModal = this.activateToldModal.bind(this);
+    // this.exitToldModal = this.exitToldModal.bind(this);
   };
 
   setHeadwindManual = (windDirection, windSpeed, runwayHeading) => {
@@ -114,8 +114,9 @@ class Told extends Component {
         Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
       ),
     });
-    this.activateToldModal = this.activateToldModal.bind(this);
-    this.exitToldModal = this.exitToldModal.bind(this);
+    console.log("Headwind Updated ", this.state.headwindManual)
+    // this.activateToldModal = this.activateToldModal.bind(this);
+    // this.exitToldModal = this.exitToldModal.bind(this);
   };
 
   minPower60KNSE = (temperature) => {
@@ -691,11 +692,12 @@ class Told extends Component {
   exitToldModal() {
     this.setState({
       toldModalActive: "",
+      headwindManual: null,
       maxAbortDryManual: null,
       maxAbortWetManual: null,
       minPower60Manual: null,
       takeoffDistManual: null,
-    }, () => {console.log("test: ", this.state.maxAbortDryManual)});
+    }, () => {console.log("test: ", this.state.maxAbortDryManual, this.state.headwindManual)});
   }
 
   handleClickKNSE = (event) => {
@@ -852,24 +854,6 @@ class Told extends Component {
         });
       });
   };
-
- /* updateWindDirection = (event) => {
-    this.setState({
-      windSpeedManual: event.target.valeu
-    })
-  }
-
-  updateWindSpeed = (event) => {
-    this.setState({
-      windDirectionManual: event.target.value
-    })
-  }
-
-  updateRunwayHeading = (event) => {
-    this.setState({
-      runwayHeadingManual: event.target.value
-    })
-  }*/
 
   handleClickManual = (event) => {
     this.setState({
