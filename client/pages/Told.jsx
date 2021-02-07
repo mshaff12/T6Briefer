@@ -17,6 +17,7 @@ class Told extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      
       headwindKNSE: null,
       headwindKNGP: null,
       headwindManual: null,
@@ -43,6 +44,11 @@ class Told extends Component {
       toldData2: "toldData",
       selectedKNSE: false,
       selectedKNGP: false,
+      temperatureManual: null,
+      windDirectionManual: null,
+      windSpeedManual: null,
+      runwayHeadingManual: null,
+      runwayLengthManual: null
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -672,6 +678,11 @@ class Told extends Component {
   };
 
   activateToldModal() {
+    this.setHeadwindManual(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual);
+    this.minPower60Manual(this.state.temperatureManual);
+    this.maxAbortSpeedManual(this.state.headwindManual, this.state.temperatureManual, this.state.runwayLengthManual);
+    this.takeoffDistManual(this.state.headwindManual, this.state.temperatureManual);
+    console.log(this.state.windDirectionManual, this.state.windSpeedManual, this.state.runwayHeadingManual, this.state.headwindManual)
     this.setState({
       toldModalActive: "is-active",
     });
@@ -838,6 +849,30 @@ class Told extends Component {
       });
   };
 
+ /* updateWindDirection = (event) => {
+    this.setState({
+      windSpeedManual: event.target.valeu
+    })
+  }
+
+  updateWindSpeed = (event) => {
+    this.setState({
+      windDirectionManual: event.target.value
+    })
+  }
+
+  updateRunwayHeading = (event) => {
+    this.setState({
+      runwayHeadingManual: event.target.value
+    })
+  }*/
+
+  handleClickManual = (event) => {
+    this.setState({
+      runwayLengthManual: event.value
+    });
+  }
+
   componentDidMount() {
     this.updateDataKNSE();
     this.updateDataKNGP();
@@ -866,11 +901,7 @@ class Told extends Component {
                 <Dropdown
                   options={options}
                   value={defaultOption}
-                  onChange={
-                    this.handleClickKNSE
-                    //this._onSelect;
-                    //this.handleClickKNSE(this._onSelect);
-                  }
+                  onChange={this.handleClickKNSE}
                   placeholder="Select an option"
                 />
               </span>
@@ -971,6 +1002,12 @@ class Told extends Component {
               TEMPERATURE(°C):
               <input
                 className="input toldDataInputFields is-small"
+                value = {this.state.temperatureManual}
+                onChange = {(event) => {
+                  this.setState({
+                    temperatureManual: event.target.value
+                  })
+                }}
                 type="text"
                 placeholder="Ex: 15"
               ></input>
@@ -979,6 +1016,12 @@ class Told extends Component {
               WIND DIRECTION:{" "}
               <input
                 className="input toldDataInputFields is-small"
+                value = {this.state.windDirectionManual}
+                onChange = {(event) => {
+                  this.setState({
+                    windDirectionManual: event.target.value
+                  })
+                }}
                 type="text"
                 placeholder="Ex: 120"
               ></input>
@@ -987,6 +1030,12 @@ class Told extends Component {
               WIND SPEED:{" "}
               <input
                 className="input toldDataInputFields is-small"
+                value = {this.state.windSpeedManual}
+                onChange = {(event) => {
+                  this.setState({
+                    windSpeedManual: event.target.value
+                  })
+                }}
                 type="text"
                 placeholder="Ex: 10"
               ></input>
@@ -995,11 +1044,27 @@ class Told extends Component {
               RUNWAY HEADING:{" "}
               <input
                 className="input toldDataInputFields is-small"
+                value = {this.state.manualRunwayHeading}
+                onChange = {(event) => {
+                  this.setState({
+                    runwayHeadingManual: event.target.value
+                  })
+                }}
                 type="text"
                 placeholder="Ex: 230"
               ></input>
             </div>
-
+            <div className="toldForRunway">
+              <span>RUNWAY LENGTH: </span>
+              <span>
+              <Dropdown
+                    options={["5000", "6000", "8000"]}
+                    onChange={this.handleClickManual}
+                    value={defaultOption}
+                    placeholder="Select an option"
+                  />
+              </span>
+            </div>         
             <div className="calculateContainer">
               <button
                 onClick={this.activateToldModal}
@@ -1024,19 +1089,19 @@ class Told extends Component {
                 <section className="modal-card-body">
                   <div className="smallerText">
                     MIN TORQUE AT 60 KIAS:
-                    <span className="toldData">{`this doesn't work yet`}</span>
+                    <span className="toldData">{this.state.minPower60Manual}</span>
                   </div>
                   <div className="smallerText">
                     TAKEOFF DISTANCE (FLAPS T/O):
-                    <span className="toldData">{`this doesn't work yet`}</span>
+                    <span className="toldData">{this.state.takeoffDistManual}</span>
                   </div>
                   <div className="smallerText">
                     MAX DRY ABORT SPEED:
-                    <span className="toldData">{`this doesn't work yet`}</span>
+                    <span className="toldData">{this.state.maxAbortDryManual}</span>
                   </div>
                   <div className="smallerText marginBottomTold">
                     MAX WET ABORT SPEED:
-                    <span className="toldData">{`this doesn't work yet`}</span>
+                    <span className="toldData">{this.state.maxAbortWetManual}</span>
                   </div>
                 </section>
                 <footer className="modal-card-foot">
