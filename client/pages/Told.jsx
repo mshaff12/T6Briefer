@@ -17,6 +17,7 @@ class Told extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      missingInputText: "hide",
       headwindKNSE: null,
       headwindKNGP: null,
       headwindManual: null,
@@ -699,36 +700,29 @@ class Told extends Component {
   };
 
   activateToldModal() {
-    console.log(
-      "Modal values2: ",
-      this.state.windDirectionManual,
-      this.state.windSpeedManual,
-      this.state.runwayHeadingManual
-    );
-    this.setHeadwindManual(
-      this.state.windDirectionManual,
-      this.state.windSpeedManual,
-      this.state.runwayHeadingManual
-    ); // bug here
-    this.minPower60Manual(this.state.temperatureManual);
-    // this.maxAbortSpeedManual(
-    //   this.state.headwindManual,
-    //   this.state.temperatureManual,
-    //   this.state.runwayLengthManual
-    // );
-    // this.takeoffDistManual(
-    //   this.state.headwindManual,
-    //   this.state.temperatureManual
-    // );
-    console.log(
-      this.state.windDirectionManual,
-      this.state.windSpeedManual,
-      this.state.runwayHeadingManual,
-      this.state.headwindManual
-    );
-    this.setState({
-      toldModalActive: "is-active",
-    });
+    if (
+      this.state.temperatureManual &&
+      this.state.windDirectionManual &&
+      this.state.windSpeedManual &&
+      this.state.runwayHeadingManual &&
+      this.state.runwayLengthManual
+    ) {
+      this.setHeadwindManual(
+        this.state.windDirectionManual,
+        this.state.windSpeedManual,
+        this.state.runwayHeadingManual
+      );
+      this.minPower60Manual(this.state.temperatureManual);
+
+      this.setState({
+        toldModalActive: "is-active",
+        missingInputText: "hide",
+      });
+    } else {
+      this.setState({
+        missingInputText: "missingInputText",
+      });
+    }
   }
 
   exitToldModal() {
@@ -1106,6 +1100,11 @@ class Told extends Component {
                 />
               </span>
             </div>
+
+            <div className={this.state.missingInputText}>
+              please enter a value for every input
+            </div>
+
             <div className="calculateContainer">
               <button
                 onClick={this.activateToldModal}

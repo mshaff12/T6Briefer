@@ -493,7 +493,7 @@ margin-bottom: 10px;
 }
 
 .toldForRunway {
-  /* font-size: small; */
+  font-size: small;
   display: flex;
 align-items: center;
 margin-bottom: 10px;
@@ -502,9 +502,18 @@ margin-bottom: 10px;
 
 
 .Dropdown-root {
-  width: 50px;
+  width: 65px;
   margin-left: 10px;
   font-size: small;
+}
+
+.Dropdown-control {
+  width: 75px !important;
+}
+
+
+#manualRunwayDropdown {
+  width: 65px;
 }
 
 .Dropdown-menu {
@@ -524,6 +533,7 @@ width: 64px !important;
   font-size: small;
   display: flex;
   /* justify-content: center; */
+  align-items: center;
 }
 
 .marginBottomTold {
@@ -715,4 +725,10 @@ border-bottom-right-radius: 4px;
 
 #syllabusButton {
   background-color: #00aff0 !important;
+}
+
+.missingInputText {
+  font-size: small;
+  color: red;
+  margin-bottom: 5px;
 }
