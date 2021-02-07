@@ -270,16 +270,16 @@ font-weight: 600;
 
 
 #limits {
-  color: gray;
+  color: hsl(0, 0%, 29%);
   font-size: large;
   background: repeating-linear-gradient(
     45deg,
-    gray,
-    gray 20px,
+    hsl(0, 0%, 29%),
+    hsl(0, 0%, 29%) 20px,
     white 20px,
     white 40px
   );
-  border: solid  gray 1px;
+  border: solid  hsl(0, 0%, 29%) 1px;
   margin-bottom: 40px;
 }
 
