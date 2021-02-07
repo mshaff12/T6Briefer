@@ -89,11 +89,11 @@ border: solid #fd5722 1px !important;
 
 .epButton:hover {
 letter-spacing: 1.5px;
-border: solid 1.5px black !important;
+border: solid 1.5px hsl(204, 86%, 53%) !important;
 border-right: none !important;
 border-left: none !important;
 background-color: #f3f3f3 !important;
-color: black !important;
+color: hsl(204, 86%, 53%) !important;
 border-radius: 0 !important;
 font-weight: 600;
 }

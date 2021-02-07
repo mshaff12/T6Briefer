@@ -157,6 +157,9 @@ font-weight: 600;
   background-color: white !important;
   color:  #00aff0;
 }
+#gray:hover {
+  background-color: #f3f3f3 !important;
+}
 
 #babyBlue {
   background-color: #00aff0;
