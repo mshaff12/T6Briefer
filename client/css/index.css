@@ -503,7 +503,7 @@ margin-bottom: 10px;
 
 
 .Dropdown-root {
-  width: 65px;
+  width: 75px;
   margin-left: 10px;
   font-size: small;
 }
@@ -514,11 +514,11 @@ margin-bottom: 10px;
 
 
 #manualRunwayDropdown {
-  width: 65px;
+  width: 75px;
 }
 
 .Dropdown-menu {
-width: 64px !important;
+width: 75px !important;
 }
 
 .Dropdown-option:hover {
