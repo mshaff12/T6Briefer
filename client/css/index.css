@@ -526,9 +526,17 @@ width: 75px !important;
   color: white !important;
 }
 
-.is-selected {
+
+/* .is-selected {
+  background-color: #00aff0 !important;
+  color: white !important;
+}
+.Dropdown-placeholder {
   background-color: white !important;
 }
+.Dropdown-placeholder:hover {
+  background-color:  #00aff0 !important;
+} */
 
 .smallerText {
   font-size: small;
