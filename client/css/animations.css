@@ -50,11 +50,12 @@
 }
 
 .syllabusDropdownButton:hover{
-
+  border: solid 1px black;
   background-color: white;
 }
 .syllabusDropdownButton {
   color:  #00aff0;
+  border: solid 1px #00aff0;
 }
 
 .syllabusPagesCloseButton:hover {
