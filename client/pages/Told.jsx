@@ -124,9 +124,9 @@ class Told extends Component {
             this.temperatureKNGP,
             this.state.runwayHeadingKNGP
           );
+          this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
+          this.minPower60KNGP(this.temperatureKNGP);
         }
-        this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
-        this.minPower60KNGP(this.temperatureKNGP);
       }
     );
     console.log("Headwind Updated", this.state.headwindKNGP);
