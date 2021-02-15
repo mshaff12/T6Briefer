@@ -88,8 +88,8 @@ class Told extends Component {
             this.temperatureKNSE,
             this.state.runwayHeadingKNSE
           );
-          this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
-          this.minPower60KNSE(this.temperatureKNSE);
+          // this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
+          // this.minPower60KNSE(this.temperatureKNSE);
         }
       }
     );
@@ -305,78 +305,81 @@ class Told extends Component {
       this.setState({
         inputOutOfLimitsMessage: "",
       });
-    }
-    let speedCacheDry;
-    let speedCacheWet;
-    if (
-      stringHeading == "50" ||
-      stringHeading == "140" ||
-      stringHeading == "320" ||
-      stringHeading == "230"
-    ) {
-      //runway distance = 6000
-      speedCacheDry = [
-        [84, 100, 108, 110, 112, 116, 120],
-        [74, 88, 102, 105, 109, 112, 116],
-        [71, 84, 98, 100, 104, 108, 110],
-        [69, 80, 96, 99, 102, 106, 109],
-        [69, 80, 95, 98, 102, 105, 109],
-        [69, 80, 94, 97, 101, 104, 108],
-      ];
-      speedCacheWet = [
-        [60, 72, 77, 78, 82, 86, 88],
-        [54, 60, 76, 77, 78, 82, 86],
-        [52, 59, 70, 72, 76, 77, 78],
-        [47, 56, 68, 72, 76, 77, 78],
-        [47, 56, 68, 72, 76, 77, 78],
-        [47, 56, 68, 70, 75, 76, 77],
-      ];
     } else {
-      throw "Invalid Runway";
+      let speedCacheDry;
+      let speedCacheWet;
+      if (
+        stringHeading == "50" ||
+        stringHeading == "140" ||
+        stringHeading == "320" ||
+        stringHeading == "230"
+      ) {
+        //runway distance = 6000
+        speedCacheDry = [
+          [84, 100, 108, 110, 112, 116, 120],
+          [74, 88, 102, 105, 109, 112, 116],
+          [71, 84, 98, 100, 104, 108, 110],
+          [69, 80, 96, 99, 102, 106, 109],
+          [69, 80, 95, 98, 102, 105, 109],
+          [69, 80, 94, 97, 101, 104, 108],
+        ];
+        speedCacheWet = [
+          [60, 72, 77, 78, 82, 86, 88],
+          [54, 60, 76, 77, 78, 82, 86],
+          [52, 59, 70, 72, 76, 77, 78],
+          [47, 56, 68, 72, 76, 77, 78],
+          [47, 56, 68, 72, 76, 77, 78],
+          [47, 56, 68, 70, 75, 76, 77],
+        ];
+      } else {
+        throw "Invalid Runway";
+      }
+
+      headwind += 20;
+      headwind /= 10;
+      temperature /= 10;
+      let temperatureIdx1 = Math.floor(temperature);
+      let temperatureIdx2 = Math.ceil(temperature);
+      let headwindIdx1 = Math.floor(headwind);
+      let headwindIdx2 = Math.ceil(headwind);
+      let minuend =
+        (speedCacheDry[temperatureIdx1][headwindIdx2] -
+          speedCacheDry[temperatureIdx1][headwindIdx1]) *
+          (headwind - headwindIdx1) +
+        speedCacheDry[temperatureIdx1][headwindIdx1];
+      let subtrahend =
+        (speedCacheDry[temperatureIdx2][headwindIdx2] -
+          speedCacheDry[temperatureIdx2][headwindIdx1]) *
+          (headwind - headwindIdx1) +
+        speedCacheDry[temperatureIdx2][headwindIdx1];
+      let maxAbort =
+        (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
+      this.setState({
+        maxAbortDryKNSE: Math.ceil(maxAbort),
+      });
+
+      temperatureIdx1 = Math.floor(temperature);
+      temperatureIdx2 = Math.ceil(temperature);
+      headwindIdx1 = Math.floor(headwind);
+      headwindIdx2 = Math.ceil(headwind);
+      minuend =
+        (speedCacheWet[temperatureIdx1][headwindIdx2] -
+          speedCacheWet[temperatureIdx1][headwindIdx1]) *
+          (headwind - headwindIdx1) +
+        speedCacheWet[temperatureIdx1][headwindIdx1];
+      subtrahend =
+        (speedCacheWet[temperatureIdx2][headwindIdx2] -
+          speedCacheWet[temperatureIdx2][headwindIdx1]) *
+          (headwind - headwindIdx1) +
+        speedCacheWet[temperatureIdx2][headwindIdx1];
+      maxAbort =
+        (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
+      this.setState({
+        maxAbortWetKNSE: Math.ceil(maxAbort),
+      });
+      this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
+      this.minPower60KNSE(this.temperatureKNSE);
     }
-
-    headwind += 20;
-    headwind /= 10;
-    temperature /= 10;
-    let temperatureIdx1 = Math.floor(temperature);
-    let temperatureIdx2 = Math.ceil(temperature);
-    let headwindIdx1 = Math.floor(headwind);
-    let headwindIdx2 = Math.ceil(headwind);
-    let minuend =
-      (speedCacheDry[temperatureIdx1][headwindIdx2] -
-        speedCacheDry[temperatureIdx1][headwindIdx1]) *
-        (headwind - headwindIdx1) +
-      speedCacheDry[temperatureIdx1][headwindIdx1];
-    let subtrahend =
-      (speedCacheDry[temperatureIdx2][headwindIdx2] -
-        speedCacheDry[temperatureIdx2][headwindIdx1]) *
-        (headwind - headwindIdx1) +
-      speedCacheDry[temperatureIdx2][headwindIdx1];
-    let maxAbort =
-      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
-    this.setState({
-      maxAbortDryKNSE: Math.ceil(maxAbort),
-    });
-
-    temperatureIdx1 = Math.floor(temperature);
-    temperatureIdx2 = Math.ceil(temperature);
-    headwindIdx1 = Math.floor(headwind);
-    headwindIdx2 = Math.ceil(headwind);
-    minuend =
-      (speedCacheWet[temperatureIdx1][headwindIdx2] -
-        speedCacheWet[temperatureIdx1][headwindIdx1]) *
-        (headwind - headwindIdx1) +
-      speedCacheWet[temperatureIdx1][headwindIdx1];
-    subtrahend =
-      (speedCacheWet[temperatureIdx2][headwindIdx2] -
-        speedCacheWet[temperatureIdx2][headwindIdx1]) *
-        (headwind - headwindIdx1) +
-      speedCacheWet[temperatureIdx2][headwindIdx1];
-    maxAbort =
-      (minuend - subtrahend) * (temperatureIdx2 - temperature) + subtrahend;
-    this.setState({
-      maxAbortWetKNSE: Math.ceil(maxAbort),
-    });
   };
 
   maxAbortSpeedKNGP = (headwind, temperature, stringHeading) => {
