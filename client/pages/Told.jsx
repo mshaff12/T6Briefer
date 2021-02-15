@@ -49,6 +49,8 @@ class Told extends Component {
       windSpeedManual: null,
       runwayHeadingManual: null,
       runwayLengthManual: null,
+      inputOutOfLimitsMessage: "hide",
+      inputOutOfLimitsMessage2: "hide",
     };
     this.temperatureKNSE;
     this.windSpeedKNSE;
@@ -104,6 +106,7 @@ class Told extends Component {
 
     this.setState({
       toldData1: "toldData",
+      inputOutOfLimitsMessage: "hide",
     });
   };
 
@@ -116,6 +119,7 @@ class Told extends Component {
         headwindKNGP: Math.floor(
           Math.cos(Math.abs(windRadian - runwayRadian)) * windSpeed
         ),
+        inputOutOfLimitsMessage2: "hide",
       },
       () => {
         if (this.state.runwayHeadingKNGP) {
@@ -297,7 +301,10 @@ class Told extends Component {
       headwind > 40 ||
       headwind < -20
     ) {
-      throw "Input is out of limits.";
+      // throw "Input is out of limits.";
+      this.setState({
+        inputOutOfLimitsMessage: "",
+      });
     }
     let speedCacheDry;
     let speedCacheWet;
@@ -381,7 +388,10 @@ class Told extends Component {
       headwind > 40 ||
       headwind < -20
     ) {
-      throw "Input is out of limits.";
+      // throw "Input is out of limits.";
+      this.setState({
+        inputOutOfLimitsMessage2: "",
+      });
     }
     let speedCacheDry;
     let speedCacheWet;
@@ -599,7 +609,10 @@ class Told extends Component {
       headwind > 40 ||
       headwind < -20
     ) {
-      throw "Input out of limits.";
+      // throw "Input out of limits.";
+      this.setState({
+        inputOutOfLimitsMessage: "",
+      });
     }
 
     let distanceCache = [
@@ -642,7 +655,10 @@ class Told extends Component {
       headwind > 40 ||
       headwind < -20
     ) {
-      throw "Input out of limits.";
+      // throw "Input out of limits.";
+      this.setState({
+        inputOutOfLimitsMessage2: "",
+      });
     }
 
     let distanceCache = [
@@ -964,11 +980,20 @@ class Told extends Component {
               </span>
             </div>
 
+            <div
+              id={this.state.inputOutOfLimitsMessage}
+              className="inputOutOfLimitsText"
+            >
+              input out of limits
+            </div>
+
             <div className="smallerText">
               MIN TORQUE AT 60 KIAS:
-              <span
-                className={`${this.state.toldData1}`}
-              >{`${this.state.minPower60KNSE}`}</span>
+              <span className={`${this.state.toldData1}`}>{`${
+                this.state.inputOutOfLimitsMessage === "hide"
+                  ? this.state.minPower60KNSE
+                  : ""
+              }`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
@@ -1019,11 +1044,20 @@ class Told extends Component {
               </span>
             </div>
 
+            <div
+              id={this.state.inputOutOfLimitsMessage2}
+              className="inputOutOfLimitsText"
+            >
+              input out of limits
+            </div>
+
             <div className="smallerText">
               MIN TORQUE AT 60 KIAS:
-              <span
-                className={`${this.state.toldData2}`}
-              >{`${this.state.minPower60KNGP}`}</span>
+              <span className={`${this.state.toldData2}`}>{`${
+                this.state.inputOutOfLimitsMessage2 === "hide"
+                  ? this.state.minPower60KNGP
+                  : ""
+              }`}</span>
             </div>
             <div className="smallerText">
               TAKEOFF DISTANCE (FLAPS T/O):
