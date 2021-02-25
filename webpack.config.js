@@ -7,7 +7,7 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: "./client/index.jsx",
-  mode: "production",
+  // mode: "production",
 
   module: {
     rules: [

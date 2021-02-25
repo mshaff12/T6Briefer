@@ -156,6 +156,7 @@ font-weight: 600;
 #gray {
   background-color: white !important;
   color:  #00aff0;
+  border: solid 1px #00aff0;
 }
 #gray:hover {
   background-color: #f3f3f3 !important;
@@ -502,7 +503,7 @@ margin-bottom: 10px;
 
 
 .Dropdown-root {
-  width: 65px;
+  width: 75px;
   margin-left: 10px;
   font-size: small;
 }
@@ -513,11 +514,11 @@ margin-bottom: 10px;
 
 
 #manualRunwayDropdown {
-  width: 65px;
+  width: 75px;
 }
 
 .Dropdown-menu {
-width: 64px !important;
+width: 75px !important;
 }
 
 .Dropdown-option:hover {
@@ -525,9 +526,17 @@ width: 64px !important;
   color: white !important;
 }
 
-.is-selected {
+
+/* .is-selected {
+  background-color: #00aff0 !important;
+  color: white !important;
+}
+.Dropdown-placeholder {
   background-color: white !important;
 }
+.Dropdown-placeholder:hover {
+  background-color:  #00aff0 !important;
+} */
 
 .smallerText {
   font-size: small;
@@ -731,4 +740,11 @@ border-bottom-right-radius: 4px;
   font-size: small;
   color: red;
   margin-bottom: 5px;
+  text-align: center;
+}
+.inputOutOfLimitsText {
+  font-size: small;
+  color: red;
+  margin-bottom: 5px;
+  text-align: center;
 }
