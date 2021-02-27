@@ -4,6 +4,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { ThemeProvider } from "react-bootstrap";
 import { speed } from "jquery";
+var XMLParser = require("react-xml-parser");
 
 const options = ["05", "14", "23", "32"];
 
@@ -846,19 +847,26 @@ class Told extends Component {
         runwayHeadingKNGP: heading,
       },
       () => {
-        this.updateDataKNGP();
+        this.setState(
+          {
+            metarLoadingKNGP: false,
+          },
+          () => {
+            this.updateDataKNGP();
 
-        var loading =
-          this.state.selectedKNGP &&
-          !this.state.takeoffDistKNGP &&
-          !this.state.maxAbortDryKNGP &&
-          !this.state.maxAbortWetKNGP
-            ? "fa fa-spinner fa-spin"
-            : "toldData";
+            var loading =
+              this.state.selectedKNGP &&
+              !this.state.takeoffDistKNGP &&
+              !this.state.maxAbortDryKNGP &&
+              !this.state.maxAbortWetKNGP
+                ? "fa fa-spinner fa-spin"
+                : "toldData";
 
-        this.setState({
-          toldData2: loading,
-        });
+            this.setState({
+              toldData2: loading,
+            });
+          }
+        );
       }
     );
   };
@@ -889,14 +897,48 @@ class Told extends Component {
           this.state.headwindKNSE,
           this.temperatureKNSE
         );
-        // this.maxAbortSpeedKNSE(
-        //   this.state.headwindKNSE,
-        //   this.temperatureKNSE,
-        //   this.state.runwayHeadingKNSE
-        // );
-        // this.takeoffDistKNSE(this.state.headwindKNSE, this.temperatureKNSE);
-        // this.minPower60KNSE(this.temperatureKNSE);
       });
+
+    // ========================================== uses other api below if first one fails =============================================
+    setTimeout(() => {
+      if (
+        this.state.metarLoadingKNSE ||
+        this.state.toldData1 === "fa fa-spinner fa-spin"
+      ) {
+        axios
+          .get("getWeatherDataKNSEAviationWeatherEndpoint", {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          })
+          .then((res) => {
+            var xml = new XMLParser().parseFromString(res.data);
+            var metar = xml.getElementsByTagName("METAR")[0].children;
+
+            this.temperatureKNSE = xml.getElementsByTagName("temp_c")[0].value;
+            this.windSpeedKNSE = xml.getElementsByTagName(
+              "wind_speed_kt"
+            )[0].value;
+            this.windDirectionKNSE = xml.getElementsByTagName(
+              "wind_dir_degrees"
+            )[0].value;
+            this.setHeadwindKNSE(
+              this.windDirectionKNSE,
+              this.windSpeedKNSE,
+              this.state.runwayHeadingKNSE
+            );
+            this.setState({
+              KNSEMetar: xml.getElementsByTagName("raw_text")[0].value,
+              metarLoadingKNSE: false,
+            });
+            console.log(
+              "KNSE",
+              this.windDirectionKNSE,
+              this.windSpeedKNSE,
+              this.state.headwindKNSE,
+              this.temperatureKNSE
+            );
+          });
+      }
+    }, 1000);
   };
 
   updateDataKNGP = () => {
@@ -925,13 +967,6 @@ class Told extends Component {
           this.state.headwindKNGP,
           this.temperatureKNGP
         );
-        // this.maxAbortSpeedKNGP(
-        //   this.state.headwindKNGP,
-        //   this.temperatureKNGP,
-        //   this.state.runwayHeadingKNGP
-        // );
-        // this.takeoffDistKNGP(this.state.headwindKNGP, this.temperatureKNGP);
-        // this.minPower60KNGP(this.temperatureKNGP);
 
         var doneLoading =
           this.state.selectedKNGP &&
@@ -945,6 +980,68 @@ class Told extends Component {
           toldData2: doneLoading,
         });
       });
+
+    // ========================================== uses other api below if first one fails =============================================
+    setTimeout(() => {
+      if (
+        this.state.metarLoadingKNGP ||
+        this.state.toldData2 === "fa fa-spinner fa-spin"
+      ) {
+        axios
+          .get("getWeatherDataKNGPAviationWeatherEndpoint", {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          })
+          .then((res) => {
+            var xml = new XMLParser().parseFromString(res.data);
+            var metar = xml.getElementsByTagName("METAR")[0].children;
+
+            console.log("metar: ", metar);
+
+            this.temperatureKNGP = Number(
+              xml.getElementsByTagName("temp_c")[0].value
+            );
+            this.windSpeedKNGP = Number(
+              xml.getElementsByTagName("wind_speed_kt")[0].value
+            );
+            this.windDirectionKNGP = Number(
+              xml.getElementsByTagName("wind_dir_degrees")[0].value
+            );
+            this.setHeadwindKNGP(
+              this.windDirectionKNGP,
+              this.windSpeedKNGP,
+              this.state.runwayHeadingKNGP
+            );
+            this.setState({
+              KNGPMetar: xml.getElementsByTagName("raw_text")[0].value,
+              metarLoadingKNGP: false,
+            });
+            console.log(
+              "KNGP",
+              this.windDirectionKNGP,
+              this.windSpeedKNGP,
+              this.state.headwindKNGP,
+              this.temperatureKNGP
+            );
+
+            var doneLoading =
+              this.state.selectedKNGP &&
+              !this.state.takeoffDistKNGP &&
+              !this.state.maxAbortDryKNGP &&
+              !this.state.maxAbortWetKNGP
+                ? "fa fa-spinner fa-spin"
+                : "toldData";
+
+            this.setState(
+              {
+                toldData2: doneLoading,
+              },
+              () => {
+                console.log("doneLoading: ", doneLoading);
+              }
+            );
+          });
+      }
+    }, 1000);
   };
 
   handleClickManual = (event) => {

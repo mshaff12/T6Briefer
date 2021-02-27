@@ -111,3 +111,39 @@ app.get("/getWeatherDataKNGP", function (req, res) {
     }
   );
 });
+
+app.get("/getWeatherDataKNSEAviationWeatherEndpoint", function (req, res) {
+  res.status(200);
+  request(
+    {
+      url:
+        "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=KNSE&hoursBeforeNow=2",
+      // headers: {
+      //   Authorization: "f_ZqboPvOWAZoxfDXp5bNlMp50jhJzKMk2KiYI9NVU0",
+      // },
+    },
+    function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+      }
+    }
+  );
+});
+
+app.get("/getWeatherDataKNGPAviationWeatherEndpoint", function (req, res) {
+  res.status(200);
+  request(
+    {
+      url:
+        "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=KNGP&hoursBeforeNow=2",
+      // headers: {
+      //   Authorization: "f_ZqboPvOWAZoxfDXp5bNlMp50jhJzKMk2KiYI9NVU0",
+      // },
+    },
+    function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+      }
+    }
+  );
+});
