@@ -502,6 +502,7 @@ class Told extends Component {
   };
 
   maxAbortSpeedManual = (headwind, temperature, runwayLength) => {
+    console.log("here::: ", headwind, temperature, runwayLength);
     // Need to add try {} catch{] to program to account for out of limits entry
     // I tried adding isNaN() for temperature and headwind, but it didn't work
     if (
@@ -517,6 +518,7 @@ class Told extends Component {
     if (runwayLength == 5000) {
       //runwayDistance = 5000
       speedCacheDry = [
+        [76, 89, 102, 105, 109, 112, 116],
         [71, 86, 100, 104, 107, 110, 114],
         [70, 84, 98, 101, 104, 107, 110],
         [68, 80, 94, 97, 100, 104, 108],
@@ -572,13 +574,17 @@ class Told extends Component {
       throw "Invalid Runway Length";
     }
 
+    headwind = Number(headwind);
     headwind += 20;
     headwind /= 10;
+    temperature = Number(temperature);
+    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
     let headwindIdx1 = Math.floor(headwind);
     let headwindIdx2 = Math.ceil(headwind);
+
     let minuend =
       (speedCacheDry[temperatureIdx1][headwindIdx2] -
         speedCacheDry[temperatureIdx1][headwindIdx1]) *
@@ -731,8 +737,11 @@ class Told extends Component {
       [4200, 3500, 2600, 2500, 2300, 2100, 2000],
     ];
 
+    headwind = Number(headwind);
     headwind += 20;
     headwind /= 10;
+    temperature = Number(temperature);
+    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
