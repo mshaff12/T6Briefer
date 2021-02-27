@@ -297,7 +297,7 @@ class Told extends Component {
     // I tried adding isNaN() for temperature and headwind, but it didn't work
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -316,8 +316,7 @@ class Told extends Component {
       ) {
         //runway distance = 6000
         speedCacheDry = [
-          [88, 100, 114, 117, 120, 124, 126],
-          [81, 96, 108, 110, 112, 116, 120],
+          [84, 100, 108, 110, 112, 116, 120],
           [74, 88, 102, 105, 109, 112, 116],
           [71, 84, 98, 100, 104, 108, 110],
           [69, 80, 96, 99, 102, 106, 109],
@@ -325,7 +324,6 @@ class Told extends Component {
           [69, 80, 94, 97, 101, 104, 108],
         ];
         speedCacheWet = [
-          [60, 72, 84, 87, 88, 96, 97],
           [60, 72, 77, 78, 82, 86, 88],
           [54, 60, 76, 77, 78, 82, 86],
           [52, 59, 70, 72, 76, 77, 78],
@@ -339,7 +337,6 @@ class Told extends Component {
 
       headwind += 20;
       headwind /= 10;
-      temperature += 10;
       temperature /= 10;
       let temperatureIdx1 = Math.floor(temperature);
       let temperatureIdx2 = Math.ceil(temperature);
@@ -390,7 +387,7 @@ class Told extends Component {
     // I tried adding isNaN() for temperature and headwind, but it didn't work
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -411,7 +408,6 @@ class Told extends Component {
       ) {
         //runwayDistance = 5000
         speedCacheDry = [
-          [76, 89, 102, 105, 109, 112, 116],
           [71, 86, 100, 104, 107, 110, 114],
           [70, 84, 98, 101, 104, 107, 110],
           [68, 80, 94, 97, 100, 104, 108],
@@ -420,7 +416,6 @@ class Told extends Component {
           [58, 71, 86, 89, 92, 96, 100],
         ];
         speedCacheWet = [
-          [54, 62, 76, 77, 78, 82, 86],
           [49, 60, 72, 76, 77, 78, 84],
           [48, 59, 70, 75, 76, 77, 78],
           [46, 56, 68, 70, 72, 76, 77],
@@ -432,7 +427,6 @@ class Told extends Component {
         // these will be invalid
         //runwayDistance = 8000
         speedCacheDry = [
-          [108, 120, 133, 136, 138, 142, 144],
           [101, 115, 130, 133, 136, 139, 142],
           [94, 110, 122, 125, 128, 131, 134],
           [90, 102, 118, 120, 123, 127, 130],
@@ -441,7 +435,6 @@ class Told extends Component {
           [80, 95, 110, 113, 116, 120, 123],
         ];
         speedCacheWet = [
-          [77, 88, 105, 106, 108, 110, 115],
           [75, 85, 100, 105, 106, 108, 110],
           [68, 78, 95, 97, 99, 102, 106],
           [62, 76, 87, 88, 96, 97, 100],
@@ -455,7 +448,6 @@ class Told extends Component {
 
       headwind += 20;
       headwind /= 10;
-      temperature += 10;
       temperature /= 10;
       let temperatureIdx1 = Math.floor(temperature);
       let temperatureIdx2 = Math.ceil(temperature);
@@ -506,7 +498,7 @@ class Told extends Component {
     // I tried adding isNaN() for temperature and headwind, but it didn't work
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -517,7 +509,6 @@ class Told extends Component {
     if (runwayLength == 5000) {
       //runwayDistance = 5000
       speedCacheDry = [
-        [76, 69, 102, 105, 109, 112, 116],
         [71, 86, 100, 104, 107, 110, 114],
         [70, 84, 98, 101, 104, 107, 110],
         [68, 80, 94, 97, 100, 104, 108],
@@ -526,7 +517,6 @@ class Told extends Component {
         [58, 71, 86, 89, 92, 96, 100],
       ];
       speedCacheWet = [
-        [54, 62, 76, 77, 78, 82, 86],
         [49, 60, 72, 76, 77, 78, 84],
         [48, 59, 70, 75, 76, 77, 78],
         [46, 56, 68, 70, 72, 76, 77],
@@ -537,7 +527,6 @@ class Told extends Component {
     } else if (runwayLength == 6000) {
       //runway distance = 6000
       speedCacheDry = [
-        [88, 100, 114, 117, 120, 124, 126],
         [84, 100, 108, 110, 112, 116, 120],
         [74, 88, 102, 105, 109, 112, 116],
         [71, 84, 98, 100, 104, 108, 110],
@@ -546,7 +535,6 @@ class Told extends Component {
         [69, 80, 94, 97, 101, 104, 108],
       ];
       speedCacheWet = [
-        [60, 72, 84, 87, 88, 96, 97],
         [60, 72, 77, 78, 82, 86, 88],
         [54, 60, 76, 77, 78, 82, 86],
         [52, 59, 70, 72, 76, 77, 78],
@@ -557,7 +545,6 @@ class Told extends Component {
     } else if (runwayLength == 8000) {
       //runwayDistance = 8000
       speedCacheDry = [
-        [108, 120, 133, 136, 138, 142, 144],
         [101, 115, 130, 133, 136, 139, 142],
         [94, 110, 122, 125, 128, 131, 134],
         [90, 102, 118, 120, 123, 127, 130],
@@ -566,7 +553,6 @@ class Told extends Component {
         [80, 95, 110, 113, 116, 120, 123],
       ];
       speedCacheWet = [
-        [77, 88, 105, 106, 108, 110, 115],
         [75, 85, 100, 105, 106, 108, 110],
         [68, 78, 95, 97, 99, 102, 106],
         [62, 76, 87, 88, 96, 97, 100],
@@ -580,7 +566,6 @@ class Told extends Component {
 
     headwind += 20;
     headwind /= 10;
-    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
@@ -626,7 +611,7 @@ class Told extends Component {
   takeoffDistKNSE = (headwind, temperature) => {
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -637,7 +622,6 @@ class Told extends Component {
     }
 
     let distanceCache = [
-      [2500, 2000, 1400, 1300, 1200, 1100, 1000],
       [2700, 2200, 1500, 1400, 1300, 1200, 1100],
       [2800, 2300, 1600, 1500, 1400, 1300, 1200],
       [2800, 2300, 1700, 1600, 1500, 1400, 1300],
@@ -648,7 +632,6 @@ class Told extends Component {
 
     headwind += 20;
     headwind /= 10;
-    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
@@ -674,7 +657,7 @@ class Told extends Component {
   takeoffDistKNGP = (headwind, temperature) => {
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -685,7 +668,6 @@ class Told extends Component {
     }
 
     let distanceCache = [
-      [2500, 2000, 1400, 1300, 1200, 1100, 1000],
       [2700, 2200, 1500, 1400, 1300, 1200, 1100],
       [2800, 2300, 1600, 1500, 1400, 1300, 1200],
       [2800, 2300, 1700, 1600, 1500, 1400, 1300],
@@ -696,7 +678,6 @@ class Told extends Component {
 
     headwind += 20;
     headwind /= 10;
-    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
@@ -722,7 +703,7 @@ class Told extends Component {
   takeoffDistManual = (headwind, temperature) => {
     if (
       temperature > 50 ||
-      temperature < -10 ||
+      temperature < 0 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -730,7 +711,6 @@ class Told extends Component {
     }
 
     let distanceCache = [
-      [2500, 2000, 1400, 1300, 1200, 1100, 1000],
       [2700, 2200, 1500, 1400, 1300, 1200, 1100],
       [2800, 2300, 1600, 1500, 1400, 1300, 1200],
       [2800, 2300, 1700, 1600, 1500, 1400, 1300],
@@ -741,7 +721,6 @@ class Told extends Component {
 
     headwind += 20;
     headwind /= 10;
-    temperature += 10;
     temperature /= 10;
     let temperatureIdx1 = Math.floor(temperature);
     let temperatureIdx2 = Math.ceil(temperature);
