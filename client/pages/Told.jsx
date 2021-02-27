@@ -508,7 +508,7 @@ class Told extends Component {
     // I tried adding isNaN() for temperature and headwind, but it didn't work
     if (
       temperature > 50 ||
-      temperature < 0 ||
+      temperature < -10 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -677,7 +677,7 @@ class Told extends Component {
   takeoffDistKNGP = (headwind, temperature) => {
     if (
       temperature > 50 ||
-      temperature < 10 ||
+      temperature < -10 ||
       headwind > 40 ||
       headwind < -20
     ) {
@@ -725,7 +725,7 @@ class Told extends Component {
   takeoffDistManual = (headwind, temperature) => {
     if (
       temperature > 50 ||
-      temperature < 0 ||
+      temperature < -10 ||
       headwind > 40 ||
       headwind < -20
     ) {
