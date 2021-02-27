@@ -748,3 +748,11 @@ border-bottom-right-radius: 4px;
   margin-bottom: 5px;
   text-align: center;
 }
+
+.inputOutOfLimitsText3 {
+  font-size: small;
+  color: red;
+  margin-bottom: 5px;
+  margin-top: -10px;
+  text-align: center;
+}
